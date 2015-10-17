@@ -3,9 +3,36 @@ import re
 
 
 COMMON = [
-    'Bryggeri',
-    'brasserie de l’',
-    'Brasserie de la '
+    u'Bierbrouwerij',
+    u'Bryggeri & Spiseri',
+    u'Mikrobryggeri',
+    u'Microbirrificio',
+    u'Bryggerhuset',
+    u'Bryggerier',
+    u'Bryggeriet',
+    u'Bryggeri',
+    u'brasserie de l’',
+    u'Brasserie de la ',
+    u'Brewery',
+    u'Brewing Company',
+    u'Brewing Co.',
+    u'Brewing Co',
+    u'Brewing',
+    u'Picobrouwerij',
+    u'Microbrouwerij',
+    u'Brouw.',
+    u'Brouwerij',
+    u'Brygghus',
+    u'Bryghus',
+    u'Birra',
+    u'Brasserie',
+    u'Craft Beer',
+    u'Beer',
+    u'Bieres',
+    u' SA',
+    u'Le ',
+    u'De ',
+    u' AS',
 ]
 
 
@@ -37,6 +64,7 @@ def compare_breweries(name1, name2):
 
     for operator in operators:
         name1, name2, equals = compare(name1, name2, operator)
+#        print name1, name2
         if equals:
             return True
     return False

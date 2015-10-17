@@ -5,12 +5,13 @@ import unittest
 from brewerynamematcher import match_name
 
 BREWERIES = [
-    {"name": "Brasserie de l’Abbaye des Rocs", "id": 1},
-    {"name": "Brasserie de l’Abbaye du Val-Dieu", "id": 2},
-    {"name": "Brasserie de la Croix - Sainte Nitouche ", "id": 3},
-    {"name": "Brasserie de la Gleize", "id": 4},
-    {"name": "Ringnes Bryggeri (Carlsberg)", "id": 5},
-    {"name": "Aass", "id": 6},
+    {"name": u"Brasserie de l’Abbaye des Rocs", "id": 1},
+    {"name": u"Brasserie de l’Abbaye du Val-Dieu", "id": 2},
+    {"name": u"Brasserie de la Croix - Sainte Nitouche ", "id": 3},
+    {"name": u"Brasserie de la Gleize", "id": 4},
+    {"name": u"Ringnes Bryggeri (Carlsberg)", "id": 5},
+    {"name": u"Aass", "id": 6},
+    {"name": u"Sierra Nevada Brewing Company", "id": 7},
 
 ]
 
@@ -39,6 +40,10 @@ class BreweryNameMatcherTest(unittest.TestCase):
     def test_match_name_with_common_stuff(self):
         matched = match_name('Aass Bryggeri', BREWERIES)
         self.assertEqual(6, matched['id'])
+
+    def test_match_name_with_common_stuff2(self):
+        matched = match_name('Sierra Nevada Brewing Co.', BREWERIES)
+        self.assertEqual(7, matched['id'])
 
     def test_match_name_with_case_coop_and_common(self):
         matched = match_name('ringnes', BREWERIES)
