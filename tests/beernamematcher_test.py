@@ -55,3 +55,13 @@ class BeerNameMatcherTest(unittest.TestCase):
     def test_match_india_red(self):
         matched = self.matcher_aegir.match_name(u'Ægir Skjeggjøld India Red Ale')
         self.assertEqual(u'Ægir Skjeggjøld', matched['name'])
+
+    def test_match_humlehelvete(self):
+        matcher = BeerNameMatcher('Bryggerhuset Veholt', [{'name': u'Veholt Humlehelvete'}])
+        matched = matcher.match_name(u'Veholt Humlehelvete Double IPA Originalen')
+        self.assertEqual(u'Veholt Humlehelvete', matched['name'])
+
+    def test_match_putin(self):
+        matcher = BeerNameMatcher('Indslev Bryggeri', [{'name': u'Ugly Duck Putin'}])
+        matched = matcher.match_name(u'Ugly Duck Putin Imperial Wheat Stout')
+        self.assertEqual(u'Ugly Duck Putin', matched['name'])

@@ -33,12 +33,14 @@ def wrap_breweries(breweries):
             for index, brewery in enumerate(breweries)]
 
 
-def compare_breweries(breweries_polet, breweries_ratebeer):
-    matcher = BreweryNameMatcher(breweries_ratebeer)
+def compare_breweries(pol_data, rb_data):
+    breweries_pol = get_breweries(pol_data, 'Produsent')
+    breweries_rb = wrap_breweries(get_breweries(rb_data, 'brewery'))
+    matcher = BreweryNameMatcher(breweries_rb)
 
     with open('data/nomatch.txt', 'w') as nomatch:
         with open('data/match.txt', 'w') as match_file:
-            for brewery in breweries_polet:
+            for brewery in breweries_pol:
                 match = matcher.match_name(brewery)
                 if match is None:
                     nomatch.write(brewery.encode('utf8') + '\n')
@@ -51,36 +53,30 @@ def get_beers(beer_list, brewery_name, attr_name):
     return [beer for beer in beer_list if beer[attr_name] == brewery_name]
 
 
+def compare_beers(pol_data, rb_data):
+    breweries_pol = get_breweries(pol_data, 'Produsent')
+    breweries_rb = wrap_breweries(get_breweries(rb_data, 'brewery'))
+
+    with open('data/beer_nomatch.txt', 'w') as nomatch:
+        brewery_matcher = BreweryNameMatcher(breweries_rb)
+        for brewery in breweries_pol:
+            match = brewery_matcher.match_name(brewery)
+            if match is not None:
+                rb_beers = get_beers(rb_data, match['name'], 'brewery')
+                beer_matcher = BeerNameMatcher(match['name'], rb_beers)
+
+                nomatch.write(match['name'].encode('utf8') + '\n')
+                pol_beers = get_beers(pol_data, brewery, 'Produsent')
+                for pol_beer in pol_beers:
+                    beer_match = beer_matcher.match_name(pol_beer['Varenavn'])
+                    if not beer_match:
+                        string = '\t%s ' % pol_beer['Varenavn']
+                        nomatch.write(string.encode('utf8') + '\n')
+
 if __name__ == '__main__':
 
     pol_data = read_json('data/polet.json')
     rb_data = read_json('data/ratebeer.json')
 
-    breweries_pol = get_breweries(pol_data, 'Produsent')
-    breweries_rb = wrap_breweries(get_breweries(rb_data, 'brewery'))
-
-    #breweries_pol = [u'To Øl']
-    #breweries_rb = wrap_breweries([u'To Øl'])
-
-    brewery_matcher = BreweryNameMatcher(breweries_rb)
-    for brewery in breweries_pol:
-        match = brewery_matcher.match_name(brewery)
-        if match is not None:
-            rb_beers = get_beers(rb_data, match['name'], 'brewery')
-            beer_matcher = BeerNameMatcher(match['name'], rb_beers)
-
-            print match['name']
-            pol_beers = get_beers(pol_data, brewery, 'Produsent')
-
-            # print "rb"
-            # for rb_beer in rb_beers:
-            #     print rb_beer['name']
-
-            print "pol:"
-            for pol_beer in pol_beers:
-                beer_match = beer_matcher.match_name(pol_beer['Varenavn'])
-                if not beer_match:
-                    #print '\t%s' % pol_beer['Varenavn']
-                #else:
-                    print '\t ! %s ' % pol_beer['Varenavn']
-
+    #compare_beers(pol_data, rb_data)
+    compare_breweries(pol_data, rb_data)

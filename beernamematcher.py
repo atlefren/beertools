@@ -2,15 +2,33 @@
 import Levenshtein
 
 BEER_TYPES = [
-    u'Imperial Stout',
-    u'Imperial Porter',
-    u'Imperial Coffee Stout',
-    u'India Red Ale',
-    u'Hefeweizen',
-    u'Barleywine',
-    u'Barrel-Aged',
-    u'Red IPA',
-    u'Double IPA'
+    u'imperial',
+    u'porter',
+    u'stout',
+    u'coffee',
+    u'wheat',
+    u'india',
+    u'hefeweizen',
+    u'barleywine',
+    u'barrel-Aged',
+    u'red',
+    u'ale',
+    u'double',
+    u'ipa',
+    u'trappistes',
+    u'amber',
+    u'berliner',
+    u'weisse',
+    u'pale',
+    u'pilsner',
+    u'blonde',
+    u'dipa',
+    u'rye',
+    u'tripel',
+    u'weissbier',
+    u'wit',
+    u'saison',
+
 ]
 
 AND_WORDS = [
@@ -48,11 +66,13 @@ class BeerNameMatcher(object):
                      for beer_obj in self.beer_list]
 
         highest = max(with_dist, key=lambda x: x['dist'])
-        if highest['dist'] > 0.9:
+        # print highest['dist']
+        if highest['dist'] > 0.7:
             return highest['beer']
 
     def _get_distance(self, name, beer_obj, property_name):
         name2 = beer_obj[property_name]
+        # print name, name2
         return {
             'beer': beer_obj['beer_obj'],
             'dist': Levenshtein.ratio(unicode(name), unicode(name2))
@@ -62,9 +82,11 @@ class BeerNameMatcher(object):
         return [self._clean(beer) for beer in beer_list]
 
     def _remove_type(self, name):
-        for beer_type in BEER_TYPES:
-            name = name.replace(beer_type.lower(), '')
-        return name.strip()
+        name_fixed = []
+        for word in name.split():
+            if word not in BEER_TYPES:
+                name_fixed.append(word)
+        return ' '.join(name_fixed)
 
     def _remove_brewery_name(self, name):
         return name.replace(self.brewery_name.lower(), '')
