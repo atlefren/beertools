@@ -2,8 +2,9 @@
 import re
 import Levenshtein
 import string
+import json
 
-COMMON = [
+COMMON_BREWERY_TERMS = [
     u'Trappistenbrouwerij',
     u'Trappistenbier-Brauerei',
     u'Bierbrouwerij',
@@ -75,7 +76,7 @@ def remove_corporation(name):
 
 
 def remove_common(name):
-    for common in COMMON:
+    for common in COMMON_BREWERY_TERMS:
         name = name.replace(common.lower(), '').strip()
     return name
 
@@ -99,75 +100,54 @@ def strip_punctuation(name):
     return re.sub("\s\s+", " ", regex.sub(' ', name))
 
 
-known_misspellings = [
-    {'name': u'Bayerische Staatsbrauerei Weihenstephan', 'misspellings': [u'Weihenstephan Bayerische Staat']},
-    {'name': u'Boon Rawd Brewery', 'misspellings': [u'Singha Corporation Co. Ltd.']},
-    {'name': u'Brauerei Landsberg', 'misspellings': [u'Braukunst Berlin']},
-    {'name': u'Brauerei Gusswerk', 'misspellings': [u'Meinklang']},
-    {'name': u'Brasserie Rochefort', 'misspellings': [u'Abbaye St-Remy']},
-    {'name': u'Brouwerij der Trappistenabdij De Achelse Kluis', 'misspellings': [u'Achel Brewery']},
-    {'name': u'Brouwerij F. Boon', 'misspellings': [u'Brouw. Boon']},
-    {'name': u'Brouwerij Malheur (formerly De Landtsheer)', 'misspellings': [u'Brouwerij de Landtsheer']},
-    {'name': u'Brouwerij Omer Vander Ghinste', 'misspellings': [u'Browerij Bockor']},
-    {'name': u'Cerveceria Birrart', 'misspellings': [u'Priorat Beer & Co']},
-    # {'name': u'Charles Wells', 'misspellings': [u'Young & Co Brewery']},
-    {'name': u'Coisbo Beer', 'misspellings': [u'Undercover Brewing']},
-    {'name': u'Clan!Destino?', 'misspellings': [u'Carussin']},
-    {'name': u'Cervecera Ceriux', 'misspellings': [u'Cervacera Artesana Fundada en']},
-    # {'name': u'CRAK Brewery', 'misspellings': [u'CR/AK Brewery s.r.l.']},
-    {'name': u'Damm', 'misspellings': [u'Estrella Damm']},
-    {'name': u'De Proefbrouwerij', 'misspellings': [u'Gageleer']},
-    {'name': u'Donkey Santorini Brewing Company', 'misspellings': [u'Santorini Brewing Company']},
-    {'name': u'Duvel Moortgat', 'misspellings': [u'Moortgat']},
-    {'name': u'Fuller’s', 'misspellings': [u'Fuller, Smith & Turner']},
-    {'name': u'Green’s', 'misspellings': [u'Charles Cooper Ltd. Greens']},
-    {'name': u'Greene King', 'misspellings': [u'Morland']},
-    {'name': u'Hansa Borg Bryggerier', 'misspellings': [u'Borg Bryggerier']},
-    {'name': u'Indslev Bryggeri', 'misspellings': [u'Ugly Duck Brewing Co.']},
-    {'name': u'Klosterbrauerei Ettal', 'misspellings': [u'Benediktiner Weissbräu GmbH']},
-    {'name': u'Královský pivovar Krušovice (Heineken)', 'misspellings': [u'Heineken Ceska Republika']},
-    {'name': u'L’Esperluette', 'misspellings': [u'Robert Christoph']},
-    {'name': u'Malmgårdin Panimo - Malmgard Brewery', 'misspellings': [u'Malmgården Panimo Oy', u'Malmgårds Bryggeri AB']},
-    {'name': u'Nøgne Ø', 'misspellings': [u'Nøgne Ø Det kompromissløse Bry']},
-    {'name': u'Pivovar Náchod (LIF)', 'misspellings': [u'Primator']},
-    {'name': u'Schloßbrauerei Kaltenberg (Warsteiner)', 'misspellings': [u'König Ludwig']},
-    {'name': u'Spendrups Bryggeri', 'misspellings': [u'Brutal Brewing']},
-    {'name': u'Staatliches Hofbräuhaus München', 'misspellings': [u'Hofbräu']},
-    {'name': u'Theresianer Antica Birreria di Trieste', 'misspellings': [u'Theresianer']},
-    {'name': u'Thwaites', 'misspellings': [u'Crafty Dan Micro Brewery/Thwai', u'Craft Dan Micro Brewery/Thwait']},
-    {'name': u'Tucher Bräu Fürth (Oetker Group)', 'misspellings': [u'Lederer']},
-    {'name': u'United Breweries Group', 'misspellings': [u'United Breweries Group of Bang']},
-    {'name': u'Vliegende Paard Brouwers', 'misspellings': [u'Prearis']},
-    {'name': u'Wellpark (C&C Group)', 'misspellings': [u'Tennent Caledonian']},
-]
+def read_json(filename):
+    with open(filename, 'r') as infile:
+        return json.loads(infile.read())
+
+known_misspellings = read_json('brewery_misspellings.json')
 
 
 class BreweryNameMatcher(object):
 
     def __init__(self, brewery_list):
+        self.misspellings = known_misspellings
+        self.brewery_list = self._prepare_list(brewery_list)
 
-        self.brewery_list = self._prepare(brewery_list)
+    def match_name(self, name):
+        name = self._normalize_name(unicode(name))
+        if name == '':
+            return None
 
-    def _normalize(self, name):
+        match = self._compare(name, 0.95)
+        if match is not None:
+            return match
+
+        name = remove_common(name)
+        match = self._compare(name, 0.8, remove_common)
+        if match is not None:
+            return match
+
+        match = self._count_matches(name)
+        if match is not None:
+            return match
+        return None
+
+    def _normalize_name(self, name):
         name = self._fix_misspelling(name)
         return remove_corporation(remove_collab(remove_stopwords(clean(name))))
 
-    def _prepare(self, brewery_list):
+    def _prepare_list(self, brewery_list):
         result = []
         for brewery in brewery_list:
             obj = {
                 'brewery': brewery,
-                'normalized': self._normalize(brewery['name'])
+                'normalized': self._normalize_name(brewery['name'])
             }
             result.append(obj)
         return result
 
-    def compare(self, name, name2, operator):
-        name = operator(name)
-        return name, name == name2
-
     def _fix_misspelling(self, name):
-        for misspelling in known_misspellings:
+        for misspelling in self.misspellings:
             if name in misspelling['misspellings']:
                 return misspelling['name']
         return name
@@ -189,45 +169,32 @@ class BreweryNameMatcher(object):
                      for brewery_obj in self.brewery_list]
 
         highest = max(with_dist, key=lambda x: x['dist'])
-
         if highest['dist'] > threshold:
             return highest['brewery']
         return None
 
+    def _check_word_similarity(self, name, brewery_obj):
+        count = 0
+        for word in name:
+            if 'split_words' not in brewery_obj:
+                brewery_obj['split_words'] = strip_punctuation(
+                    brewery_obj['normalized']
+                ).split(' ')
+            split_words = brewery_obj['split_words']
+            for word2 in split_words:
+                if word not in [u'gmbh', u'group', u'united'] and len(word) > 3 and word == word2:
+                    count = count + 1
+        return {
+            'brewery': brewery_obj['brewery'],
+            'count': count
+        }
+
     def _count_matches(self, name):
         name = strip_punctuation(name).split(' ')
-        max_count = 0
-        brewery = None
-        for brewery_obj in self.brewery_list:
-            count = 0
-            for word in name:
-                for word2 in strip_punctuation(brewery_obj['normalized']).split(' '):
-                    if word not in [u'gmbh', u'group', u'united'] and len(word) > 3 and word == word2:
-                        count = count + 1
-            if count > 0 and count > max_count:
-                max_count = count
-                brewery = brewery_obj
-        if brewery is not None:
-            return brewery['brewery']
-        return None
 
-    def match_name(self, name):
-        name = unicode(name)
+        with_count = [self._check_word_similarity(name, brewery_obj)
+                      for brewery_obj in self.brewery_list]
+        closest = max(with_count, key=lambda x: x['count'])
 
-        name = self._normalize(name)
-
-        if name == '':
-            return None
-
-        match = self._compare(name, 0.95)
-        if match is not None:
-            return match
-        name = remove_common(name)
-        match = self._compare(name, 0.8, remove_common)
-        if match is not None:
-            return match
-
-        match = self._count_matches(name)
-        if match is not None:
-            return match
-        return None
+        if closest['count'] > 0:
+            return closest['brewery']

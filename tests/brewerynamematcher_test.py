@@ -32,7 +32,6 @@ BREWERIES = [
     {"name": u"Kirin Brewery Company", "id": 25},
     {"name": u"De Leite", "id": 26},
     {"name": u"Trappistenbrouwerij De Kievit", "id": 27},
-    {"name": u"Charles Wells", "id": 28},
     {"name": u"Parish", "id": 29},
     {"name": u"Vliegende Paard Brouwers", "id": 30},
     {"name": u"Privateer", "id": 31},
@@ -85,7 +84,6 @@ BREWERIES = [
     {"name": u"Boon Rawd Brewery", "id": 78},
     {"name": u"Stift Engelszell Trappistenbier-Brauerei", "id": 79},
     {"name": u"Sektkellerei Gebrüder Szigeti", "id": 80},
-    {"name": u"Bardic Wells Meadery", "id": 81},
     {"name": u"Redhook Brewery", "id": 82},
     {"name": u"8th Street Ale Haus", "id": 83},
     {"name": u"#Freedom Craft Brewery", "id": 84},
@@ -190,7 +188,6 @@ class BreweryNameMatcherTest(unittest.TestCase):
         matched = self.matcher.match_name(u'Baladin')
         self.assertEqual(u'Le Baladin', matched['name'])
 
-   # @unittest.skip("gah")
     def test_match_bavik(self):
         matched = self.matcher.match_name(u'Bavik Brewery')
         self.assertEqual(u'Bavik-De Brabandere', matched['name'])
@@ -199,7 +196,6 @@ class BreweryNameMatcherTest(unittest.TestCase):
         matched = self.matcher.match_name(u'Stift Engelszell')
         self.assertEqual(u'Stift Engelszell Trappistenbier-Brauerei', matched['name'])
 
-    @unittest.skip("gah")
     def test_match_crak(self):
         matched = self.matcher.match_name(u'CR/AK Brewery s.r.l.')
         self.assertEqual(u'CRAK Brewery', matched['name'])
