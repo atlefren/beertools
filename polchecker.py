@@ -6,8 +6,8 @@ import re
 
 def parse_soup(html):
     soup = BeautifulSoup(html, 'html.parser')
-    pol_list = soup.findAll("div", { "class" : "listStores" })[0]
-    regexp = re.compile("\?butikk_id=(.*)$")
+    pol_list = soup.find('div', {'class': 'listStores'})
+    regexp = re.compile('\?butikk_id=(.*)$')
     data = []
     for pol in pol_list.findAll('li'):
         span = pol.find('em').find('span')
@@ -17,7 +17,6 @@ def parse_soup(html):
             'pol_name': pol.find('strong').text,
             'stock': int(span.text.replace(u'på lager)', '').replace('(', '')),
             'updated': span.attrs['title'].replace('Oppdatert ', '')
-
         })
     return data
 
