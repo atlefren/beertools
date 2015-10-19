@@ -36,6 +36,24 @@ Or in your script:
     from ratebeerparser import read
     beers = read()
 
+
+ratebeerparser_new.py
+------------
+A script to fetch beers from Ratebeer, returns a flat json-structure. 
+
+This script uses the new Ratebeer-dump, and includes more data, but unfortunately 
+not brewery names. The closest thing is brewery_id. I'm working on a solution here.
+
+Use either as command line:
+
+    python ratebeerparser_new.py destination.json
+
+Or in your script:
+
+    from ratebeerparser_new import read
+    beers = read()
+
+
 brewerynamematcher.py
 ---------------------
 A tool to match brewery names, tuned to match vinmonopolet against ratebeer.
