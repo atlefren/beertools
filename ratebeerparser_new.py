@@ -27,7 +27,7 @@ def read(filename=None):
     if filename is not None:
         contents = read_zipfile(filename, 'beers.csv')
     else:
-        contents = get_zipfile(filename, 'beers.csv')
+        contents = get_zipfile(URL, 'beers.csv')
     return parse_csv_file(contents, get_line_parser(FIELDS))
 
 
