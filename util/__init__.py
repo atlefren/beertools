@@ -2,6 +2,8 @@
 import zipfile
 import requests
 import io
+import json
+
 from unicodereader import UnicodeReader
 
 
@@ -31,3 +33,8 @@ def get_line_parser(fields):
             obj[key['name']] = key['parser'](value)
         return obj
     return parse_line
+
+
+def read_json(filename):
+    with open(filename, 'r') as infile:
+        return json.loads(infile.read())

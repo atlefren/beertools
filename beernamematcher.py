@@ -65,6 +65,8 @@ class BeerNameMatcher(object):
         with_dist = [self._get_distance(name, beer_obj, property_name)
                      for beer_obj in self.beer_list]
 
+        if len(with_dist) == 0:
+            return
         highest = max(with_dist, key=lambda x: x['dist'])
         # print highest['dist']
         if highest['dist'] > 0.7:

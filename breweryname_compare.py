@@ -33,9 +33,9 @@ def wrap_breweries(breweries):
             for index, brewery in enumerate(breweries)]
 
 
-def compare_breweries(pol_data, rb_data):
+def compare_breweries(pol_data, breweries_rb):
     breweries_pol = get_breweries(pol_data, 'Produsent')
-    breweries_rb = wrap_breweries(get_breweries(rb_data, 'brewery'))
+    # breweries_rb = wrap_breweries(get_breweries(rb_data, 'brewery'))
     matcher = BreweryNameMatcher(breweries_rb)
 
     with open('data/nomatch.txt', 'w') as nomatch:
@@ -76,7 +76,8 @@ def compare_beers(pol_data, rb_data):
 if __name__ == '__main__':
 
     pol_data = read_json('data/polet.json')
-    rb_data = read_json('data/ratebeer.json')
+    # rb_beers = read_json('data/rb_beers.json')
+    rb_breweries = read_json('data/rb_breweries.json')
 
-    #compare_beers(pol_data, rb_data)
-    compare_breweries(pol_data, rb_data)
+    # compare_beers(pol_data, rb_data)
+    compare_breweries(pol_data, rb_breweries)

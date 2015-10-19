@@ -2,7 +2,9 @@
 import re
 import Levenshtein
 import string
-import json
+
+from util import read_json
+
 
 COMMON_BREWERY_TERMS = [
     u'Trappistenbrouwerij',
@@ -99,10 +101,6 @@ def strip_punctuation(name):
     regex = re.compile('[%s]' % re.escape(string.punctuation))
     return re.sub("\s\s+", " ", regex.sub(' ', name))
 
-
-def read_json(filename):
-    with open(filename, 'r') as infile:
-        return json.loads(infile.read())
 
 known_misspellings = read_json('brewery_misspellings.json')
 
