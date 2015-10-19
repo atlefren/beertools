@@ -41,8 +41,8 @@ ratebeerparser_new.py
 ------------
 A script to fetch beers from Ratebeer, returns a flat json-structure. 
 
-This script uses the new Ratebeer-dump, and includes more data, but unfortunately 
-not brewery names. The closest thing is brewery_id. I'm working on a solution here.
+This script uses the new Ratebeer-dump, and includes more data, but not brewery 
+names. Use ratebeer_breweries_parser.py and match on brewery_id
 
 Use either as command line:
 
@@ -51,6 +51,19 @@ Use either as command line:
 Or in your script:
 
     from ratebeerparser_new import read
+    beers = read()
+
+
+ratebeer_breweries_parser.py
+----------------------------
+
+Use either as command line:
+
+    python ratebeer_breweries_parser.py destination.json
+
+Or in your script:
+
+    from ratebeer_breweries_parser import read
     beers = read()
 
 

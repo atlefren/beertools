@@ -12,7 +12,8 @@ class UTF8Recoder:
         return self
 
     def next(self):
-        return self.reader.next().encode("utf-8")
+        # last part is to handle NULL byte
+        return self.reader.next().encode("utf-8").replace('\0', '')
 
 
 class UnicodeReader:
