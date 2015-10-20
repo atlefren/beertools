@@ -65,3 +65,44 @@ class BeerNameMatcherTest(unittest.TestCase):
         matcher = BeerNameMatcher('Indslev Bryggeri', [{'name': u'Ugly Duck Putin'}])
         matched = matcher.match_name(u'Ugly Duck Putin Imperial Wheat Stout')
         self.assertEqual(u'Ugly Duck Putin', matched['name'])
+
+    def test_chimay(self):
+        beer_list = [
+            {'name': u'Chimay (Red / Rouge / Ale / Première)'},
+            {'name': u'Chimay 150 / Spéciale Cent Cinquante'},
+            {'name': u'Chimay Bleue (Blue) / Grande Réserve'},
+            {'name': u'Chimay Dorée / Spéciale du Potaupré '},
+            {'name': u'Chimay Triple / Blanche (White) / Cinq Cents'}
+        ]
+        matcher = BeerNameMatcher('Chimay', beer_list)
+
+        matched1 = matcher.match_name(u'Chimay Trappist Red Première')
+        self.assertEqual(u'Chimay (Red / Rouge / Ale / Première)', matched1['name'])
+
+        matched2 = matcher.match_name(u'Chimay Trappist Cinq Cents')
+        self.assertEqual(u'Chimay Triple / Blanche (White) / Cinq Cents', matched2['name'])
+
+        matched3 = matcher.match_name(u'Chimay Trappist Red')
+        self.assertEqual(u'Chimay (Red / Rouge / Ale / Première)', matched3['name'])
+
+        matched4 = matcher.match_name(u'Chimay Trappist White')
+        self.assertEqual(u'Chimay Triple / Blanche (White) / Cinq Cents', matched4['name'])
+
+        matched5 = matcher.match_name(u'Chimay Trappist Blue 2014')
+        self.assertEqual(u'Chimay Bleue (Blue) / Grande Réserve', matched5['name'])
+
+    def test_lokkatrollet(self):
+        matcher = BeerNameMatcher(u'Grünerløkka Brygghus', [{'name': u'Grünerløkka Løkkatrollet'}])
+        matched = matcher.match_name(u'Grünerløkka Brygghus Løkkatrollet Stout Porter')
+        self.assertEqual(u'Grünerløkka Løkkatrollet', matched['name'])
+
+    def test_ba_edition(self):
+        beer_list = [
+            {'name': u'Mikkeller Black Ink And Blood'},
+            {'name': u'Mikkeller Black Ink And Blood Barrel Aged (Bourbon Edition)'},
+            {'name': u'Mikkeller Black Ink And Blood Barrel Aged (Brandy Edition)'}
+        ]
+
+        matcher = BeerNameMatcher(u'Mikkeller', beer_list)
+        matched = matcher.match_name(u'Mikkeller Black Ink and Blood Imperial raspberry stout Brandy')
+        self.assertEqual(u'Mikkeller Black Ink And Blood Barrel Aged (Brandy Edition)', matched['name'])
