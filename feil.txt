@@ -1,4 +1,4 @@
-        Palm Steenbrugge Tripel
+         Palm Steenbrugge Tripel
          Steenbrugge Dubbel Bruin
          Steenbrugge Blond
          Rodenbach Classic
@@ -6,10 +6,10 @@
          Boon Oude Geuze
          Tennent's Whisky Aged Beer
          Weihenstephaner Vitus Weizenbock
-         Tilquin Oude Quetsche
-         Tilquin Oude Quetsche
-         Tilquin Oude Gueuze Tilquin²
-         Tilquin Oude Gueuze Tilquin²
+         Tilquin Oude Quetsche (RETT: Oude Quetsche Tilquin à l’Ancienne)
+         Tilquin Oude Quetsche (RETT: Oude Quetsche Tilquin à l’Ancienne)
+         Tilquin Oude Gueuze Tilquin² (RETT: Oude (Gueuze Tilquin)² à l’Ancienne)
+         Tilquin Oude Gueuze Tilquin² (RETT: Oude (Gueuze Tilquin)² à l’Ancienne)
          Green?s Bottle Refermented Blonde Ale
          Austmann Caelum Caeruleum
          Harbour Brewing Company Pilsner
@@ -36,121 +36,121 @@
          Hofbräu Original
          Hofbräu Schwarze Weisse
          La Baïne Rousse Artisanale
-         Brasserie Fantome India Red Ale
-         Amundsen Total Eclipse of the Hop - Single Hop IPA
-         Amundsen Bryggeri Dont worry be hoppy Single Hop IPA
-         Amundsen Bryggeri Achey Breaky Hop Single Hop IPA
-         Bockor Omer Traditional Blond Ale
+         Brasserie Fantome India Red Ale (RETT: Fantôme India Red Ale (IRA))
+         Amundsen Total Eclipse of the Hop - Single Hop IPA (RETT: Amundsen One Hop Wonder - Total Eclipse of the hop)
+         Amundsen Bryggeri Dont worry be hoppy Single Hop IPA (RETT: Amundsen One Hop Wonder - Dont worry be hoppy)
+         Amundsen Bryggeri Achey Breaky Hop Single Hop IPA (RETT: Amundsen One Hop Wonder - Achy Breaky Hop)
+         Bockor Omer Traditional Blond Ale (RETT: Vander Ghinste Omer Traditional)
          Brlo Porter
          Brlo Helles
          Brlo Pale Ale
          Big Ben Brown Ale
          Pivovar Jihlava Grand Imperial Pils
-          Kinn Skoddehav Kvit Indiaøl
-         Kinn Pryl Belgisk Dobbel
+         Kinn Skoddehav Kvit Indiaøl (RETT: Kinn Skoddehav)
+         Kinn Pryl Belgisk Dobbel (RETT: Kinn Pryl)
          Kinn Bresjnev Sovjet Staut
          Brouwerij de Molen Vuur Vlam
-         Electric Nurse DIPA
-         Nøgne Ø Oud Bruin
-         Nøgne Ø Pumpkin Ale
+         )
          Rosita Artesanal de Tarragona
          St. Peters The Saints Whisky Beer
          Summer Wine Brewery Mokko Milk Stout
-         Lapin Kulta
-         Beavertown Gamma Ray American Pale Ale
+         Lapin Kulta (RETT: Lapin Kulta (2007-))
+         Beavertown Gamma Ray American Pale Ale (Beavertown Gamma Ray)
          Beavertown Bloody ´Ell Blood Orange IPA
+
          Robert Christoph Blonde
          Robert Christoph Gina Le Blanche
-         Amager Orange Crush Session IPA
+
+         Amager Orange Crush Session IPA (RETT: Amager / Cigar City Orange Crush)
+
+
+         Electric Nurse DIPA (RETT: Electric Nurse DIPA)
+         Nøgne Ø Oud Bruin (RETT: Nøgne Ø Oude Brun)
+         Nøgne Ø Pumpkin Ale (RETT: Nøgne Ø Pumpkin Ale
 
 FEIL
          Adnams Rye IPA - Adnams Oak Aged IPA (RETT: Adnams Jack Brand Crystal Rye IPA)
-         Rohozec Trináctka Tmavá - Rohozec Trináctka
-         Rohozec Malina - Rohozec Trináctka
-         Hansa IPA Ekstra Spesial - Hansa Sommer Spesial
-         Boulevard Tank 7 Farmhouse Ale Smokestack Series - Boulevard Smokestack Series - Coffee Ale
-         Harviestoun Schiehallion Craft Lager - Harviestoun Schiehallion (Cask)
-         Mikkeller Black Hole Imperial Stout - Mikkeller X Imperial Stout
-         Mikkeller Beer Geek Breakfast Bourbon - Mikkeller Beer Geek Breakfast
-         Mikkeller BA Via to From - Mikkeller Big Tony 2
-         Mikkeller Skør Belgian Ale - Mikkeller Yeast Series: Belgian Ale
-         Mikkeller Ahhh Belgian Ale - Mikkeller Belgian Tripel
+
+         Rohozec Malina - Rohozec Trináctka (RETT: Rohozec Skalák Malina 12° - Raspberry Lager)
          
-         Nøgne Ø Rhub IPA - Nøgne Ø Dobbel IPA
-         Nøgne Ø # 100 - Nøgne Ø # 1001
-         Nøgne Ø Lemongrass - Nøgne Ø MOIPA
-         Nøgne Ø M.O.L.E. Russian Imperial Stout - Nøgne Ø Imperial Stout
-         Zlote LWY Lys - Amber Złote Lwy
-         Grolsch Premium Lager - Grolsch Premium Blond
-         Grolsch Premium Lager - Grolsch Premium Blond
+         Hansa IPA Ekstra Spesial - Hansa Sommer Spesial (RETT: Hansa Spesial IPA Extra)
+         Boulevard Tank 7 Farmhouse Ale Smokestack Series - Boulevard Smokestack Series - Coffee Ale (RETT: Boulevard Smokestack Series - Tank 7 Farmhouse Ale)
+         
+         Mikkeller Black Hole Imperial Stout - Mikkeller X Imperial Stout (RETT: Mikkeller Black Hole)
+         Mikkeller Beer Geek Breakfast Bourbon - Mikkeller Beer Geek Breakfast (RETT: Mikkeller Beer Geek Breakfast 7.5% (Bourbon Edition))
+         Mikkeller BA Via to From - Mikkeller Big Tony 2 (RETT: Mikkeller X-mas Porter 2013 Via Til Fra (Via To From) Brandy )
+         Mikkeller Skør Belgian Ale - Mikkeller Yeast Series: Belgian Ale (RETT: Mikkeller Skør)
+         Mikkeller Ahhh Belgian Ale - Mikkeller Belgian Tripel (RETT: Mikkeller Ahhh Øl)
+         
+         Nøgne Ø Rhub IPA - Nøgne Ø Dobbel IPA (RETT: Saint Germain / Nøgne Ø Rhub’IPA)
+         Nøgne Ø # 100 - Nøgne Ø # 1001 (RETT: Nøgne Ø # 100 (Batch 100))
+         Nøgne Ø Lemongrass - Nøgne Ø MOIPA (RETT: Nøgne Ø Lemongrass (Aku Aku Lemongrass Ale))
+         Nøgne Ø M.O.L.E. Russian Imperial Stout - Nøgne Ø Imperial Stout (RETT: La Chingoneria / Central Cervecera / Nøgne Ø M.O.L.E.)
+
+         
          Lervig Brewers Reserve White IPA - Lervig Brewers Reserve Oat IPA
-         Lervig Saison - Lervig Saison IPA
-         Lervig Kjellerpils - Lervig Ein Te Pils
-         Lervig Winter Ale - Lervig Ein Te Pils
-         Lervig Rye IPA - Lervig APA
-         Wild Beer Shnoodlepip - Wild Beer Solera
-         Bøgedal Lys No 466 - Bøgedal Nr. 0465
-         Midtfyns Bryghus Double India Pale Ale - Midtfyns India Pale Ale
-         Greene King Strong Suffolk Vintage Ale - Greene King Strong Suffolk Dark Ale
-         Greene King Double Hop Monster - Greene King Double Hop Monster (Cask)
-         Old Speckled Hen - Morland Old Speckled Hen (3.5%)
-         Cap/BrewDog CapDog Black IPA - CAP/NK Saluhall Nothing Kills Santa
-         Brewfist Spaceman Indian Pale Ale - Brewfist Terminal Pale Ale
-         Ugly Duck Miami Vice Pale Ale - Ugly Duck Mosaic Pale Ale
-         Ugly Duck Putin Imperial Wheat Stout - Ugly Duck Putin
-         Efes Pilsner - Efes Pilsen Unfiltered
-         Singha Lager - Singha Light
-         Singha Lager - Singha Light
-         Singha Lager - Singha Light
-         Herslev Bryghus Økologisk India Pale Ale - Herslev Økologisk Pale Ale
-         Belhaven Twisted Thistle IPA - Belhaven Twisted Thistle IPA (USA)
-         Liefmans Kriek Brut - Liefmans Glühkriek
+         Lervig Saison - Lervig Saison IPA (RETT: Lervig Brewers Reserve Saison)
+         Lervig Kjellerpils - Lervig Ein Te Pils (RETT: Lervig Brewers Reserve Kjellerpils)
+         Lervig Winter Ale - Lervig Ein Te Pils (RETT: Lervig Brewers Reserve Winter Ale )
+         Lervig Rye IPA - Lervig APA (RETT: Lervig Brewers Reserve Rye IPA)
          
-         San Miguel Especial - San Miguel Apple
-         Mohawk Citra Single Hop Pale Ale - Mohawk Extra Pale Ale
-         Orkney Red MacGregor - Orkney Red MacGregor (Cask)
-         Orkney Skull Splitter Rich Ale - Orkney Skull Splitter (Cask)
-         Shepherd Neame Double Stout - Shepherd Neame Double Stout (Cask)
-         Shepherd Neame Bishops Finger - Shepherd Neame Bishops Finger (3.5%)
-         Malmgården Belge - Malmgård Amber Ale
-         Budweiser Budvar - Budweiser Budvar Cvikl
-         Corsendonk Pater Dubbel - Corsendonk Dubbel Kriek
-         Maredsous Brown - Maredsous 6 Blond
-         Brasserie Fantome Saison - Fantôme Automne
-         Fantome Artist - Fantôme Saison
-         La Trappe Blond Trappist - La Trappe Witte Trappist
-         La Trappe Isid'or Trappist - La Trappe Witte Trappist
-         La Trappe Tripel Trappist - La Trappe Witte Trappist
-         La Trappe Dubbel Trappist - La Trappe Witte Trappist
-         La Trappe Isid'or Trappist - La Trappe Witte Trappist
-         La Trappe Bockbier Trappistenbier - La Trappe Witte Trappist
-         La Trappe Tripel Trappist Bier - La Trappe Witte Trappist
-         La Trappe Bockbier Trappistenbier - La Trappe Witte Trappist
-         La Trappe Dubbel Trappistenbier - La Trappe Witte Trappist
+         
+         
+         Bøgedal Lys No 466 - Bøgedal Nr. 0465
+         Midtfyns Bryghus Double India Pale Ale - Midtfyns India Pale Ale (RETT: Midtfyns Double IPA)
+         
+         
+         
+         Cap/BrewDog CapDog Black IPA - CAP/NK Saluhall Nothing Kills Santa (RETT: BrewDog / CAP CAP DOG)
+         Brewfist Spaceman Indian Pale Ale - Brewfist Terminal Pale Ale (RETT: Brewfist Spaceman)
+         Ugly Duck Miami Vice Pale Ale - Ugly Duck Mosaic Pale Ale  (RETT: Ugly Duck Miami Vice)
+         Ugly Duck Putin Imperial Wheat Stout - Ugly Duck Putin (RETT: Ugly Duck Putin)
+         
+
+         Grolsch Premium Lager - Grolsch Premium Blond (RETT: Grolsch Premium Lager / Pilsner)
+         Grolsch Premium Lager - Grolsch Premium Blond (RETT: Grolsch Premium Lager / Pilsner)
+         Efes Pilsner - Efes Pilsen Unfiltered (RETT: Efes Pilsen (Pilsener))
+         Singha Lager - Singha Light (RETT: Singha)
+         Singha Lager - Singha Light (RETT: Singha)
+         Singha Lager - Singha Light (RETT: Singha)
+
+         Herslev Bryghus Økologisk India Pale Ale - Herslev Økologisk Pale Ale (RETT: Herslev Økologisk IPA)
+         
+         
+         Liefmans Kriek Brut - Liefmans Glühkriek (RETT: Liefmans Cuvée Brut (was: Kriekbier))
+         
+         San Miguel Especial - San Miguel Apple (RETT: San Miguel Especial)
+         Mohawk Citra Single Hop Pale Ale - Mohawk Extra Pale Ale (RETT: Mohawk VS Citra)
+         
+         Malmgården Belge - Malmgård Amber Ale (RETT: Malmgård Ceci n’est pas une Belge)
+         Budweiser Budvar - Budweiser Budvar Cvikl (RETT: Budweiser Budvar B:Original (Czechvar) 12°)
+         Corsendonk Pater Dubbel - Corsendonk Dubbel Kriek (RETT: Corsendonk Pater / Abbey Brown Ale)
+         Maredsous Brown - Maredsous 6 Blond (RETT: Maredsous 8 Brune/Bruin)
+         Brasserie Fantome Saison - Fantôme Automne (RETT: Fantôme Saison)
+         Fantome Artist - Fantôme Saison (RETT: Fantôme Artist: Gaelle Boulanger)
+         
+         
          Innis & Gunn Irish Whiskey Finnish - Innis & Gunn Irish Whiskey Cask
          Innis & Gunn Oak Aged Beer - Innis & Gunn Oak Aged Blonde Beer
          Stigbergets Endless Summer Ale - Stigbergets Endless Summer Ale - Pacific Blend
          Amundsen/Grünerløkka Oslo IPA - Amundsen Pale Ale
          White Pony Ride This Pony - White Pony Ride This Pony (BA blend)
-         
-         Nøisom Somnus Brown Ale - Nøisom Brown Ale
-         
+
          Mack Brown Ale - Mack Amber Ale
          8 Wired iStout Imperial Stout - 8 Wired Mighty Imperial Ale
          Kinn Sommarøl - Kinn Bordøl
-         Estrella Damm Daura - Estrella Damm
+         Estrella Damm Daura - Estrella Damm (RETT: Estrella Damm Daura (Apta Para Celíacos))
          Lindheim Farmhouse Ale Saison - Lindheim Cherry Farmhouse Saison
          Lindheim Nacho Libre IPA - Lindheim Tone of Life
-         De Troch Chapeau Gueuze - De Troch Oude Gueuze
-         De Troch Chapeau Oude Gueuze - De Troch Oude Gueuze
+         De Troch Chapeau Gueuze - De Troch Oude Gueuze (RETT: De Troch Gueuze ??)
+         
          
          Hook Norton Double Stout - Hook Norton Oatmeal Stout
          ODE IPA - ODE Porter
          Hanssens Oudbeitje Lambic - Hanssens Oude Lambik
          Gentse Gruut Wit - Gruut Amber Ale
          Sara de Silenrieux Bio - Kriek de Silenrieux
-         Rochefort 10 Trappist - Rochefort Trappistes 6
-         Rochefort 8 Trappist - Rochefort Trappistes 6
+         
          St Feuillien Grisette Witbier - St Feuillien Herfstbier
          St. Peters Cream Stout - St Peters Brewery Killaghs Stout
          Erdinger Weissbier Dunkel - Erdinger Weissbier Leicht
@@ -158,12 +158,175 @@ FEIL
          Contreras Valeir Donker - Contreras Valeir Divers
          Beer Studio Remix - Beer Studio Råger
 
-         Hook Norton Haymaker - Hook Norton Haymaker (Cask)
-         Hook Norton Flagship - Hook Norton Flagship (Keg)
-         Fuller's Golden Pride - Fuller’s Golden Pride (Cask)
-         Fuller`s Old Winter Ale - Fuller’s Old Winter Ale (Cask)
-         Fuller's London Porter - Fuller’s London Porter (Cask)
 
-         Krönleins Stockholm Fine Festival Beer - Three Hearts Stockholm Fine Festival Beer 5.3%
-         Krusovice - Krušovice Imperial 3.5
-         Crafty Dan Triple C Golden Ale - Thwaites Crafty Dan Triple C (Bottle, 5.3%)
+         Wild Beer Shnoodlepip - Wild Beer Solera (RETT: Wild Beer / Burning Sky / Good George Shnoodlepip)
+
+
+
+         Belhaven Twisted Thistle IPA - Belhaven Twisted Thistle IPA (USA) (RETT: Belhaven Twisted Thistle IPA (Europe) (Bottle))
+
+         Harviestoun Schiehallion Craft Lager - Harviestoun Schiehallion (Cask) (RETT: Harviestoun Schiehallion (Bottle/Keg))
+         Hook Norton Haymaker - Hook Norton Haymaker (Cask) (RETT: Hook Norton Haymaker (Bottle))
+         Hook Norton Flagship - Hook Norton Flagship (Keg) (RETT: Hook Norton Flagship (Cask & Bottle Conditioned))
+         Fuller's Golden Pride - Fuller’s Golden Pride (Cask) (RETT: Fuller’s Golden Pride (Bottle/Keg))
+         Fuller`s Old Winter Ale - Fuller’s Old Winter Ale (Cask) (RETT: Fuller’s Old Winter Ale (Bottle))
+         Fuller's London Porter - Fuller’s London Porter (Cask) (RETT: Fuller’s London Porter (Bottle/Keg))
+         Greene King Double Hop Monster - Greene King Double Hop Monster (Cask) (RETT: Greene King Double Hop Monster (Bottle / Keg))
+         Orkney Red MacGregor - Orkney Red MacGregor (Cask)
+         Orkney Skull Splitter Rich Ale - Orkney Skull Splitter (Cask)
+         Shepherd Neame Double Stout - Shepherd Neame Double Stout (Cask)
+
+
+         Shepherd Neame Bishops Finger - Shepherd Neame Bishops Finger (3.5%)
+         Old Speckled Hen - Morland Old Speckled Hen (3.5%) (RETT: Morland Old Speckled Hen (Filtered))
+         Krönleins Stockholm Fine Festival Beer - Three Hearts Stockholm Fine Festival Beer 5.3% (RETT: Three Hearts Stockholm Fine Festival Beer 5.3%)
+         Krusovice - Krušovice Imperial 3.5 (RETT: Krušovice Imperial 12°)
+         
+
+NY TEST
+       Adnams Rye IPA - Adnams / Nomad Black Knight
+       St. Austell Proper Job IPA - St. Austell Proper Cool IPA
+       Hansa IPA Ekstra Spesial - Hansa Sommer Spesial
+       Boulevard Tank 7 Farmhouse Ale Smokestack Series - Boulevard Smokestack Series - Imperial Stout X - Tart Cherry
+      Grünerløkka Brygghus White IPA - Grünerløkka / Amundsen Oslo IPA
+      Mikkeller Black Ink and Blood Imperial raspberry stout Brandy - Mikkeller Hamilton Leithauser Black Hours Stout
+       Mikkeller Black Ink and Blood Imperial raspberry stout Bourbon - Mikkeller Hamilton Leithauser Black Hours Stout
+      Nøgne Ø # 100 - Nøgne Ø # 1001
+       Nøgne Ø Imperial Stout Whisky Barrels - Nøgne Ø God Jul Whisky Barrel
+       Nøgne Ø Imperial India Pale Ale #500 - Nøgne Ø Imperial Brown Ale
+      Nøgne Ø India Saison - Nøgne Ø Imperial Premiant India Pilsner
+       Tilquin Oude Gueuze Tilquin² - Oude Quetsche Tilquin à l’Ancienne avec Prunes de Namur
+       Tilquin Oude Gueuze Tilquin² - Oude Quetsche Tilquin à l’Ancienne avec Prunes de Namur
+       Lervig Konrad's Stout - Lervig / Way 3 Bean Stout
+       Arendals Bryggeri 1839 - Arendals Innepils
+       Ghost Brewery / Ugly Duck Brewing West Coast IPA - Ugly Duck / Hornbeer Export Lager
+       Nøgne Ø Oud Bruin - Bridge Road / Nøgne Ø Aurora Australis II
+       Nøgne Ø Pumpkin Ale - Bridge Road / Nøgne Ø Aurora Australis II
+       Amundsen One in a Melon Watermelon Wheat - Amundsen One Hop Wonder - Dont worry be hoppy
+       Amundsen/Grünerløkka Oslo IPA - Amundsen / Cap POPaCAP
+       Hofbräu München Dunkel - Hofer Bräu Hell
+       Hofbräu Oktoberfestbier - Hofer Bräu Hell
+       Hofbräu Münchner Weisse - Hofer Bräu Hell
+       Hofbräu Original - Hofer Bräu Hell
+       Hofbräu Schwarze Weisse - Hofer Bräu Hell
+      Cap/BrewDog CapDog Black IPA - CAP / Amundsen Hey Hey Hey IPA
+      Buxton Far Skyline Berliner Weisse - Buxton Very Far Skyline
+      Bockor Omer Traditional Blond Ale - Bockor Pils
+      
+       Budweiser Budvar - Budweiser Budvar B:Cryo
+      Gouden Carolus Cuvée van de Keizer Rood 2012/2013 - Anker Blond
+      Liefmans Kriek Brut - Liefmans Fruitesse On The Rocks
+       Krönleins Stockholm Fine Festival Beer - Stockholm Fine Festival Alkoholfri
+       Nørrebro Økologisk King's County Brown Ale - Mik Schack Økologisk Gran Øl
+       
+       Brlo Porter - Nordhäuser Porter
+       Brlo Helles - Landsberger Heller Ur-Bock
+       Estrella Damm Daura - Estrella del Sur
+       La Baïne Rousse Artisanale - L’Entre-Deux-Bières La Tchanquee Bière Brune
+       Anthony R. Martin Bourgogne des Flandres - Gordon Finest Gold 24
+
+       Lervig Brewers Reserve White IPA - Lervig Brewers Reserve Oat IPA
+         UnderCover Brewing Brown Ale - Undercover Lager
+       UnderCover Brewing IPA - Undercover Lager
+       UnderCover Brewing Pale Ale - Undercover Lager
+        Lervig Saison - Lervig APA
+      Lervig Rye IPA - Lervig APA
+       Slottskällans Svart Porter - Slottskällans Svart Lager
+      St Feuillien Grisette Witbier - St Feuillien Blonde
+       Gentse Gruut Wit - Gruut Blond
+       Gentse Gruut Amber - Gruut Bruin
+       Mack Brown Ale - Mack Saison
+       Mack Porter - Mack Porter
+       Mack Witbier - Mack Saison
+       Mohawk Citra Single Hop Pale Ale - Mohawk VS Citra
+       Herslev Bryghus India Dark Ale - Herslev IPA
+       De Troch Chapeau Oude Gueuze - Chapeau Gueuze
+       Brasserie Fantome Saison - Fantôme Automne
+       St. Peters Cream Stout - St Peters Brewery Trew Brew Brandy Snap
+       Faxe Premium Danish Lager Beer - Faxe Stout
+       Sierra Nevada Pale Ale - Sierra Nevada Wit
+
+      Bøgedal Lys No 466 - Bøgedal Nr. 0432 Lys #6
+       Weihenstephaner Vitus Weizenbock - Nøgne Ø Citrus Hystrix IPA
+
+       Electric Nurse DIPA - Dugges / Electric Nurse Family Matters
+       Lervig Galaxy IPA - Lervig Brewers Reserve Galaxy IPA Mosaic Dry Hopped
+       Baladin Nora 75 cl - Baladin Nora Sour Edition
+       Harviestoun Brewery Old Engine Oil Porter - Harviestoun Old Engine Oil Special Reserve (10.5 %)
+       Harviestoun Ola Dubh 16 special reserve ale - Harviestoun Ola Dubh 1997 (Cask) Matured on Cacao Nibs & Coffee Beans
+       Harviestoun Ola Dubh 18 Special Reserve ale - Harviestoun Ola Dubh 1997 (Cask) Matured on Cacao Nibs & Coffee Beans
+       Harviestoun Ola Dubh 12 special reserve ale - Harviestoun Ola Dubh 1997 (Cask) Matured on Cacao Nibs & Coffee Beans
+       Brewfist Heimdall Galaxie Saison - Brewfist / Freigeist Heimdall Chardonnay Barrel
+      Brewfist Spaceman Indian Pale Ale - Brewfist Grapefruit Spaceman
+      BrewDog Hardcore IPA - BrewDog Hardcore NZ
+       Kinn Tradisjon Gardsøl - Kinn Tradisjon m/Kveik
+       Brouwerij de Molen Hamer & Sikkel - De Molen Hamer & Sikkel Oak Aged
+      Scotch Silly Cognac Barrel Aged - Scotch Silly Barrel Aged (Port)
+      By The Horns Lambeth Walk London Porter - By The Horns Lambeth Walk (Vanilla Whiskey Special)
+       Saison Dupont - Saison Dupont Cuvée Dry Hopping 2015
+      BrewDog Tokyo Stout - BrewDog Tokyo Rising Sun Highland Edition
+      White Pony Zumbi Imperial Porter Ale - White Pony Zumbi BA Brandy
+       White Pony Ride This Pony - White Pony Ride This Pony (BA blend)
+      St. Peters The Saints Whisky Beer - St Peters Brewery Trew Brew Brandy Snap
+      Beavertown Gamma Ray American Pale Ale - Beavertown Gamma Why Yuzu Crazy?
+
+      Malmgården Belge - Malmgård Blond Ale
+       
+       
+      Palm Amber Beer - Palm Springs Red Feather/Old Prospector Amber Ale
+       Mikkeller BA Via to From - Mikkeller X-mas Porter 2013 Via Til Fra (Via To From)  Brandy
+       Green's Dark Ale Original - Green’s Dubbel Dark Ale
+       Carrières Diôle Blonde - Diôle
+       Harbour Brewing Company Pilsner - Harbour Pilsner No. 1
+       Balder Agave Gluten Free IPA - Munkebo Balder
+       Flying Dog Doggie Style Classic Pale Ale - Flying Dog Doggie Style (Cedar)
+       Flying Dog Snake Dog IPA - Flying Dog Snake Dog IPA (Raspberry Puree & Orange Peel)
+       Grolsch Premium Lager - Grolsch Premium Blond
+       Grolsch Premium Lager - Grolsch Premium Blond
+        Meinklang Urkorn - Meinklang Organic Dark Lager
+        Shepherd Neame India Pale Ale - Shepherd Neame East India Pale Ale
+         König Ludwig Weissbier Hell - König Ludwig Weissbier
+       Contreras Valeir Donker - Contreras Valeir Divers
+       Sara de Silenrieux Bio - Silenrieux Sara Blonde (Biologique)
+       Rosita Artesanal de Tarragona - Rosita Bomba
+       BrewDog Punk IPA - BrewDog Punk Pale Ale
+       BrewDog Punk IPA - BrewDog Punk Pale Ale
+      Erdinger Weissbier - Erdinger Weissbier Leicht
+       Erdinger Weissbier Dunkel - Erdinger Weissbier Hefe-Weizen Dark
+      Pivovar Jihlava Grand Imperial Pils - Jezek Grand Pilsner
+      Lederer Pils - Lederer Premium Pils
+       Innis & Gunn Oak Aged Beer - Innis & Gunn Oak Aged Blonde Beer
+       Faxe Extra Strong Beer - Faxe Extra Strong Danish Lager Beer
+
+
+       Harviestoun Schiehallion Craft Lager - Harviestoun Schiehallion (Cask)
+       Fuller's Golden Pride - Fuller’s Golden Pride (Cask)
+       Fuller`s Old Winter Ale - Fuller’s Old Winter Ale (Cask)
+       Fuller's ESB - Fuller’s ESB (Cask)
+       Fuller`s Organic Honey Dew - Fuller’s Organic Honey Dew (Cask)
+       Fuller's London Porter - Fuller’s London Porter (Bottle/Keg)
+       Greene King Double Hop Monster - Greene King Double Hop Monster (Cask)
+       Orkney Red MacGregor - Orkney Red MacGregor (Cask)
+       Orkney Skull Splitter Rich Ale - Orkney Skull Splitter (Cask)
+       Shepherd Neame Double Stout - Shepherd Neame Double Stout (Cask)
+       Hook Norton Haymaker - Hook Norton Haymaker (Cask)
+       Hook Norton Flagship - Hook Norton Flagship (Keg)
+
+      Old Speckled Hen - Morland Old Speckled Hen (3.5%)
+      Shepherd Neame Bishops Finger - Shepherd Neame Bishops Finger (3.5%)
+       Crafty Dan Triple C Golden Ale - Thwaites Crafty Dan Triple C (Bottle, 5.3%)
+
+       Belhaven Twisted Thistle IPA - Belhaven Twisted Thistle IPA (USA)
+
+       Train Station Groundbreaker Unfiltered Lager - Train Station Groundbreaker
+       Staropramen - Staropramen Unfiltered
+      Santorini Crazy Donkey Indian Pale Ale - Santorini Crazy Donkey Cascade (Unfiltered)
+       Theresianer India Pale Ale Unfiltered - Theresianer India Pale Ale
+       Theresianer Bock Unfiltered - Theresianer Bock
+      Beer Studio Remix - Beer Studio Remix Unfiltered Lager
+      Theresianer Wit Unfiltered - NOMATCH
+
+
+
+       Harbour Brewing Company Pale Ale - for mange å velge på
+       Harbour Brewing Company India Pale Ale - for mange å velge på

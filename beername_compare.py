@@ -57,11 +57,13 @@ def compare_beers(pol_data, rb_beers, breweries_rb):
 
                 beer_matcher = BeerNameMatcher(rb_brewery, rb_beers_for_brewery)
 
-                nomatch.write(rb_brewery.encode('utf8') + '\n')
+                nomatch_brewery = []
+                nomatch_brewery.append(rb_brewery.encode('utf8'))
                 match.write(rb_brewery.encode('utf8') + '\n')
+                num_nomatch = 0
                 for pol_brewery in value:
                     line = '\t %s' % pol_brewery
-                    nomatch.write(line.encode('utf8') + '\n')
+                    nomatch_brewery.append(line.encode('utf8'))
                     match.write(line.encode('utf8') + '\n')
                     pol_beers = findall_in_list(pol_data, 'Produsent', pol_brewery)
                     for pol_beer in pol_beers:
@@ -69,10 +71,15 @@ def compare_beers(pol_data, rb_beers, breweries_rb):
                         beer_match = beer_matcher.match_name(pol_beer_name)
                         if beer_match is None:
                             line2 = '\t\t %s' % pol_beer_name
-                            nomatch.write(line2.encode('utf8') + '\n')
+                            nomatch_brewery.append(line2.encode('utf8'))
+                            num_nomatch = num_nomatch + 1
                         else:
                             line2 = '\t\t %s - %s' % (pol_beer_name, beer_match['name'])
                             match.write(line2.encode('utf8') + '\n')
+                if num_nomatch > 1:
+                    for n in nomatch_brewery:
+                        nomatch.write(n + '\n')
+
 
 
 '''

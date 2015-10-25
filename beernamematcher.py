@@ -6,38 +6,40 @@ import Levenshtein
 from brewerynamematcher import strip_punctuation
 
 BEER_TYPES = [
-    u'imperial',
-    u'porter',
-    u'stout',
-    u'coffee',
-    u'wheat',
-    u'india',
-    u'hefeweizen',
-    u'barleywine',
-    u'barrel-aged',
-    # u'red',
-    u'ale',
-    u'double',
-    u'ipa',
-    u'trappistes',
-    u'amber',
-    u'berliner',
-    u'weisse',
-    u'pale',
-    u'pilsner',
-    u'blonde',
-    u'dipa',
-   # u'rye',
-    u'tripel',
-    u'triple',
-    u'weissbier',
-    u'wit',
-    u'saison',
-    u'trappist',
-    u'white',
-    u'apa',
-    u'edition',
+    u'Imperial Wheat Stout',
+    u'Imperial Stout',
+    u'Milk Stout',
+    u'White IPA',
+    u'Saison IPA',
+    u'Rye IPA',
+    u'Session IPA',
+    u'Dobbel IPA',
+    u'Black IPA',
+    u'DIPA',
+    u'IPA',
+    u'APA',
+    u'Belgian Tripel',
+    u'Farmhouse Ale',
+    u'India Pale Ale',
+    u'India Dark Ale',
+    u'Brown Ale',
+    u'Belgian Ale',
+    u'Pale Ale',
+    u'Amber Ale',
+    u'Blonde Ale',
+    u'Dubbel Bruin',
+    u'Blond',
+    u'Geuze',
+    u'Saison',
+    u'Witbier',
+    u'Wit',
+    u'Lager',
+    u'Cream Stout',
+    u'Trappistes',
+    u'Trappist',
 ]
+
+BEER_TYPES = [x.lower() for x in BEER_TYPES]
 
 AND_WORDS = [
     u'og',
@@ -61,11 +63,10 @@ def remove_punctuation2(name):
 
 
 def remove_type(name):
-    name_fixed = []
-    for word in name.split():
-        if word not in BEER_TYPES:
-            name_fixed.append(word)
-    return ' '.join(name_fixed)
+    for beer_type in BEER_TYPES:
+        if beer_type in name:
+            name = name.replace(beer_type, '')
+    return name.strip()
 
 
 def remove_numbers(name):
@@ -127,7 +128,7 @@ class BeerNameMatcher(object):
         return None
 
     def _check_match(self, name1, operation):
-
+        # print operation.__name__
         name1 = operation(name1)
 
         with_dist = [self._get_distance(name1, beer.get_operation(operation), beer)
@@ -137,7 +138,7 @@ class BeerNameMatcher(object):
             return
         highest = max(with_dist, key=lambda x: x['dist'])
         match = None
-        if highest['dist'] > 0.75:
+        if highest['dist'] > 0.9:
             match = highest['beer'].beer
         return match, name1
 
