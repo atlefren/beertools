@@ -184,55 +184,43 @@ FEIL
          
 
 NY TEST
+
+Helt feil:
        Adnams Rye IPA - Adnams / Nomad Black Knight
-       St. Austell Proper Job IPA - St. Austell Proper Cool IPA
-       Hansa IPA Ekstra Spesial - Hansa Sommer Spesial
+       Hansa IPA Ekstra Spesial - Hansa Sommer Spesial (RETT: Hansa Spesial IPA Extra)
        Boulevard Tank 7 Farmhouse Ale Smokestack Series - Boulevard Smokestack Series - Imperial Stout X - Tart Cherry
-      Grünerløkka Brygghus White IPA - Grünerløkka / Amundsen Oslo IPA
-      Mikkeller Black Ink and Blood Imperial raspberry stout Brandy - Mikkeller Hamilton Leithauser Black Hours Stout
+       Mikkeller Black Ink and Blood Imperial raspberry stout Brandy - Mikkeller Hamilton Leithauser Black Hours Stout
        Mikkeller Black Ink and Blood Imperial raspberry stout Bourbon - Mikkeller Hamilton Leithauser Black Hours Stout
-      Nøgne Ø # 100 - Nøgne Ø # 1001
-       Nøgne Ø Imperial Stout Whisky Barrels - Nøgne Ø God Jul Whisky Barrel
-       Nøgne Ø Imperial India Pale Ale #500 - Nøgne Ø Imperial Brown Ale
-      Nøgne Ø India Saison - Nøgne Ø Imperial Premiant India Pilsner
+       Nøgne Ø # 100 - Nøgne Ø # 1001 (RETT Nøgne Ø # 100 (Batch 100) )
        Tilquin Oude Gueuze Tilquin² - Oude Quetsche Tilquin à l’Ancienne avec Prunes de Namur
        Tilquin Oude Gueuze Tilquin² - Oude Quetsche Tilquin à l’Ancienne avec Prunes de Namur
-       Lervig Konrad's Stout - Lervig / Way 3 Bean Stout
-       Arendals Bryggeri 1839 - Arendals Innepils
-       Ghost Brewery / Ugly Duck Brewing West Coast IPA - Ugly Duck / Hornbeer Export Lager
-       Nøgne Ø Oud Bruin - Bridge Road / Nøgne Ø Aurora Australis II
-       Nøgne Ø Pumpkin Ale - Bridge Road / Nøgne Ø Aurora Australis II
-       Amundsen One in a Melon Watermelon Wheat - Amundsen One Hop Wonder - Dont worry be hoppy
-       Amundsen/Grünerløkka Oslo IPA - Amundsen / Cap POPaCAP
+       Arendals Bryggeri 1839 - Arendals Innepils (RETT Arendals 1839 Stærk Tradisjon)
        Hofbräu München Dunkel - Hofer Bräu Hell
        Hofbräu Oktoberfestbier - Hofer Bräu Hell
        Hofbräu Münchner Weisse - Hofer Bräu Hell
        Hofbräu Original - Hofer Bräu Hell
        Hofbräu Schwarze Weisse - Hofer Bräu Hell
-      Cap/BrewDog CapDog Black IPA - CAP / Amundsen Hey Hey Hey IPA
-      Buxton Far Skyline Berliner Weisse - Buxton Very Far Skyline
-      Bockor Omer Traditional Blond Ale - Bockor Pils
-      
        Budweiser Budvar - Budweiser Budvar B:Cryo
-      Gouden Carolus Cuvée van de Keizer Rood 2012/2013 - Anker Blond
-      Liefmans Kriek Brut - Liefmans Fruitesse On The Rocks
+       Gouden Carolus Cuvée van de Keizer Rood 2012/2013 - Anker Blond
+       Liefmans Kriek Brut - Liefmans Fruitesse On The Rocks
        Krönleins Stockholm Fine Festival Beer - Stockholm Fine Festival Alkoholfri
        Nørrebro Økologisk King's County Brown Ale - Mik Schack Økologisk Gran Øl
-       
        Brlo Porter - Nordhäuser Porter
        Brlo Helles - Landsberger Heller Ur-Bock
        Estrella Damm Daura - Estrella del Sur
        La Baïne Rousse Artisanale - L’Entre-Deux-Bières La Tchanquee Bière Brune
        Anthony R. Martin Bourgogne des Flandres - Gordon Finest Gold 24
+       Contreras Valeir Donker - Contreras Valeir Divers (RETT: Contreras Valeir Donker (Carlos))
 
+feil- øltsil:
        Lervig Brewers Reserve White IPA - Lervig Brewers Reserve Oat IPA
-         UnderCover Brewing Brown Ale - Undercover Lager
+       UnderCover Brewing Brown Ale - Undercover Lager
        UnderCover Brewing IPA - Undercover Lager
        UnderCover Brewing Pale Ale - Undercover Lager
-        Lervig Saison - Lervig APA
-      Lervig Rye IPA - Lervig APA
+       Lervig Saison - Lervig APA
+       Lervig Rye IPA - Lervig APA
        Slottskällans Svart Porter - Slottskällans Svart Lager
-      St Feuillien Grisette Witbier - St Feuillien Blonde
+       St Feuillien Grisette Witbier - St Feuillien Blonde
        Gentse Gruut Wit - Gruut Blond
        Gentse Gruut Amber - Gruut Bruin
        Mack Brown Ale - Mack Saison
@@ -245,10 +233,26 @@ NY TEST
        St. Peters Cream Stout - St Peters Brewery Trew Brew Brandy Snap
        Faxe Premium Danish Lager Beer - Faxe Stout
        Sierra Nevada Pale Ale - Sierra Nevada Wit
+       Bockor Omer Traditional Blond Ale - Bockor Pils
+       Buxton Far Skyline Berliner Weisse - Buxton Very Far Skyline (RETT Buxton Far Skyline)
+       Nøgne Ø Imperial Stout Whisky Barrels - Nøgne Ø God Jul Whisky Barrel
+       Nøgne Ø Imperial India Pale Ale #500 - Nøgne Ø Imperial Brown Ale
+       Amundsen One in a Melon Watermelon Wheat - Amundsen One Hop Wonder - Dont worry be hoppy (RETT Amundsen One In A Melon)
+       BrewDog Punk IPA - BrewDog Punk Pale Ale (RETT: BrewDog Punk IPA (5.6%))
+      BrewDog Punk IPA - BrewDog Punk Pale Ale (RETT: BrewDog Punk IPA (5.6%))
+      Erdinger Weissbier - Erdinger Weissbier Leicht (RETT: Erdinger Weissbier (Hefe-Weizen))
+      Grolsch Premium Lager - Grolsch Premium Blond (RETT: Grolsch Premium Lager / Pilsner)
+      Meinklang Urkorn - Meinklang Organic Dark Lager (RETT: Meinklang Ancient Grains Ale (Urkorn-Bier))
 
-      Bøgedal Lys No 466 - Bøgedal Nr. 0432 Lys #6
-       Weihenstephaner Vitus Weizenbock - Nøgne Ø Citrus Hystrix IPA
+feil - collab:
+      Grünerløkka Brygghus White IPA - Grünerløkka / Amundsen Oslo IPA (RETT Grünerløkka / Crowbar White IPA)
+      Cap/BrewDog CapDog Black IPA - CAP / Amundsen Hey Hey Hey IPA (RETT: BrewDog / CAP CAP DOG)
+      Lervig Konrad's Stout - Lervig / Way 3 Bean Stout (RETT Lervig Brewers Reserve Konrads Stout )
+      Ghost Brewery / Ugly Duck Brewing West Coast IPA - Ugly Duck / Hornbeer Export Lager (RETT Ugly Duck/Ghost West Coast IPA)
+      Nøgne Ø India Saison - Nøgne Ø Imperial Premiant India Pilsner (RETT Nøgne Ø / Bridge Road India Saison)
+      Amundsen/Grünerløkka Oslo IPA - Amundsen / Cap POPaCAP (RETT: Grünerløkka / Amundsen Oslo IPA)
 
+feil - spesialutgaver:
        Electric Nurse DIPA - Dugges / Electric Nurse Family Matters
        Lervig Galaxy IPA - Lervig Brewers Reserve Galaxy IPA Mosaic Dry Hopped
        Baladin Nora 75 cl - Baladin Nora Sour Edition
@@ -269,36 +273,29 @@ NY TEST
        White Pony Ride This Pony - White Pony Ride This Pony (BA blend)
       St. Peters The Saints Whisky Beer - St Peters Brewery Trew Brew Brandy Snap
       Beavertown Gamma Ray American Pale Ale - Beavertown Gamma Why Yuzu Crazy?
+      Flying Dog Snake Dog IPA - Flying Dog Snake Dog IPA (Raspberry Puree & Orange Peel)
+      Mikkeller BA Via to From - Mikkeller X-mas Porter 2013 Via Til Fra (Via To From)  Brandy
 
-      Malmgården Belge - Malmgård Blond Ale
-       
-       
-      Palm Amber Beer - Palm Springs Red Feather/Old Prospector Amber Ale
-       Mikkeller BA Via to From - Mikkeller X-mas Porter 2013 Via Til Fra (Via To From)  Brandy
-       Green's Dark Ale Original - Green’s Dubbel Dark Ale
-       Carrières Diôle Blonde - Diôle
-       Harbour Brewing Company Pilsner - Harbour Pilsner No. 1
-       Balder Agave Gluten Free IPA - Munkebo Balder
-       Flying Dog Doggie Style Classic Pale Ale - Flying Dog Doggie Style (Cedar)
-       Flying Dog Snake Dog IPA - Flying Dog Snake Dog IPA (Raspberry Puree & Orange Peel)
-       Grolsch Premium Lager - Grolsch Premium Blond
-       Grolsch Premium Lager - Grolsch Premium Blond
-        Meinklang Urkorn - Meinklang Organic Dark Lager
-        Shepherd Neame India Pale Ale - Shepherd Neame East India Pale Ale
-         König Ludwig Weissbier Hell - König Ludwig Weissbier
-       Contreras Valeir Donker - Contreras Valeir Divers
-       Sara de Silenrieux Bio - Silenrieux Sara Blonde (Biologique)
-       Rosita Artesanal de Tarragona - Rosita Bomba
-       BrewDog Punk IPA - BrewDog Punk Pale Ale
-       BrewDog Punk IPA - BrewDog Punk Pale Ale
-      Erdinger Weissbier - Erdinger Weissbier Leicht
-       Erdinger Weissbier Dunkel - Erdinger Weissbier Hefe-Weizen Dark
-      Pivovar Jihlava Grand Imperial Pils - Jezek Grand Pilsner
-      Lederer Pils - Lederer Premium Pils
-       Innis & Gunn Oak Aged Beer - Innis & Gunn Oak Aged Blonde Beer
-       Faxe Extra Strong Beer - Faxe Extra Strong Danish Lager Beer
+FEIL BRYGGERI
+      Palm Amber Beer - Palm Springs Red Feather/Old Prospector Amber Ale 
+      Weihenstephaner Vitus Weizenbock - Nøgne Ø Citrus Hystrix IPA 
+      Nøgne Ø Oud Bruin - Bridge Road / Nøgne Ø Aurora Australis II
+       Nøgne Ø Pumpkin Ale - Bridge Road / Nøgne Ø Aurora Australis II
 
+feil- finner ikke manuelt
+   Rosita Artesanal de Tarragona - Rosita Bomba
+      Pivovar Jihlava Grand Imperial Pils - Jezek Grand Pilsner (??)
+      Innis & Gunn Oak Aged Beer - Innis & Gunn Oak Aged Blonde Beer (??)
+      Green's Dark Ale Original - Green’s Dubbel Dark Ale (??)
+      Malmgården Belge - Malmgård Blond Ale (??)
+      Flying Dog Doggie Style Classic Pale Ale - Flying Dog Doggie Style (Cedar) (??)
+      Bøgedal Lys No 466 - Bøgedal Nr. 0432 Lys #6 (??)
+      Harbour Brewing Company Pale Ale - for mange å velge på
+      Harbour Brewing Company India Pale Ale - for mange å velge på
 
+feil - bottle / cask / keg
+      St. Austell Proper Job IPA - St. Austell Proper Cool IPA (RETT: St. Austell Proper Job (Bottle) )
+       Shepherd Neame India Pale Ale - Shepherd Neame East India Pale Ale (RETT: Shepherd Neame India Pale Ale (Bottle))
        Harviestoun Schiehallion Craft Lager - Harviestoun Schiehallion (Cask)
        Fuller's Golden Pride - Fuller’s Golden Pride (Cask)
        Fuller`s Old Winter Ale - Fuller’s Old Winter Ale (Cask)
@@ -312,21 +309,19 @@ NY TEST
        Hook Norton Haymaker - Hook Norton Haymaker (Cask)
        Hook Norton Flagship - Hook Norton Flagship (Keg)
 
+feil - styrke
       Old Speckled Hen - Morland Old Speckled Hen (3.5%)
       Shepherd Neame Bishops Finger - Shepherd Neame Bishops Finger (3.5%)
        Crafty Dan Triple C Golden Ale - Thwaites Crafty Dan Triple C (Bottle, 5.3%)
 
+feil land
        Belhaven Twisted Thistle IPA - Belhaven Twisted Thistle IPA (USA)
 
+feil - unfiltered
        Train Station Groundbreaker Unfiltered Lager - Train Station Groundbreaker
        Staropramen - Staropramen Unfiltered
-      Santorini Crazy Donkey Indian Pale Ale - Santorini Crazy Donkey Cascade (Unfiltered)
+         Santorini Crazy Donkey Indian Pale Ale - Santorini Crazy Donkey Cascade (Unfiltered)
        Theresianer India Pale Ale Unfiltered - Theresianer India Pale Ale
        Theresianer Bock Unfiltered - Theresianer Bock
       Beer Studio Remix - Beer Studio Remix Unfiltered Lager
       Theresianer Wit Unfiltered - NOMATCH
-
-
-
-       Harbour Brewing Company Pale Ale - for mange å velge på
-       Harbour Brewing Company India Pale Ale - for mange å velge på
