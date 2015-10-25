@@ -27,7 +27,7 @@ BEER_TYPES = [
     u'pilsner',
     u'blonde',
     u'dipa',
-    u'rye',
+   # u'rye',
     u'tripel',
     u'triple',
     u'weissbier',
@@ -35,6 +35,8 @@ BEER_TYPES = [
     u'saison',
     u'trappist',
     u'white',
+    u'apa',
+    u'edition',
 ]
 
 AND_WORDS = [
@@ -119,7 +121,7 @@ class BeerNameMatcher(object):
             if match:
                 return match
 
-        match = self._check_split(remove_brewery_name(lower_strip(org_name)))
+        match = self._check_split(remove_brewery_name_parts(lower_strip(org_name)))
         if match:
             return match
         return None
@@ -135,7 +137,7 @@ class BeerNameMatcher(object):
             return
         highest = max(with_dist, key=lambda x: x['dist'])
         match = None
-        if highest['dist'] > 0.7:
+        if highest['dist'] > 0.75:
             match = highest['beer'].beer
         return match, name1
 
@@ -144,10 +146,11 @@ class BeerNameMatcher(object):
         score = 0
         for part in remove_type(name1).split('/'):
             for beer in self.beer_list:
-                split2 = remove_type(beer.operations['remove_brewery_name'])
+                split2 = remove_type(beer.operations['remove_brewery_name_parts'])
                 for part2 in split2.split('/'):
                     part = remove_numbers(part)
                     part2 = remove_numbers(part2)
+
                     dist = Levenshtein.ratio(unicode(part), unicode(part2))
                     if dist > score:
                         score = dist
@@ -158,7 +161,17 @@ class BeerNameMatcher(object):
 
         for p1 in split_parens(remove_type(remove_numbers(name1))):
             for beer in self.beer_list:
-                for p2 in split_parens(remove_numbers(beer.operations['remove_brewery_name'])):
+                for p2 in split_parens(remove_numbers(beer.operations['remove_brewery_name_parts'])):
+                    dist = Levenshtein.ratio(unicode(p1), unicode(p2))
+                    if dist > score:
+                        score = dist
+                        match = beer
+        if score > 0.7:
+            return match.beer
+
+        for p1 in remove_type(remove_numbers(name1)).split(' '):
+            for beer in self.beer_list:
+                for p2 in remove_numbers(beer.operations['remove_brewery_name_parts']).split(' '):
                     dist = Levenshtein.ratio(unicode(p1), unicode(p2))
                     if dist > score:
                         score = dist

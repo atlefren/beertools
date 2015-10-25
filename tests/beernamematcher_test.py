@@ -106,3 +106,35 @@ class BeerNameMatcherTest(unittest.TestCase):
         matcher = BeerNameMatcher(u'Mikkeller', beer_list)
         matched = matcher.match_name(u'Mikkeller Black Ink and Blood Imperial raspberry stout Brandy')
         self.assertEqual(u'Mikkeller Black Ink And Blood Barrel Aged (Brandy Edition)', matched['name'])
+
+    '''
+    def test_rye_ipa(self):
+        beer_list = [
+            {'name': u'Adnams Oak Aged IPA'},
+            {'name': u'Adnams Jack Brand Crystal Rye IPA'},
+        ]
+
+        matcher = BeerNameMatcher(u'Adnams', beer_list)
+        matched = matcher.match_name(u'Adnams Rye IPA')
+        self.assertEqual(u'Adnams Jack Brand Crystal Rye IPA', matched['name'])
+    '''
+    def test_ipa_apa(self):
+        beer_list = [
+            {'name': u'Lervig APA'},
+            {'name': u'Lervig Brewers Reserve Galaxy IPA Single Hopped'},
+        ]
+
+        matcher = BeerNameMatcher(u'Lervig Aktiebryggeri', beer_list)
+        matched = matcher.match_name(u'Lervig Galaxy IPA')
+        self.assertEqual(u'Lervig Brewers Reserve Galaxy IPA Single Hopped', matched['name'])
+
+    def test_white_ipa(self):
+
+        beer_list = [
+            {'name': u'Lervig Brewers Reserve Oat IPA'},
+            {'name': u'Lervig Brewers Reserve White IPA Wit & IPA Fusion'},
+        ]
+
+        matcher = BeerNameMatcher(u'Lervig Aktiebryggeri', beer_list)
+        matched = matcher.match_name(u'Lervig Brewers Reserve White IPA')
+        self.assertEqual(u'Lervig Brewers Reserve White IPA Wit & IPA Fusion', matched['name'])
