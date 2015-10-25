@@ -64,8 +64,7 @@
          Amager Orange Crush Session IPA
 
 FEIL
-         Adnams Rye IPA - Adnams Oak Aged IPA
-         St. Austell Admiral's Ale 50 cl - St. Austell Admirals Ale
+         Adnams Rye IPA - Adnams Oak Aged IPA (RETT: Adnams Jack Brand Crystal Rye IPA)
          Rohozec Trináctka Tmavá - Rohozec Trináctka
          Rohozec Malina - Rohozec Trináctka
          Hansa IPA Ekstra Spesial - Hansa Sommer Spesial
@@ -76,9 +75,7 @@ FEIL
          Mikkeller BA Via to From - Mikkeller Big Tony 2
          Mikkeller Skør Belgian Ale - Mikkeller Yeast Series: Belgian Ale
          Mikkeller Ahhh Belgian Ale - Mikkeller Belgian Tripel
-         Fuller's Golden Pride - Fuller’s Golden Pride (Cask)
-         Fuller`s Old Winter Ale - Fuller’s Old Winter Ale (Cask)
-         Fuller's London Porter - Fuller’s London Porter (Cask)
+         
          Nøgne Ø Rhub IPA - Nøgne Ø Dobbel IPA
          Nøgne Ø # 100 - Nøgne Ø # 1001
          Nøgne Ø Lemongrass - Nøgne Ø MOIPA
@@ -86,7 +83,6 @@ FEIL
          Zlote LWY Lys - Amber Złote Lwy
          Grolsch Premium Lager - Grolsch Premium Blond
          Grolsch Premium Lager - Grolsch Premium Blond
-         Lervig Galaxy IPA - Lervig APA
          Lervig Brewers Reserve White IPA - Lervig Brewers Reserve Oat IPA
          Lervig Saison - Lervig Saison IPA
          Lervig Kjellerpils - Lervig Ein Te Pils
@@ -109,7 +105,7 @@ FEIL
          Herslev Bryghus Økologisk India Pale Ale - Herslev Økologisk Pale Ale
          Belhaven Twisted Thistle IPA - Belhaven Twisted Thistle IPA (USA)
          Liefmans Kriek Brut - Liefmans Glühkriek
-         Krönleins Stockholm Fine Festival Beer - Three Hearts Stockholm Fine Festival Beer 5.3%
+         
          San Miguel Especial - San Miguel Apple
          Mohawk Citra Single Hop Pale Ale - Mohawk Extra Pale Ale
          Orkney Red MacGregor - Orkney Red MacGregor (Cask)
@@ -136,9 +132,9 @@ FEIL
          Stigbergets Endless Summer Ale - Stigbergets Endless Summer Ale - Pacific Blend
          Amundsen/Grünerløkka Oslo IPA - Amundsen Pale Ale
          White Pony Ride This Pony - White Pony Ride This Pony (BA blend)
-         Krusovice - Krušovice Imperial 3.5
+         
          Nøisom Somnus Brown Ale - Nøisom Brown Ale
-         Crafty Dan Triple C Golden Ale - Thwaites Crafty Dan Triple C (Bottle, 5.3%)
+         
          Mack Brown Ale - Mack Amber Ale
          8 Wired iStout Imperial Stout - 8 Wired Mighty Imperial Ale
          Kinn Sommarøl - Kinn Bordøl
@@ -147,8 +143,7 @@ FEIL
          Lindheim Nacho Libre IPA - Lindheim Tone of Life
          De Troch Chapeau Gueuze - De Troch Oude Gueuze
          De Troch Chapeau Oude Gueuze - De Troch Oude Gueuze
-         Hook Norton Haymaker - Hook Norton Haymaker (Cask)
-         Hook Norton Flagship - Hook Norton Flagship (Keg)
+         
          Hook Norton Double Stout - Hook Norton Oatmeal Stout
          ODE IPA - ODE Porter
          Hanssens Oudbeitje Lambic - Hanssens Oude Lambik
@@ -162,3 +157,13 @@ FEIL
          St. Bernardus Abt 12 Magnum Edition 2015 - St. Bernardus Abt 12 Special Edition
          Contreras Valeir Donker - Contreras Valeir Divers
          Beer Studio Remix - Beer Studio Råger
+
+         Hook Norton Haymaker - Hook Norton Haymaker (Cask)
+         Hook Norton Flagship - Hook Norton Flagship (Keg)
+         Fuller's Golden Pride - Fuller’s Golden Pride (Cask)
+         Fuller`s Old Winter Ale - Fuller’s Old Winter Ale (Cask)
+         Fuller's London Porter - Fuller’s London Porter (Cask)
+
+         Krönleins Stockholm Fine Festival Beer - Three Hearts Stockholm Fine Festival Beer 5.3%
+         Krusovice - Krušovice Imperial 3.5
+         Crafty Dan Triple C Golden Ale - Thwaites Crafty Dan Triple C (Bottle, 5.3%)
