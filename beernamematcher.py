@@ -46,6 +46,17 @@ AND_WORDS = [
     u'and'
 ]
 
+PACKAGE_TYPES = [
+    u' (cask)',
+    u' (bottle)',
+    u' (bottle/keg)',
+    u' (bottle / keg)',
+    u' (cask & bottle conditioned)',
+    u' (pasteurized)',
+    u' (pasteurised)',
+    u' (filtered)',
+]
+
 
 def lower_strip(name):
     name = unicode(name.lower().strip())
@@ -79,6 +90,29 @@ def split_parens(name):
     if m3:
         return [m3.group(1), m3.group(2)]
     return [name]
+
+
+def remove_packaging(name):
+    for packaging in PACKAGE_TYPES:
+        if packaging in name:
+            name = name.replace(packaging, '')
+    return name
+
+
+def find_bottle_version(beers):
+    wanted = ['(bottle)', '(bottle/keg)', '(cask & bottle conditioned)',
+              '(pasteurized)', '(pasteurised)', '(filtered)', '(bottle / keg)']
+    for b in beers:
+        if type(b) is dict:
+            beer = b['beer']
+        else:
+            beer = b
+        n = beer.operations['lower_strip']
+
+        for p in wanted:
+            if p in n:
+                return b
+    return beers[0]
 
 
 class Beer(object):
@@ -115,7 +149,7 @@ class BeerNameMatcher(object):
             return beer_name
 
         operations = [lower_strip, remove_brewery_name, remove_brewery_name_parts,
-                      remove_punctuation2, remove_type]
+                      remove_packaging, remove_punctuation2, remove_type]
 
         for operation in operations:
             match, name = self._check_match(name, operation)
@@ -123,6 +157,7 @@ class BeerNameMatcher(object):
                 return match
 
         match = self._check_split(remove_brewery_name_parts(lower_strip(org_name)))
+
         if match:
             return match
         return None
@@ -136,18 +171,25 @@ class BeerNameMatcher(object):
 
         if len(with_dist) == 0:
             return
-        highest = max(with_dist, key=lambda x: x['dist'])
+
+        max_score = max(x['dist'] for x in with_dist)
+        highest = [beer for beer in with_dist if beer['dist'] == max_score]
+        if len(highest) == 1:
+            highest = highest[0]
+        else:
+            highest = find_bottle_version(highest)
+
         match = None
         if highest['dist'] > 0.9:
             match = highest['beer'].beer
         return match, name1
 
     def _check_split(self, name1):
-        match = None
+        match = []
         score = 0
         for part in remove_type(name1).split('/'):
             for beer in self.beer_list:
-                split2 = remove_type(beer.operations['remove_brewery_name_parts'])
+                split2 = remove_type(beer.operations['remove_packaging'])
                 for part2 in split2.split('/'):
                     part = remove_numbers(part)
                     part2 = remove_numbers(part2)
@@ -155,34 +197,40 @@ class BeerNameMatcher(object):
                     dist = Levenshtein.ratio(unicode(part), unicode(part2))
                     if dist > score:
                         score = dist
-                        match = beer
+                        match = [beer]
+                    elif dist == score:
+                        match.append(beer)
 
         if score > 0.7:
-            return match.beer
+            return find_bottle_version(match).beer
 
         for p1 in split_parens(remove_type(remove_numbers(name1))):
             for beer in self.beer_list:
-                for p2 in split_parens(remove_numbers(beer.operations['remove_brewery_name_parts'])):
+                for p2 in split_parens(remove_numbers(beer.operations['remove_packaging'])):
                     dist = Levenshtein.ratio(unicode(p1), unicode(p2))
                     if dist > score:
                         score = dist
-                        match = beer
+                        match = [beer]
+                    if dist == score:
+                        match.append(beer)
         if score > 0.7:
-            return match.beer
+            return find_bottle_version(match).beer
 
         for p1 in remove_type(remove_numbers(name1)).split(' '):
             for beer in self.beer_list:
-                for p2 in remove_numbers(beer.operations['remove_brewery_name_parts']).split(' '):
+                for p2 in remove_numbers(beer.operations['remove_packaging']).split(' '):
                     dist = Levenshtein.ratio(unicode(p1), unicode(p2))
                     if dist > score:
                         score = dist
-                        match = beer
+                        match = [beer]
+                    if dist == score:
+                        match.append(beer)
         if score > 0.7:
-            return match.beer
+            return find_bottle_version(match).beer
 
     def _get_distance(self, name1, name2, beer):
         dist = Levenshtein.ratio(unicode(name1), unicode(name2))
-        # print '%s | %s (%s)' % (name1, name2, dist)
+       # print '%s | %s (%s)' % (name1, name2, dist)
         return {
             'beer': beer,
             'dist': dist

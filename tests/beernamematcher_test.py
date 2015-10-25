@@ -199,3 +199,37 @@ class BeerNameMatcherTest(unittest.TestCase):
 
         matched = matcher.match_name(u'Nøisom Somnus Brown Ale')
         self.assertEqual(u'Nøisom Somnus', matched['name'])
+
+    def test_cask_bottle(self):
+        beer_list = [
+            {'name': u'Hook Norton Haymaker (Cask)'},
+            {'name': u'Hook Norton Haymaker (Bottle)'},
+        ]
+
+        matcher = BeerNameMatcher(u'Hook Norton', beer_list)
+
+        matched = matcher.match_name(u'Hook Norton Haymaker')
+        self.assertEqual(u'Hook Norton Haymaker (Bottle)', matched['name'])
+
+    def test_cask_keg_bottle(self):
+        beer_list = [
+            {'name': u'Harviestoun Schiehallion (Cask)'},
+            {'name': u'Harviestoun Schiehallion (Bottle/Keg)'},
+        ]
+
+        matcher = BeerNameMatcher(u'Harviestoun', beer_list)
+
+        matched = matcher.match_name(u'Harviestoun Schiehallion Craft Lager')
+        self.assertEqual(u'Harviestoun Schiehallion (Bottle/Keg)', matched['name'])
+
+    def test_cask_pasteurized(self):
+        beer_list = [
+            {'name': u'Thwaites Big Ben (Cask)'},
+           # {'name': u'Thwaites Big Ben (Pasteurised) (up to 2013)'},
+            {'name': u'Thwaites Big Ben (Pasteurized)'},
+        ]
+
+        matcher = BeerNameMatcher(u'Thwaites', beer_list)
+
+        matched = matcher.match_name(u'Big Ben Brown Ale')
+        self.assertEqual(u'Thwaites Big Ben (Pasteurized)', matched['name'])

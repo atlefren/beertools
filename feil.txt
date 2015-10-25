@@ -186,20 +186,15 @@ FEIL
 NY TEST
 
 Helt feil:
-       Adnams Rye IPA - Adnams / Nomad Black Knight
+       Adnams Rye IPA - Adnams / Nomad Black Knight (RETT: Adnams Jack Brand Crystal Rye IPA)
        Hansa IPA Ekstra Spesial - Hansa Sommer Spesial (RETT: Hansa Spesial IPA Extra)
-       Boulevard Tank 7 Farmhouse Ale Smokestack Series - Boulevard Smokestack Series - Imperial Stout X - Tart Cherry
+       Boulevard Tank 7 Farmhouse Ale Smokestack Series - Boulevard Smokestack Series - Imperial Stout X - Tart Cherry (RETT: Boulevard Smokestack Series - Tank 7 Farmhouse Ale)
        Mikkeller Black Ink and Blood Imperial raspberry stout Brandy - Mikkeller Hamilton Leithauser Black Hours Stout
        Mikkeller Black Ink and Blood Imperial raspberry stout Bourbon - Mikkeller Hamilton Leithauser Black Hours Stout
        Nøgne Ø # 100 - Nøgne Ø # 1001 (RETT Nøgne Ø # 100 (Batch 100) )
        Tilquin Oude Gueuze Tilquin² - Oude Quetsche Tilquin à l’Ancienne avec Prunes de Namur
        Tilquin Oude Gueuze Tilquin² - Oude Quetsche Tilquin à l’Ancienne avec Prunes de Namur
        Arendals Bryggeri 1839 - Arendals Innepils (RETT Arendals 1839 Stærk Tradisjon)
-       Hofbräu München Dunkel - Hofer Bräu Hell
-       Hofbräu Oktoberfestbier - Hofer Bräu Hell
-       Hofbräu Münchner Weisse - Hofer Bräu Hell
-       Hofbräu Original - Hofer Bräu Hell
-       Hofbräu Schwarze Weisse - Hofer Bräu Hell
        Budweiser Budvar - Budweiser Budvar B:Cryo
        Gouden Carolus Cuvée van de Keizer Rood 2012/2013 - Anker Blond
        Liefmans Kriek Brut - Liefmans Fruitesse On The Rocks
@@ -282,6 +277,12 @@ FEIL BRYGGERI
       Nøgne Ø Oud Bruin - Bridge Road / Nøgne Ø Aurora Australis II
        Nøgne Ø Pumpkin Ale - Bridge Road / Nøgne Ø Aurora Australis II
 
+        Hofbräu München Dunkel - Hofer Bräu Hell
+       Hofbräu Oktoberfestbier - Hofer Bräu Hell
+       Hofbräu Münchner Weisse - Hofer Bräu Hell
+       Hofbräu Original - Hofer Bräu Hell
+       Hofbräu Schwarze Weisse - Hofer Bräu Hell
+
 feil- finner ikke manuelt
    Rosita Artesanal de Tarragona - Rosita Bomba
       Pivovar Jihlava Grand Imperial Pils - Jezek Grand Pilsner (??)
@@ -296,18 +297,10 @@ feil- finner ikke manuelt
 feil - bottle / cask / keg
       St. Austell Proper Job IPA - St. Austell Proper Cool IPA (RETT: St. Austell Proper Job (Bottle) )
        Shepherd Neame India Pale Ale - Shepherd Neame East India Pale Ale (RETT: Shepherd Neame India Pale Ale (Bottle))
-       Harviestoun Schiehallion Craft Lager - Harviestoun Schiehallion (Cask)
-       Fuller's Golden Pride - Fuller’s Golden Pride (Cask)
-       Fuller`s Old Winter Ale - Fuller’s Old Winter Ale (Cask)
-       Fuller's ESB - Fuller’s ESB (Cask)
-       Fuller`s Organic Honey Dew - Fuller’s Organic Honey Dew (Cask)
-       Fuller's London Porter - Fuller’s London Porter (Bottle/Keg)
-       Greene King Double Hop Monster - Greene King Double Hop Monster (Cask)
-       Orkney Red MacGregor - Orkney Red MacGregor (Cask)
-       Orkney Skull Splitter Rich Ale - Orkney Skull Splitter (Cask)
-       Shepherd Neame Double Stout - Shepherd Neame Double Stout (Cask)
-       Hook Norton Haymaker - Hook Norton Haymaker (Cask)
-       Hook Norton Flagship - Hook Norton Flagship (Keg)
+
+       
+       Shepherd Neame Double Stout - Shepherd Neame Double Stout (Cask) (RETT: Shepherd Neame Double Stout (5.2% - Bottle) )
+       Big Ben Brown Ale - Thwaites Big Ben (Cask) (RETT: Thwaites Big Ben (Pasteurized) (2013 - ) )
 
 feil - styrke
       Old Speckled Hen - Morland Old Speckled Hen (3.5%)
