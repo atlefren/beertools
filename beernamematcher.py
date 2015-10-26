@@ -7,6 +7,7 @@ from brewerynamematcher import strip_punctuation
 
 BEER_TYPES = [
     u'Imperial Wheat Stout',
+    u'American Pale Ale',
     u'Imperial Stout',
     u'Milk Stout',
     u'White IPA',
@@ -21,6 +22,7 @@ BEER_TYPES = [
     u'Belgian Tripel',
     u'Farmhouse Ale',
     u'India Pale Ale',
+    u'Indian Pale Ale',
     u'India Dark Ale',
     u'Brown Ale',
     u'Belgian Ale',

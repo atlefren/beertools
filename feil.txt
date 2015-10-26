@@ -277,12 +277,6 @@ FEIL BRYGGERI
       Nøgne Ø Oud Bruin - Bridge Road / Nøgne Ø Aurora Australis II
        Nøgne Ø Pumpkin Ale - Bridge Road / Nøgne Ø Aurora Australis II
 
-        Hofbräu München Dunkel - Hofer Bräu Hell
-       Hofbräu Oktoberfestbier - Hofer Bräu Hell
-       Hofbräu Münchner Weisse - Hofer Bräu Hell
-       Hofbräu Original - Hofer Bräu Hell
-       Hofbräu Schwarze Weisse - Hofer Bräu Hell
-
 feil- finner ikke manuelt
    Rosita Artesanal de Tarragona - Rosita Bomba
       Pivovar Jihlava Grand Imperial Pils - Jezek Grand Pilsner (??)
@@ -298,7 +292,6 @@ feil - bottle / cask / keg
       St. Austell Proper Job IPA - St. Austell Proper Cool IPA (RETT: St. Austell Proper Job (Bottle) )
        Shepherd Neame India Pale Ale - Shepherd Neame East India Pale Ale (RETT: Shepherd Neame India Pale Ale (Bottle))
 
-       
        Shepherd Neame Double Stout - Shepherd Neame Double Stout (Cask) (RETT: Shepherd Neame Double Stout (5.2% - Bottle) )
        Big Ben Brown Ale - Thwaites Big Ben (Cask) (RETT: Thwaites Big Ben (Pasteurized) (2013 - ) )
 
