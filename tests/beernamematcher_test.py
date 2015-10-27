@@ -225,7 +225,7 @@ class BeerNameMatcherTest(unittest.TestCase):
     def test_cask_pasteurized(self):
         beer_list = [
             {'name': u'Thwaites Big Ben (Cask)'},
-           # {'name': u'Thwaites Big Ben (Pasteurised) (up to 2013)'},
+            # {'name': u'Thwaites Big Ben (Pasteurised) (up to 2013)'},
             {'name': u'Thwaites Big Ben (Pasteurized)'},
         ]
 
@@ -233,3 +233,65 @@ class BeerNameMatcherTest(unittest.TestCase):
 
         matched = matcher.match_name(u'Big Ben Brown Ale')
         self.assertEqual(u'Thwaites Big Ben (Pasteurized)', matched['name'])
+
+    def test_by_the_horns(self):
+        beer_list = [
+            {'name': u'By The Horns Lambeth Walk (Vanilla Whiskey Special)'},
+            {'name': u'By The Horns Lambeth Walk'},
+        ]
+        matcher = BeerNameMatcher(u'By The Horns', beer_list)
+        matched = matcher.match_name(u'By The Horns Lambeth Walk London Porter')
+        self.assertEqual(u'By The Horns Lambeth Walk', matched['name'])
+
+    def test_harviestoun(self):
+        beer_list = [
+            {'name': u'Harviestoun Old Engine Oil Special Reserve (10.5 %)'},
+            {'name': u'Harviestoun Old Engine Oil (Bottle)'},
+        ]
+        matcher = BeerNameMatcher(u'Harviestoun', beer_list)
+        matched = matcher.match_name(u'Harviestoun Brewery Old Engine Oil Porter')
+        self.assertEqual(u'Harviestoun Old Engine Oil (Bottle)', matched['name'])
+
+    def test_nora(self):
+        beer_list = [
+            {'name': u'Baladin Nora Sour Edition'},
+            {'name': u'Baladin Nora'},
+        ]
+        matcher = BeerNameMatcher(u'Le Baladin', beer_list)
+        matched = matcher.match_name(u'Baladin Nora 75 cl')
+        self.assertEqual(u'Baladin Nora', matched['name'])
+
+    def test_percentage(self):
+        beer_list = [
+            {'name': u'BrewDog Punk Pale Ale'},
+            {'name': u'BrewDog Punk IPA (5.6%)'},
+        ]
+        matcher = BeerNameMatcher(u'BrewDog', beer_list)
+        matched = matcher.match_name(u'BrewDog Punk IPA')
+        self.assertEqual(u'BrewDog Punk IPA (5.6%)', matched['name'])
+
+    def test_year(self):
+        beer_list = [
+            {'name': u'Thwaites Big Ben (Cask)'},
+            {'name': u'Thwaites Big Ben (Pasteurized) (2013 - )'},
+        ]
+        matcher = BeerNameMatcher(u'Thwaites', beer_list)
+        matched = matcher.match_name(u'Big Ben Brown Ale')
+        self.assertEqual(u'Thwaites Big Ben (Pasteurized) (2013 - )', matched['name'])
+
+    def test_proper_job(self):
+        beer_list = [
+            {'name': u'St. Austell Proper Cool IPA'},
+            {'name': u'St. Austell Proper Job (Bottle)'},
+        ]
+        matcher = BeerNameMatcher(u'St. Austell', beer_list)
+        matched = matcher.match_name(u'St. Austell Proper Job IPA')
+        self.assertEqual(u'St. Austell Proper Job (Bottle)', matched['name'])
+
+    def test_fullers(self):
+        beer_list = [
+            {'name': u'Fuller’s London Porter (Bottle/Keg)'}
+        ]
+        matcher = BeerNameMatcher(u'Fuller’s', beer_list)
+        matched = matcher.match_name(u'Fuller\'s London Porter')
+        self.assertEqual(u'Fuller’s London Porter (Bottle/Keg)', matched['name'])

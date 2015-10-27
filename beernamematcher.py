@@ -35,10 +35,16 @@ BEER_TYPES = [
     u'Saison',
     u'Witbier',
     u'Wit',
+    u'Premium Lager',
     u'Lager',
     u'Cream Stout',
     u'Trappistes',
     u'Trappist',
+    u'London Porter',
+    u'Porter',
+    u'Unfiltered',
+    u'Hefe-Weizen',
+    u'Økologisk',
 ]
 
 BEER_TYPES = [x.lower() for x in BEER_TYPES]
@@ -59,6 +65,11 @@ PACKAGE_TYPES = [
     u' (filtered)',
 ]
 
+COMMON_WORDS = [
+    u'Brewers Reserve',
+    u'Bier',
+]
+
 
 def lower_strip(name):
     name = unicode(name.lower().strip())
@@ -68,7 +79,7 @@ def lower_strip(name):
             name_fixed.append(u'&')
         else:
             name_fixed.append(word)
-    return ' '.join(name_fixed)
+    return ' '.join(name_fixed).replace('\'', u'’').replace('\'', u'`')
 
 
 def remove_punctuation2(name):
@@ -77,8 +88,15 @@ def remove_punctuation2(name):
 
 def remove_type(name):
     for beer_type in BEER_TYPES:
-        if beer_type in name:
-            name = name.replace(beer_type, '')
+        if beer_type.lower() in name.lower():
+            name = re.sub('(?i)' + re.escape(beer_type), '', name)
+    return name.strip()
+
+
+def remove_common(name):
+    for word in COMMON_WORDS:
+        if word.lower() in name.lower():
+            name = re.sub('(?i)' + re.escape(word), '', name)
     return name.strip()
 
 
@@ -99,6 +117,18 @@ def remove_packaging(name):
         if packaging in name:
             name = name.replace(packaging, '')
     return name
+
+
+def remove_size(name):
+    return re.sub(r'(\d{1,4} cl)', '', name).strip()
+
+
+def remove_abv(name):
+    return re.sub(r'(\(\d+(\.\d{1,2})?\s*%\))', '', name).strip()
+
+
+def remove_year(name):
+    return re.sub(r'(\(\d{4}\s*-\s*(\d{4})?\))', '', name).strip()
 
 
 def find_bottle_version(beers):
@@ -148,10 +178,12 @@ class BeerNameMatcher(object):
             brewery_name = self.brewery_name.lower()
             for part in brewery_name.split(' '):
                 beer_name = beer_name.replace(part, ' ')
-            return beer_name
+            return beer_name.strip()
 
-        operations = [lower_strip, remove_brewery_name, remove_brewery_name_parts,
-                      remove_packaging, remove_punctuation2, remove_type]
+        operations = [lower_strip, remove_brewery_name,
+                      remove_brewery_name_parts, remove_packaging,
+                      remove_size, remove_abv, remove_year,
+                      remove_punctuation2, remove_common, remove_type]
 
         for operation in operations:
             match, name = self._check_match(name, operation)
@@ -165,7 +197,7 @@ class BeerNameMatcher(object):
         return None
 
     def _check_match(self, name1, operation):
-        # print operation.__name__
+        #print operation.__name__
         name1 = operation(name1)
 
         with_dist = [self._get_distance(name1, beer.get_operation(operation), beer)
@@ -182,7 +214,12 @@ class BeerNameMatcher(object):
             highest = find_bottle_version(highest)
 
         match = None
-        if highest['dist'] > 0.9:
+
+        threshold = 0.9
+        if operation.__name__ == 'lower_strip':
+            threshold = 0.95
+
+        if highest['dist'] > threshold:
             match = highest['beer'].beer
         return match, name1
 
@@ -232,7 +269,7 @@ class BeerNameMatcher(object):
 
     def _get_distance(self, name1, name2, beer):
         dist = Levenshtein.ratio(unicode(name1), unicode(name2))
-       # print '%s | %s (%s)' % (name1, name2, dist)
+        # print '%s | %s (%s)' % (name1, name2, dist)
         return {
             'beer': beer,
             'dist': dist
