@@ -64,7 +64,7 @@ def compare_beers(pol_data, rb_beers, breweries_rb):
         rb_brewery = find_in_list(breweries_rb, 'id', key)['name']
         rb_beers_for_brewery = findall_in_list(rb_beers, 'brewery_id', key)
 
-        beer_matcher = BeerNameMatcher(rb_brewery, rb_beers_for_brewery)
+        beer_matcher = BeerNameMatcher(rb_brewery, rb_beers_for_brewery, abv_over=4.7)
         for pol_brewery in value:
             pol_beers = findall_in_list(pol_data, 'Produsent', pol_brewery)
             for pol_beer in pol_beers:

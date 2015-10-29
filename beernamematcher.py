@@ -95,16 +95,23 @@ COMMON_WORDS2 = [
     u'Single Hopped',
     u'originalen',
     u'unfiltered',
+    u'brewing',
+    u'Brasserie',
 ]
 
 DUPLICATES = {
     'red': ['rouge'],
-    'unfiltered': ['non filtrata']
+    'unfiltered': ['non filtrata'],
+    'lager': ['lager / pilsner']
 }
 
 
+def remove_multiple_spaces(s):
+    return ' '.join(s.split())
+
+
 def remove_from_str(s, remove):
-    return s.replace(remove, '').strip()
+    return remove_multiple_spaces(s.replace(remove, '').strip())
 
 
 def remove_from_str_parts(s, remove):
@@ -160,7 +167,7 @@ def remove_words(s, words):
     for word in words:
         if word.lower() in s.lower():
             s = re.sub('(?i)' + re.escape(word), '', s)
-    return s.strip()
+    return remove_multiple_spaces(s.strip())
 
 
 def remove_type2(name):
@@ -175,9 +182,18 @@ def remove_punctuation3(name):
     return strip_punctuation(name).replace('(', '').replace(')', '').replace('/', '').strip()
 
 
-def unique_list(l):
+def remove_single_year(name):
+    return re.sub(r'(19|20)\d{2}', '', name).strip()
+
+
+def unique_list(l, l2):
     ulist = []
-    [ulist.append(x) for x in l if x not in ulist]
+    for x in l:
+        if x in ulist:
+            if x not in l2:
+                ulist.append(x)
+        else:
+            ulist.append(x)
     return ulist
 
 
@@ -189,7 +205,7 @@ def remove_duplicates(name):
             p = re.compile(regex)
             name = p.sub(word, name)
     name = name.strip().split()
-    return ' '.join(unique_list(name))
+    return ' '.join(unique_list(name, DUPLICATES.keys()))
 
 
 def shift_range(value):
@@ -220,7 +236,8 @@ def ratio(s1, s2, brewery_name):
         {'func': remove_size2, 'threshold': 0.95},
         {'func': remove_punctuation3, 'threshold': 0.95},
         {'func': remove_common2, 'threshold': 0.95, 'restore': False},
-        {'func': remove_type2, 'threshold': 0.7},
+        {'func': remove_type2, 'threshold': 0.8},
+        {'func': remove_single_year, 'threshold': 0.95}
     ]
     length = len(operations)
     for index, operation in enumerate(operations):
@@ -367,12 +384,29 @@ def filter_packaging(beer_list):
     return res
 
 
+def filter_abv_above(beer_list, abv):
+
+    p = re.compile('\((\d{1,2}\.\d{1,2})?\s*%\)')
+    res = []
+    for beer in beer_list:
+        m = p.search(beer['name'])
+        if m:
+            if float(m.groups()[0]) > abv:
+                res.append(beer)
+        else:
+            res.append(beer)
+    return res
+
+
 class BeerNameMatcher(object):
 
-    def __init__(self, brewery_name, beer_list):
+    def __init__(self, brewery_name, beer_list, abv_over=None):
         self.brewery_name = unicode(brewery_name)
         self.beer_list = self._prepare(beer_list)
         self.blist = filter_packaging(beer_list)
+        if abv_over:
+            self.blist = filter_abv_above(self.blist, abv_over)
+
 
     def match_name(self, name):
 
@@ -383,7 +417,8 @@ class BeerNameMatcher(object):
             if r and r > max_ratio:
                 max_ratio = r
                 hit = beer
-        if hit:
+        # print max_ratio
+        if hit and max_ratio >= 80.0:
             return hit
 
 
