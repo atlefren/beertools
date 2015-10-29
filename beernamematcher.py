@@ -51,7 +51,6 @@ BEER_TYPES = [
     u'Imperial Porter',
     u'London Porter',
     u'Porter',
-    u'Unfiltered',
     u'Hefe-Weizen',
     u'Hefeweizen',
     u'Økologisk',
@@ -79,6 +78,7 @@ WANTED_PACKAGE_TYPES = [
     u' (bottle)',
     u' (bottle/keg)',
     u' (bottle / keg)',
+    u' (bottle/can)',
     u' (cask & bottle conditioned)',
     u' (pasteurized)',
     u' (pasteurised)'
@@ -88,23 +88,20 @@ UNWANTED_PACKAGE_TYPES = [
     u' (cask)'
 ]
 
-COMMON_WORDS = [
-    u'Brewers Reserve',
-    u'Bier',
-]
-
 COMMON_WORDS2 = [
     u'Brewers Reserve',
     u'Brewery',
     u'Barrel-Aged',
     u'Single Hopped',
     u'originalen',
-    u'ale'
+    u'unfiltered',
 ]
 
 DUPLICATES = {
-    'red': ['rouge']
+    'red': ['rouge'],
+    'unfiltered': ['non filtrata']
 }
+
 
 def remove_from_str(s, remove):
     return s.replace(remove, '').strip()
@@ -121,7 +118,8 @@ def remove_from_str_parts(s, remove):
 
 
 def lower_strip2(s):
-    return s.lower().strip()
+    s = s.lower().strip()
+    return ' '.join(s.split())
 
 
 def fix_typography(name):
@@ -140,7 +138,8 @@ def remove_size2(name):
 
 
 def remove_abv2(name):
-    return re.sub(r'(\(\d+(\.\d{1,2})?\s*%\))', '', name).strip()
+    name = re.sub(r'(\(\d+(\.\d{1,2})?\s*%\))', '', name).strip()
+    return re.sub(r'(\d{1,4}\s*%)', '', name).strip()
 
 
 def remove_year2(name):
@@ -183,13 +182,18 @@ def unique_list(l):
 
 
 def remove_duplicates(name):
-    res = []
-    for word in name.split(' '):
-        for key, value in DUPLICATES.iteritems():
-            if word in value:
-                word = key
-        res.append(word)
-    return ' '.join(unique_list(res))
+    name = ' %s ' % name
+    for word, duplicates in DUPLICATES.iteritems():
+        for duplicate in duplicates:
+            regex = '(?<![a-z])(%s)(?![a-z])' % duplicate
+            p = re.compile(regex)
+            name = p.sub(word, name)
+    name = name.strip().split()
+    return ' '.join(unique_list(name))
+
+
+def shift_range(value):
+    return (((value - 0.0) * (100.0 - 90.0)) / (100.0 - 0.0)) + 90.0
 
 
 def ratio(s1, s2, brewery_name):
@@ -204,32 +208,43 @@ def ratio(s1, s2, brewery_name):
         return remove_from_str_parts(name, brewery_name)
 
     operations = [
-        {'func': lower_strip2, 'threshold': 0.95, 'punishment': 1},
-        {'func': fix_typography, 'threshold': 0.95, 'punishment': 1},
-        {'func': remove_brewery, 'threshold': 0.95, 'punishment': 1},
-        {'func': remove_brewery_parts, 'threshold': 0.95, 'punishment': 0.7},
-        {'func': remove_packaging2, 'threshold': 0.95, 'punishment': 0.95},
-        {'func': fix_and_words, 'threshold': 0.95, 'punishment': 0.95},
-        {'func': remove_abv2, 'threshold': 0.95, 'punishment': 0.95},
-        {'func': remove_year2, 'threshold': 0.95, 'punishment': 0.95},
-        {'func': remove_size2, 'threshold': 0.95, 'punishment': 0.95},
-        {'func': remove_type2, 'threshold': 0.7, 'punishment': 0.7},
-        {'func': remove_common2, 'threshold': 0.95, 'punishment': 0.95},
-        {'func': remove_punctuation3, 'threshold': 0.95, 'punishment': 0.95},
-        {'func': remove_duplicates, 'threshold': 0.95, 'punishment': 0.95},
-        
+        {'func': lower_strip2, 'threshold': 0.95},
+        {'func': fix_typography, 'threshold': 0.95},
+        {'func': remove_brewery, 'threshold': 0.95},
+        {'func': remove_brewery_parts, 'threshold': 0.95},
+        {'func': remove_packaging2, 'threshold': 0.95},
+        {'func': fix_and_words, 'threshold': 0.95},
+        {'func': remove_duplicates, 'threshold': 0.95},
+        {'func': remove_abv2, 'threshold': 0.95},
+        {'func': remove_year2, 'threshold': 0.95},
+        {'func': remove_size2, 'threshold': 0.95},
+        {'func': remove_punctuation3, 'threshold': 0.95},
+        {'func': remove_common2, 'threshold': 0.95, 'restore': False},
+        {'func': remove_type2, 'threshold': 0.7},
     ]
+    length = len(operations)
+    for index, operation in enumerate(operations):
+        restore = operation.get('restore', False)
 
-    for operation in operations:
-        s1 = operation['func'](s1)
-        s2 = operation['func'](s2)
-        dist = Levenshtein.ratio(unicode(s1), unicode(s2)) * operation['punishment']
+        s1_tmp = operation['func'](s1)
+        s2_tmp = operation['func'](s2)
+
+        c = shift_range(float(length - index) / float(length) * float(100)) / 100.0
+        dist = Levenshtein.ratio(unicode(s1_tmp), unicode(s2_tmp)) * c
+
+        if s1_tmp == '' and s2_tmp == '':
+            dist = 0.0
 
         # print operation['func'].__name__
-        # print '%s | %s (%s)' % (s1, s2, dist)
+        # print '%s | %s (%s)' % (s1_tmp, s2_tmp, dist)
 
-        if dist >= operation['threshold']:
+        if dist >= operation['threshold'] * c:
             return dist * 100.0
+        if not restore:
+            s1 = s1_tmp
+            s2 = s2_tmp
+
+
 
 '''
     if s1 == s2:
@@ -270,6 +285,11 @@ def remove_type(name):
             name = re.sub('(?i)' + re.escape(beer_type), '', name)
     return name.strip()
 
+COMMON_WORDS = [
+    u'Brewers Reserve',
+    u'Bier',
+    u'unfiltered',
+]
 
 def remove_common(name):
     for word in COMMON_WORDS:

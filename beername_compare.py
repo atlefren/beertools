@@ -59,6 +59,7 @@ def compare_beers(pol_data, rb_beers, breweries_rb):
             grouped[match['id']].append(brewery_pol)
 
     errors = []
+    nomatches = []
     for key, value in grouped.iteritems():
         rb_brewery = find_in_list(breweries_rb, 'id', key)['name']
         rb_beers_for_brewery = findall_in_list(rb_beers, 'brewery_id', key)
@@ -73,13 +74,20 @@ def compare_beers(pol_data, rb_beers, breweries_rb):
                 nameline = None
 
                 if beer_match is None:
-                    nameline = '%s - %s :: %s - N/A' % (pol_brewery, pol_beer_name, rb_brewery)
+                    nameline = '%s - %s' % (pol_brewery, pol_beer_name)
+                    nomatches.append(nameline)
                 else:
                     nameline = '%s - %s :: %s - %s' % (pol_brewery, pol_beer_name, rb_brewery, beer_match['name'])
-                if nameline not in fasit:
-                    errors.append(nameline)
+                    if nameline not in fasit:
+                        errors.append(nameline)
+    
     print '%s errors' % len(errors)
+    print '%s nomatch' % len(nomatches)
     with codecs.open('data/beer_errors.txt', 'w', 'utf-8') as err_file:
+        err_file.write('NO MATCH\n\n')
+        for error in nomatches:
+            err_file.write('%s\n' % error)
+        err_file.write('\n\nERR\n\n')
         for error in errors:
             err_file.write('%s\n' % error)
 
@@ -102,9 +110,7 @@ def compare_beers(pol_data, rb_beers, breweries_rb):
                         nomatch.write(string.encode('utf8') + '\n')
 '''
 if __name__ == '__main__':
-
     pol_data = read_json('data/polet.json')
     rb_beers = read_json('data/rb_beers.json')
     rb_breweries = read_json('data/rb_breweries.json')
-
     compare_beers(pol_data, rb_beers, rb_breweries)

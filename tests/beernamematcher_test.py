@@ -151,20 +151,30 @@ class BeerNameMatcherTest(unittest.TestCase):
     def test_chimay(self):
         beer_list = [
             {'name': u'Chimay (Red / Rouge / Ale / Première)'},
-           # {'name': u'Chimay 150 / Spéciale Cent Cinquante'},
-           # {'name': u'Chimay Bleue (Blue) / Grande Réserve'},
-           # {'name': u'Chimay Dorée / Spéciale du Potaupré '},
-           # {'name': u'Chimay Triple / Blanche (White) / Cinq Cents'}
+            # {'name': u'Chimay 150 / Spéciale Cent Cinquante'},
+            # {'name': u'Chimay Bleue (Blue) / Grande Réserve'},
+            # {'name': u'Chimay Dorée / Spéciale du Potaupré '},
+            # {'name': u'Chimay Triple / Blanche (White) / Cinq Cents'}
         ]
         matcher = BeerNameMatcher('Chimay', beer_list)
 
         matched1 = matcher.match_name(u'Chimay Trappist Red Première')
         self.assertEqual(u'Chimay (Red / Rouge / Ale / Première)', matched1['name'])
 
+    @unittest.skip("")
+    def test_chimay2(self):
+        beer_list = [
+            {'name': u'Chimay (Red / Rouge / Ale / Première)'},
+            {'name': u'Chimay 150 / Spéciale Cent Cinquante'},
+            {'name': u'Chimay Bleue (Blue) / Grande Réserve'},
+            {'name': u'Chimay Dorée / Spéciale du Potaupré '},
+            {'name': u'Chimay Triple / Blanche (White) / Cinq Cents'}
+        ]
+        matcher = BeerNameMatcher('Chimay', beer_list)
+
         matched3 = matcher.match_name(u'Chimay Trappist Red')
         self.assertEqual(u'Chimay (Red / Rouge / Ale / Première)', matched3['name'])
 
-        '''
         matched2 = matcher.match_name(u'Chimay Trappist Cinq Cents')
         self.assertEqual(u'Chimay Triple / Blanche (White) / Cinq Cents', matched2['name'])
 
@@ -173,7 +183,6 @@ class BeerNameMatcherTest(unittest.TestCase):
 
         matched5 = matcher.match_name(u'Chimay Trappist Blue 2014')
         self.assertEqual(u'Chimay Bleue (Blue) / Grande Réserve', matched5['name'])
-        '''
 
     def test_lokkatrollet(self):
         matcher = BeerNameMatcher(u'Grünerløkka Brygghus', [{'name': u'Grünerløkka Løkkatrollet'}])
@@ -299,3 +308,30 @@ class BeerNameMatcherTest(unittest.TestCase):
         matcher = BeerNameMatcher(u'Harviestoun', beer_list)
         matched = matcher.match_name(u'Harviestoun Brewery Old Engine Oil Porter')
         self.assertEqual(u'Harviestoun Old Engine Oil (Bottle)', matched['name'])
+
+    def test_emelisse(self):
+        beer_list = [
+            {'name': u'Emelisse American Pale Ale'},
+            {'name': u'Emelisse Double IPA        9%'},
+        ]
+        matcher = BeerNameMatcher(u'Brouwerij Emelisse', beer_list)
+        matched = matcher.match_name(u'Emelisse Double IPA')
+        self.assertEqual(u'Emelisse Double IPA        9%', matched['name'])
+
+    def test_unfiltered_synonym(self):
+        beer_list = [
+            {'name': u'Theresianer Premium Pils'},
+            {'name': u'Theresianer Premium Pils Non Filtrata'},
+        ]
+        matcher = BeerNameMatcher(u'Theresianer Antica Birreria di Trieste', beer_list)
+        matched = matcher.match_name(u'Theresianer Premium Pils Unfiltered')
+        self.assertEqual(u'Theresianer Premium Pils Non Filtrata', matched['name'])
+
+    def test_unfiltered(self):
+        beer_list = [
+            {'name': u'Theresianer India Pale Ale'},
+            {'name': u'Theresianer Wit'},
+        ]
+        matcher = BeerNameMatcher(u'Theresianer Antica Birreria di Trieste', beer_list)
+        matched = matcher.match_name(u'Theresianer Wit Unfiltered')
+        self.assertEqual(u'Theresianer Wit', matched['name'])

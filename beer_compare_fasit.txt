@@ -287,7 +287,7 @@ Brouwerij Verhaeghe - Verhaeghe Barbe Ruby :: Verhaeghe - Verhaeghe Barbe Ruby
 Brouwerij Verhaeghe - Duchesse de Bourgogne :: Verhaeghe - Verhaeghe Duchesse De Bourgogne
 Brouwerij Verhaeghe - Duchesse de Bourgogne :: Verhaeghe - Verhaeghe Duchesse De Bourgogne
 NiuBru S.R.L. - Brewfist - Brewfist Heimdall Galaxie Saison :: Brewfist - Brewfist / Freigeist Heimdall
-NiuBru S.R.L. - Brewfist - Brewfist Spaceman Indian Pale Ale :: Brewfist - Brewfist Grapefruit Spaceman
+NiuBru S.R.L. - Brewfist - Brewfist Spaceman Indian Pale Ale :: Brewfist - Brewfist Spaceman
 Indslev Bryggeri - Ghost Brewery / Ugly Duck Brewing West Coast IPA :: Indslev Bryggeri - Ugly Duck/Ghost West Coast IPA
 Indslev Bryggeri - Svane Hvede :: Indslev Bryggeri - Indslev Svane Hvede
 Ugly Duck Brewing Co. - Ugly Duck IPA Simcoe & Chinook :: Indslev Bryggeri - Ugly Duck Simcoe & Chinook IPA
@@ -342,7 +342,7 @@ Herslev Bryghus - Herslev Bryghus Økologisk India Pale Ale :: Herslev Bryghus -
 Herslev Bryghus - Herslev Bryghus Økologisk Hvede :: Herslev Bryghus - Herslev Økologisk Hvedeøl
 Herslev Bryghus - Herslev Pilsner :: Herslev Bryghus - Herslev Pilsner
 Herslev Bryghus - Herslev Bryghus Pale Ale :: Herslev Bryghus - Herslev Økologisk Pale Ale
-Belhaven Brewery - Belhaven Twisted Thistle IPA :: Belhaven (Greene King) - Belhaven Twisted Thistle IPA (Europe) (Bottle)
+Belhaven Brewery - Belhaven Twisted Thistle IPA :: Belhaven (Greene King) - Belhaven Twisted Thistle IPA (5.6%)
 Einstök Brewery - Einstök Icelandic White Ale :: Einstök Ölgerð - Einstök Icelandic White Ale
 Einstök Brewery - Einstök Icelandic Toasted Porter :: Einstök Ölgerð - Einstök Icelandic Toasted Porter
 Einstök Brewery - Einstök Icelandic Pale Ale :: Einstök Ölgerð - Einstök Icelandic Pale Ale
@@ -362,7 +362,7 @@ Orkney Brewery - Orkney Dark Island Reserve Ale Limited Edition :: Orkney (Sincl
 Orkney Brewery - Orkney Dark Island Reserve Ale Limited Edition :: Orkney (Sinclair Breweries) - Orkney Dark Island (Bottle)
 Orkney Brewery - Orkney Skull Splitter Rich Ale :: Orkney (Sinclair Breweries) - Orkney Skull Splitter (Bottle)
 Greenbrew - Greenbrew Monsieur Rock :: Greenbrew SPRL - Monsieur Rock
-Shepherd Neame - Shepherd Neame India Pale Ale :: Shepherd Neame - Shepherd Neame East India Pale Ale
+Shepherd Neame - Shepherd Neame India Pale Ale :: Shepherd Neame - Shepherd Neame India Pale Ale (Bottle)
 Shepherd Neame - Shepherd Neame Double Stout :: Shepherd Neame - Shepherd Neame Double Stout (5.2% - Bottle)
 Shepherd Neame - Shepherd Neame Bishops Finger :: Shepherd Neame - Shepherd Neame Bishops Finger (Pasteurised)
 Brouwerij Rodenbach - Rodenbach Grand Cru :: Brouwerij Rodenbach (Palm) - Rodenbach Grand Cru
@@ -555,7 +555,7 @@ The Redchurch Brewery - Redchurch Great Eastern India Pale Ale :: Redchurch - Re
 The Redchurch Brewery - Redchurch Bethnal Pale Ale :: Redchurch - Redchurch Bethnal Pale Ale
 The Redchurch Brewery - Redchurch Hoxton Stout :: Redchurch - Redchurch Hoxton Stout
 Köstritzer Schwarzbierbrauerei - Köstritzer Schwarzbier :: Köstritzer Schwarzbierbrauerei (Bitburger) - Köstritzer Schwarzbier
-White Pony Microbrewery - White Pony Zumbi Imperial Porter Ale :: White Pony Microbirrificio - White Pony Zumbi BA Brandy
+White Pony Microbrewery - White Pony Zumbi Imperial Porter Ale :: White Pony Microbirrificio - White Pony Zumbi
 White Pony Microbrewery - White Pony Black Sheep Imperial Stout :: White Pony Microbirrificio - White Pony Black Sheep Imperial Stout
 White Pony Microbrewery - White Pony Ride This Pony :: White Pony Microbirrificio - White Pony Ride This Pony (BA blend)
 Heineken Ceska Republika - Krusovice :: Královský pivovar Krušovice (Heineken) - Krušovice Imperial 12°
