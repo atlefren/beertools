@@ -53,8 +53,11 @@ BEER_TYPES = [
     u'Imperial Porter',
     u'London Porter',
     u'Porter',
-    u'Hefe-Weizen',
+    u'Dunkles Weizen',
+    u'Hefe Weizen',
     u'Hefeweizen',
+    u'Weizenbock',
+    u'Winterbier',
     u'Wheat Beer',
     u'Pilsner',
     u'Pils',
@@ -112,7 +115,8 @@ DUPLICATES = {
     'unfiltered': ['non filtrata'],
     'lager': ['lager / pilsner'],
     'extra': ['ekstra'],
-    'brown': ['brune', 'bruin']
+    'brown': ['brune', 'bruin'],
+    'dunkel': ['dark']
 }
 
 
@@ -237,6 +241,11 @@ def remove_collab(name):
     return name
 
 
+def remove_in_parentesis(name):
+    p = re.compile(r'(\(.*?\))')
+    return p.sub('', name)
+
+
 def is_substring_of(s1, s2):
     return s1 in s2
 
@@ -272,6 +281,7 @@ def ratio(s1, s2, brewery_name):
         {'func': remove_abv2, 'threshold': 0.95},
         {'func': remove_year2, 'threshold': 0.95},
         {'func': remove_size2, 'threshold': 0.95},
+        {'func': remove_in_parentesis, 'threshold': 0.95, 'restore': True},
         {'func': remove_punctuation3, 'threshold': 0.95},
         {'func': sort_words, 'threshold': 0.95, 'restore': True},
         {'func': remove_common2, 'threshold': 0.95},

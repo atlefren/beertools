@@ -467,3 +467,27 @@ class BeerNameMatcherTest(unittest.TestCase):
         matcher = BeerNameMatcher(u'Herslev Bryghus', beer_list, abv_over=4.7)
         matched = matcher.match_name(u'Herslev Bryghus Pale Ale')
         self.assertEqual(u'Herslev Økologisk Pale Ale', matched['name'])
+
+    def test_hefeweizen(self):
+        beer_list = [
+            {'name': u'Erdinger Weissbier (Hefe-Weizen)'},
+        ]
+        matcher = BeerNameMatcher(u'Erdinger Weissbräu', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Erdinger Weissbier')
+        self.assertEqual(u'Erdinger Weissbier (Hefe-Weizen)', matched['name'])
+
+    def test_dunkel_dark(self):
+        beer_list = [
+            {'name': u'Erdinger Weissbier Hefe-Weizen Dark'},
+        ]
+        matcher = BeerNameMatcher(u'Erdinger Weissbräu', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Erdinger Weissbier Dunkel')
+        self.assertEqual(u'Erdinger Weissbier Hefe-Weizen Dark', matched['name'])
+
+    def test_parentesis(self):
+        beer_list = [
+            {'name': u'Nøgne Ø Lemongrass (Aku Aku Lemongrass Ale)'},
+        ]
+        matcher = BeerNameMatcher(u'Nøgne Ø (Hansa Borg)', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Nøgne Ø Lemongrass')
+        self.assertEqual(u'Nøgne Ø Lemongrass (Aku Aku Lemongrass Ale)', matched['name'])
