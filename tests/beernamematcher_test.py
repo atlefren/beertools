@@ -381,3 +381,89 @@ class BeerNameMatcherTest(unittest.TestCase):
         matcher = BeerNameMatcher(u'Le Baladin', beer_list, abv_over=4.7)
         matched = matcher.match_name(u'Baladin Nazionale 2012')
         self.assertEqual(u'Baladin NazionAle', matched['name'])
+
+    def test_collab(self):
+        beer_list = [
+            {'name': u'Nøgne Ø / Terrapin Imperial Rye Porter'},
+        ]
+        matcher = BeerNameMatcher(u'Nøgne Ø (Hansa Borg)', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Nøgne Ø Imperial Rye Porter')
+        self.assertEqual(u'Nøgne Ø / Terrapin Imperial Rye Porter', matched['name'])
+
+    def test_collab_nospace(self):
+        beer_list = [
+            {'name': u'Amundsen / Garage Project Born Slippy'},
+        ]
+        matcher = BeerNameMatcher(u'Amundsen Bryggeri & Spiseri', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Garage Project/Amundsen Bryggeri Born Slippy Wheat Beer')
+        self.assertEqual(u'Amundsen / Garage Project Born Slippy', matched['name'])
+
+    def test_single_hop(self):
+        beer_list = [
+            {'name': u'Amundsen One Hop Wonder - Total Eclipse of the hop'},
+        ]
+        matcher = BeerNameMatcher(u'Amundsen Bryggeri & Spiseri', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Amundsen Total Eclipse of the Hop - Single Hop IPA')
+        self.assertEqual(u'Amundsen One Hop Wonder - Total Eclipse of the hop', matched['name'])
+
+    def test_hansa_ipa(self):
+        beer_list = [
+            {'name': u'Hansa Spesial Porter'},
+            {'name': u'Hansa Spesial IPA Extra'},
+        ]
+        matcher = BeerNameMatcher(u'Hansa Borg Bryggerier', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Hansa IPA Ekstra Spesial')
+        self.assertEqual(u'Hansa Spesial IPA Extra', matched['name'])
+
+    def test_cask_vs_filtered(self):
+        beer_list = [
+            {'name': u'Morland Old Speckled Hen (Cask)'},
+            {'name': u'Morland Old Speckled Hen (Cask - 5.2%)'},
+            {'name': u'Morland Old Speckled Hen (Filtered)'},
+        ]
+        matcher = BeerNameMatcher(u'Greene King', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Old Speckled Hen')
+        self.assertEqual(u'Morland Old Speckled Hen (Filtered)', matched['name'])
+
+    def test_special_blend(self):
+        beer_list = [
+            {'name': u'Lindemans Oude Gueuze Cuvée René Special Blend 2010'},
+            {'name': u'Lindemans Gueuze Cuvée René'},
+        ]
+        matcher = BeerNameMatcher(u'Brouwerij Lindemans', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Lindemans Oude Gueuze Cuvée René')
+        self.assertEqual(u'Lindemans Gueuze Cuvée René', matched['name'])
+
+    def test_brown_bruin(self):
+        beer_list = [
+            {'name': u'Maredsous 6 Blond'},
+            {'name': u'Maredsous 8 Brune/Bruin'},
+        ]
+        matcher = BeerNameMatcher(u'Duvel Moortgat', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Maredsous Brown')
+        self.assertEqual(u'Maredsous 8 Brune/Bruin', matched['name'])
+
+    def test_abv_and_cask2(self):
+        beer_list = [
+            {'name': u'Shepherd Neame Double Stout (5.2% - Bottle)'},
+            {'name': u'Shepherd Neame Double Stout (5.2% - Cask)'},
+        ]
+        matcher = BeerNameMatcher(u'Shepherd Neame', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Shepherd Neame Double Stout')
+        self.assertEqual(u'Shepherd Neame Double Stout (5.2% - Bottle)', matched['name'])
+
+    def test_bitburger(self):
+        beer_list = [
+            {'name': u'Bitburger Premium Pils'},
+        ]
+        matcher = BeerNameMatcher(u'Bitburger Brauerei Th. Simon', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Bitburger Premium')
+        self.assertEqual(u'Bitburger Premium Pils', matched['name'])
+
+    def test_okologisk(self):
+        beer_list = [
+            {'name': u'Herslev Økologisk Pale Ale'},
+        ]
+        matcher = BeerNameMatcher(u'Herslev Bryghus', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Herslev Bryghus Pale Ale')
+        self.assertEqual(u'Herslev Økologisk Pale Ale', matched['name'])

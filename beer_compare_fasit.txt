@@ -37,7 +37,7 @@ Borg Bryggerier - Borg Bokkøl :: Hansa Borg Bryggerier - Borg Bokkøl
 Hansa Borg Bryggerier - Hansa Sterkøl :: Hansa Borg Bryggerier - Hansa Sterkøl
 Hansa Borg Bryggerier - Hansa IPA Ekstra Spesial :: Hansa Borg Bryggerier - Hansa Spesial IPA Extra
 Boulevard Brewing Co. - Boulevard Single-Wide IPA :: Boulevard Brewing Company  (Duvel-Moortgat) - Boulevard Single-Wide I.P.A.
-Boulevard Brewing Co. - Boulevard Tank 7 Farmhouse Ale Smokestack Series :: Boulevard Brewing Company  (Duvel-Moortgat) - Boulevard Smokestack Series - Tank 7 Farmhouse Ale 
+Boulevard Brewing Co. - Boulevard Tank 7 Farmhouse Ale Smokestack Series :: Boulevard Brewing Company  (Duvel-Moortgat) - Boulevard Smokestack Series - Tank 7 Farmhouse Ale
 Boulevard Brewing Co. - Boulevard Smokestack Series Imperial Stout :: Boulevard Brewing Company  (Duvel-Moortgat) - Boulevard Smokestack Series - Imperial Stout
 Boulevard Brewing Co. - Boulevard Smokestack Bourbon Barrel Quad :: Boulevard Brewing Company  (Duvel-Moortgat) - Boulevard Smokestack Series - Bourbon Barrel Quad
 Boulevard Brewing Co. - Boulevard Harvest Dance Wheat Wine :: Boulevard Brewing Company  (Duvel-Moortgat) - Boulevard Smokestack Series - Harvest Dance Wheat Wine
@@ -89,7 +89,7 @@ Mikkeller - Mikkeller 20 IPA :: Mikkeller - Mikkeller 20
 Mikkeller - Mikkeller I Wish Gluten Free IPA :: Mikkeller - Mikkeller I Wish Gluten Free IPA
 Mikkeller - Mikkeller Spontan Cherrry Frederiksdal :: Mikkeller - Mikkeller SpontanCherryFrederiksdal
 Mikkeller - Mikkeller Erik The Red :: Mikkeller - Mikkeller Erik The Red
-Mikkeller - Mikkeller Beer Geek Breakfast Bourbon :: Mikkeller - Mikkeller Beer Geek Breakfast 7.5% (Bourbon Edition) 
+Mikkeller - Mikkeller Beer Geek Breakfast Bourbon :: Mikkeller - Mikkeller Beer Geek Breakfast 7.5% (Bourbon Edition)
 Mikkeller - Mikkeller Beer Geek Dessert :: Mikkeller - Mikkeller Beer Geek Dessert
 Mikkeller\De Proef Brouwerij - Mikkeller It´s Alive :: Mikkeller - Mikkeller It’s Alive!
 Mikkeller\De Proef Brouwerij - Mikkeller Show Me Cuvee :: Mikkeller - Mikkeller Show Me Cuvée
@@ -337,7 +337,7 @@ Het Anker - Gouden Carolus Classic :: Brouwerij Het Anker - Gouden Carolus Class
 Het Anker - Gouden Carolus Classic :: Brouwerij Het Anker - Gouden Carolus Classic
 Herslev Bryghus - Herslev Bryghus Mark Fadlagret :: Herslev Bryghus - Herslev MARK Fadlagret
 Herslev Bryghus - Herslev Bryghus Økologisk Porter :: Herslev Bryghus - Herslev Økologisk Porter
-Herslev Bryghus - Herslev Bryghus India Dark Ale :: Herslev Bryghus - Herslev IPA
+Herslev Bryghus - Herslev Bryghus India Dark Ale :: Herslev Bryghus - Herslev Økologisk India Dark Ale (2012 - )
 Herslev Bryghus - Herslev Bryghus Økologisk India Pale Ale :: Herslev Bryghus - Herslev Økologisk IPA
 Herslev Bryghus - Herslev Bryghus Økologisk Hvede :: Herslev Bryghus - Herslev Økologisk Hvedeøl
 Herslev Bryghus - Herslev Pilsner :: Herslev Bryghus - Herslev Pilsner
@@ -358,8 +358,8 @@ Mohawk Brewing Comp. - Mohawk Cuvée Grand Cru :: Mohawk Brewing Company - Mohaw
 Mohawk Brewing Comp. - Mohawk Snowmelter Seasonal Imperial Stout :: Mohawk Brewing Company - Mohawk Snowmelter
 Mohawk Brewing Comp. - Mohawk Whiteout Seasonal Imperial Stout :: Mohawk Brewing Company - Mohawk Whiteout Imperial Stout
 Orkney Brewery - Orkney Red MacGregor :: Orkney (Sinclair Breweries) - Orkney Red MacGregor (Bottle)
-Orkney Brewery - Orkney Dark Island Reserve Ale Limited Edition :: Orkney (Sinclair Breweries) - Orkney Dark Island (Bottle)
-Orkney Brewery - Orkney Dark Island Reserve Ale Limited Edition :: Orkney (Sinclair Breweries) - Orkney Dark Island (Bottle)
+Orkney Brewery - Orkney Dark Island Reserve Ale Limited Edition :: Orkney (Sinclair Breweries) - Orkney Dark Island Reserve
+Orkney Brewery - Orkney Dark Island Reserve Ale Limited Edition :: Orkney (Sinclair Breweries) - Orkney Dark Island Reserve
 Orkney Brewery - Orkney Skull Splitter Rich Ale :: Orkney (Sinclair Breweries) - Orkney Skull Splitter (Bottle)
 Greenbrew - Greenbrew Monsieur Rock :: Greenbrew SPRL - Monsieur Rock
 Shepherd Neame - Shepherd Neame India Pale Ale :: Shepherd Neame - Shepherd Neame India Pale Ale (Bottle)
@@ -594,7 +594,7 @@ Hornbeer - Hornbeer The Fundamental Blackhorn :: Hornbeer - Hornbeer The Fundame
 8 Wired - 8 Wired Super Conductor Double IPA :: 8 Wired Brewing - 8 Wired Superconductor
 8 Wired - 8 Wired Saison Sauvin :: 8 Wired Brewing - 8 Wired Saison Sauvin
 8 Wired - 8 Wired C4 Double Coffee Brown Ale :: 8 Wired Brewing - 8 Wired C4 Double Coffee Brown Ale
-Carlow Brewing Company - O'Hara's Leann Folláin Extra Irish Stout :: Carlow - Carlow O’Hara’s Barrel Aged Series Leann Folláin (Irish Whiskey)
+Carlow Brewing Company - O'Hara's Leann Folláin Extra Irish Stout :: Carlow - Carlow O’Hara’s Leann Folláin
 Carlow Brewing Company - Carlow O´Haras Irish Pale Ale :: Carlow - Carlow O’Hara’s Irish Pale Ale
 Brew Dog - BrewDog Punk IPA :: BrewDog - BrewDog Punk IPA (5.6%)
 Brew Dog - BrewDog 5am Saint :: BrewDog - BrewDog 5 A.M. Saint
