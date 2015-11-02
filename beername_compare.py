@@ -44,6 +44,12 @@ def get_fasit():
         return [unicode(line) for line in infile.read().splitlines()]
 
 
+def find_in_fasit(name, fasit):
+    for line in fasit:
+        if line.startswith(name):
+            return line
+
+
 def compare_beers(pol_data, rb_beers, breweries_rb):
 
     fasit = get_fasit()
@@ -75,7 +81,11 @@ def compare_beers(pol_data, rb_beers, breweries_rb):
 
                 if beer_match is None:
                     nameline = '%s - %s' % (pol_brewery, pol_beer_name)
-                    nomatches.append(nameline)
+                    f = find_in_fasit(nameline, fasit)
+                    if f:
+                        nomatches.append(f)
+                    else:
+                        nomatches.append(nameline)
                 else:
                     nameline = '%s - %s :: %s - %s' % (pol_brewery, pol_beer_name, rb_brewery, beer_match['name'])
                     if nameline not in fasit:

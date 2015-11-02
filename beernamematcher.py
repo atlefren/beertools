@@ -1,20 +1,38 @@
 # -*- coding: utf-8 -*-
 
 import re
+import unicodedata
 
 import Levenshtein
 
 from brewerynamematcher import strip_punctuation
 
 BEER_TYPES = [
-    u'Imperial Wheat Stout',
     u'American Pale Ale',
+    u'Abbey Brown Ale',
+    u'Barleywine',
+    u'Imperial Wheat Stout',
     u'Imperial Coffee Stout',
     u'Imperial Stout',
-    u'Imperial IPA',
-    u'Barleywine',
+    u'Imperial Red Ale',
     u'Imperial Black IPA',
+    u'Imperial IPA',
+
+    u'India Pale Ale',
+    u'India Red Ale',
+    u'Indian Pale Ale',
+    u'India Dark Ale',
+
+    u'Oyster Stout',
     u'Milk Stout',
+
+    u'Brown Ale',
+    u'Belgian Ale',
+    u'Pale Ale',
+    u'Amber Ale',
+    u'Blonde Ale',
+    u'Blond Ale',
+
     u'White IPA',
     u'Saison IPA',
     u'Rye IPA',
@@ -22,45 +40,48 @@ BEER_TYPES = [
     u'Dobbel IPA',
     u'Double IPA',
     u'Black IPA',
+    u'Amber IPA',
+    u'Red IPA',
     u'DIPA',
     u'IPA',
     u'APA',
-    u'Belgian Tripel',
     u'Farmhouse Ale',
-    u'India Pale Ale',
-    u'India Red Ale',
-    u'Indian Pale Ale',
-    u'India Dark Ale',
-    u'Brown Ale',
-    u'Belgian Ale',
-    u'Pale Ale',
-    u'Amber Ale',
-    u'Blonde Ale',
     u'Dubbel Bruin',
-    u'Blond',
+
+    u'Blonde',
+
     u'Geuze',
+
     u'Saison',
-    u'Witbier',
-    u'Wit',
-    u'Craft Lager',
-    u'Premium Lager',
+
     u'Lager',
+    u'Pilsner',
+
     u'Cream Stout',
-    u'Trappistenbier',
-    u'Trappistes',
-    u'Trappist',
     u'Stout Porter',
     u'Imperial Porter',
     u'London Porter',
     u'Porter',
+
+    u'Dubbel Witbier',
     u'Dunkles Weizen',
+    u'Witbier',
+    u'Wit',
+
     u'Hefe Weizen',
     u'Hefeweizen',
+    u'Berliner Weisse',
     u'Weizenbock',
+    u'Weissbier',
     u'Winterbier',
     u'Wheat Beer',
-    u'Pilsner',
-    u'Pils',
+
+    u'Belgian Tripel',
+    u'Trippel',
+    u'Triple',
+
+    u'Dubbel',
+    u'Ambree',
 ]
 
 BEER_TYPES = [x.lower() for x in BEER_TYPES]
@@ -70,22 +91,10 @@ AND_WORDS = [
     u'and'
 ]
 
-PACKAGE_TYPES = [
-    u' (cask)',
-    u' (bottle)',
-    u' (bottle/keg)',
-    u' (bottle / keg)',
-    u' (cask & bottle conditioned)',
-    u' (pasteurized)',
-    u' (pasteurised)',
-    u' (filtered)',
-]
-
 WANTED_PACKAGE_TYPES = [
     u' (bottle)',
-    u' (bottle/keg)',
     u' (bottle / keg)',
-    u' (bottle/can)',
+    u' (bottle / can)',
     u' (cask & bottle conditioned)',
     u' (pasteurized)',
     u' (pasteurised)',
@@ -93,13 +102,15 @@ WANTED_PACKAGE_TYPES = [
 ]
 
 UNWANTED_PACKAGE_TYPES = [
-    u'cask'
+    u'cask',
+    u'keg'
 ]
 
 COMMON_WORDS2 = [
     u'Brewers Reserve',
     u'Brewery',
     u'Barrel-Aged',
+    u'barrel aged',
     u'Single Hopped',
     u'originalen',
     u'unfiltered',
@@ -107,17 +118,44 @@ COMMON_WORDS2 = [
     u'Brasserie',
     u'project',
     u'Økologisk',
-    u'Single Hop'
+    u'Single Hop',
+    u'Magnum Edition',
+    u'Handgeplukte',
+    u'Trappistenbier',
+    u'Trappistes',
+    u'Trappist',
+    u'Craft',
+    u'Premium',
+    u'Mini Keg',
+    u'Seasonal',
+    u'Rye',
+    u'Herb',
+    u'Brettanomyces',
 ]
 
 DUPLICATES = {
+    'blonde': ['blond'],
     'red': ['rouge'],
     'unfiltered': ['non filtrata'],
-    'lager': ['lager / pilsner'],
+    'lager': ['lager / pilsner', u'lageröl'],
     'extra': ['ekstra'],
     'brown': ['brune', 'bruin'],
-    'dunkel': ['dark']
+    'dunkel': ['dark'],
+    'pilsner': ['pils', 'pilsener', 'pilsen', 'pilsner'],
+    'ipa': ['india pale ale'],
+    'noire': ['noir'],
+    'bio': ['biologique'],
+    'oude': ['oudbeitje'],
+    'kriek': ['krieken'],
+    'lambic': ['lambik'],
+    'rye': ['rug'],
 }
+
+
+def remove_accents(input_str):
+    nfkd_form = unicodedata.normalize('NFKD', input_str)
+    only_ascii = nfkd_form.encode('ASCII', 'ignore')
+    return only_ascii
 
 
 def remove_multiple_spaces(s):
@@ -140,11 +178,11 @@ def remove_from_str_parts(s, remove):
 
 def lower_strip2(s):
     s = s.lower().strip()
-    return ' '.join(s.split())
+    return remove_accents(' '.join(s.split()))
 
 
 def fix_typography(name):
-    name = name.replace('\'', u'’').replace('\'', u'`')
+    name = name.replace(u'’', '\'').replace('`', u'\'').replace('\'s', u's')
     p = re.compile('([a-z])/([a-z])')
     return p.sub(r'\1 / \2', name)
 
@@ -181,6 +219,7 @@ def fix_and_words(name):
 
 def remove_words(s, words):
     s = s.lower()
+    words = [remove_accents(w) for w in words]
     for word in words:
         word = word.lower()
         if word in s:
@@ -220,9 +259,11 @@ def unique_list(l, l2):
 
 
 def remove_duplicates(name):
+    name = remove_accents(unicode(name))
     name = ' %s ' % name
     for word, duplicates in DUPLICATES.iteritems():
         for duplicate in duplicates:
+            duplicate = remove_accents(unicode(duplicate))
             regex = '(?<![a-z])(%s)(?![a-z])' % duplicate
             p = re.compile(regex)
             name = p.sub(word, name)
@@ -243,7 +284,7 @@ def remove_collab(name):
 
 def remove_in_parentesis(name):
     p = re.compile(r'(\(.*?\))')
-    return p.sub('', name)
+    return p.sub('', name).strip()
 
 
 def is_substring_of(s1, s2):
@@ -258,38 +299,54 @@ def sort_words(s):
     return ' '.join(sorted(s.split()))
 
 
+def remove_after_semicolon(s):
+    if ':' in s:
+        return s[0:s.index(':')]
+    return s
+
+
 def ratio(s1, s2, brewery_name):
     s1 = unicode(s1)
     s2 = unicode(s2)
-    brewery_name = brewery_name.lower()
+    org1 = s1
+    org2 = s2
+    brewery_name = remove_accents(brewery_name.lower())
 
     def remove_brewery(name):
-        return remove_from_str(name, brewery_name)
+        res = remove_from_str(name, brewery_name)
+        if res == name:
+            res = remove_from_str(name, brewery_name.replace(' ', ''))
+        return res
 
     def remove_brewery_parts(name):
         return remove_from_str_parts(name, brewery_name)
 
     operations = [
-        {'func': lower_strip2, 'threshold': 0.95},
-        {'func': fix_typography, 'threshold': 0.95},
-        {'func': remove_brewery, 'threshold': 0.95},
-        {'func': remove_collab, 'threshold': 0.95},
-        {'func': remove_brewery_parts, 'threshold': 0.95},
-        {'func': remove_packaging2, 'threshold': 0.95},
-        {'func': fix_and_words, 'threshold': 0.95},
-        {'func': remove_duplicates, 'threshold': 0.95},
-        {'func': remove_abv2, 'threshold': 0.95},
-        {'func': remove_year2, 'threshold': 0.95},
-        {'func': remove_size2, 'threshold': 0.95},
-        {'func': remove_in_parentesis, 'threshold': 0.95, 'restore': True},
-        {'func': remove_punctuation3, 'threshold': 0.95},
-        {'func': sort_words, 'threshold': 0.95, 'restore': True},
-        {'func': remove_common2, 'threshold': 0.95},
+        {'func': lower_strip2, 'threshold': 0.93},
+        {'func': fix_typography, 'threshold': 0.93},
+        {'func': remove_collab, 'threshold': 0.93},
+        {'func': remove_brewery, 'threshold': 0.93},
+        {'func': remove_brewery_parts, 'threshold': 0.93},
+        {'func': remove_packaging2, 'threshold': 0.93},
+        {'func': fix_and_words, 'threshold': 0.93},
+        {'func': remove_duplicates, 'threshold': 0.93},
+        {'func': remove_abv2, 'threshold': 0.93},
+        {'func': remove_year2, 'threshold': 0.93},
+        {'func': remove_size2, 'threshold': 0.93},
+        {'func': remove_in_parentesis, 'threshold': 0.93, 'restore': True},
+        {'func': remove_after_semicolon, 'threshold': 0.93, 'restore': True},
+        {'func': remove_punctuation3, 'threshold': 0.93},
+        {'func': sort_words, 'threshold': 0.93, 'restore': True},
+        {'func': remove_common2, 'threshold': 0.93, 'restore': True},
+        {'func': remove_type2, 'threshold': 0.93, 'restore': True},
+        {'func': remove_common2, 'threshold': 0.93},
         {'func': remove_type2, 'threshold': 0.8},
-        {'func': remove_single_year, 'threshold': 0.95}
+        {'func': remove_single_year, 'threshold': 0.93},
+        {'func': sort_words, 'threshold': 0.93, 'restore': True},
     ]
     length = len(operations)
-    for index, operation in enumerate(operations):
+    index = 0
+    for operation in operations:
         restore = operation.get('restore', False)
 
         s1_tmp = operation['func'](s1)
@@ -308,13 +365,15 @@ def ratio(s1, s2, brewery_name):
         #print '%s | %s (%s)' % (s1_tmp, s2_tmp, dist)
 
         if dist >= operation['threshold'] * c:
-            return dist * 100.0
+            ratio = 100.0
+            if num_words(s1_tmp) < 2 or num_words(s2_tmp) < 2:
+                ratio = shift_range(Levenshtein.ratio(unicode(org1), unicode(org2)))
+            return dist * ratio
         if not restore:
             s1 = s1_tmp
             s2 = s2_tmp
-
-    if dist > 0.75:
-        return dist * 100
+        if not restore:
+            index = index + 1
 
     l1 = num_words(s1)
     l2 = num_words(s2)
@@ -328,112 +387,18 @@ def ratio(s1, s2, brewery_name):
             return 75
 
 
-def lower_strip(name):
-    name = unicode(name.lower().strip())
-    name_fixed = []
-    for word in name.split():
-        if word in AND_WORDS:
-            name_fixed.append(u'&')
-        else:
-            name_fixed.append(word)
-    return ' '.join(name_fixed).replace('\'', u'’').replace('\'', u'`')
-
-
-def remove_punctuation2(name):
-    return strip_punctuation(name).replace('(', '').replace(')', '').replace('/', '')
-
-
-def remove_type(name):
-    for beer_type in BEER_TYPES:
-        if beer_type.lower() in name.lower():
-            name = re.sub('(?i)' + re.escape(beer_type), '', name)
-    return name.strip()
-
-COMMON_WORDS = [
-    u'Brewers Reserve',
-    u'Bier',
-    u'unfiltered',
-]
-
-
-def remove_common(name):
-    for word in COMMON_WORDS:
-        if word.lower() in name.lower():
-            name = re.sub('(?i)' + re.escape(word), '', name)
-    return name.strip()
-
-
-def remove_numbers(name):
-    return filter(lambda x: not x.isdigit(), name)
-
-
-def split_parens(name):
-    r3 = re.compile("(.*?)\s*\((.*?)\)")
-    m3 = r3.match(name)
-    if m3:
-        return [m3.group(1), m3.group(2)]
-    return [name]
-
-
-def remove_packaging(name):
-    for packaging in PACKAGE_TYPES:
-        p = re.compile('\s\(.*?%s.*?\)') % packaging
-        if p.search(name):
-            name = name.replace(packaging, '')
-    return name
-
-
-def remove_size(name):
-    return re.sub(r'(\d{1,4} cl)', '', name).strip()
-
-
-def remove_abv(name):
-    return re.sub(r'(\(\d+(\.\d{1,2})?\s*%\))', '', name).strip()
-
-
-def remove_year(name):
-    return re.sub(r'(\(\d{4}\s*-\s*(\d{4})?\))', '', name).strip()
-
-
-def find_bottle_version(beers):
-    wanted = ['(bottle)', '(bottle/keg)', '(cask & bottle conditioned)',
-              '(pasteurized)', '(pasteurised)', '(filtered)', '(bottle / keg)']
-    for b in beers:
-        if type(b) is dict:
-            beer = b['beer']
-        else:
-            beer = b
-        n = beer.operations['lower_strip']
-
-        for p in wanted:
-            if p in n:
-                return b
-    return beers[0]
-
-
-class Beer(object):
-
-    def __init__(self, beer):
-        self.operations = {}
-        self.last_name = beer['name']
-        self.beer = beer
-
-    def get_operation(self, operation):
-        if operation.__name__ not in self.operations:
-            self.last_name = operation(self.last_name)
-            self.operations[operation.__name__] = self.last_name
-        return self.operations[operation.__name__]
-
-
 def filter_packaging(beer_list):
     res = []
     for beer in beer_list:
-        name = beer['name'].lower()
+        name = fix_typography(beer['name'].lower())
         wanted = True
         for package_type in UNWANTED_PACKAGE_TYPES:
             if package_type.lower() in name:
                 wanted = False
-                break
+                for wanted_type in WANTED_PACKAGE_TYPES:
+                    if wanted_type.lower() in name:
+                        wanted = True
+                        break
         if wanted:
             res.append(beer)
     return res
@@ -457,7 +422,6 @@ class BeerNameMatcher(object):
 
     def __init__(self, brewery_name, beer_list, abv_over=None):
         self.brewery_name = unicode(brewery_name)
-        self.beer_list = self._prepare(beer_list)
         self.blist = filter_packaging(beer_list)
         if abv_over:
             self.blist = filter_abv_above(self.blist, abv_over)
@@ -471,121 +435,5 @@ class BeerNameMatcher(object):
             if r and r > max_ratio:
                 max_ratio = r
                 hit = beer
-        # print max_ratio
         if hit and max_ratio >= 75.0:
             return hit
-
-        '''
-        org_name = name
-
-        def remove_brewery_name(beer_name):
-            brewery_name = self.brewery_name.lower()
-            return beer_name.replace(brewery_name, '')
-
-        def remove_brewery_name_parts(beer_name):
-            brewery_name = self.brewery_name.lower()
-            for part in brewery_name.split(' '):
-                beer_name = beer_name.replace(part, ' ')
-            return beer_name.strip()
-
-        operations = [lower_strip, remove_brewery_name,
-                      remove_brewery_name_parts, remove_packaging,
-                      remove_size, remove_abv, remove_year,
-                      remove_punctuation2, remove_common, remove_type]
-
-        for operation in operations:
-            match, name = self._check_match(name, operation)
-            if match:
-                return match
-
-        match = self._check_split(remove_brewery_name_parts(lower_strip(org_name)))
-
-        if match:
-            return match
-        return None
-        '''
-
-    def _check_match(self, name1, operation):
-        print operation.__name__
-        name1 = operation(name1)
-
-        with_dist = [self._get_distance(name1, beer.get_operation(operation), beer)
-                     for beer in self.beer_list]
-
-        if len(with_dist) == 0:
-            return
-
-        max_score = max(x['dist'] for x in with_dist)
-        highest = [beer for beer in with_dist if beer['dist'] == max_score]
-        if len(highest) == 1:
-            highest = highest[0]
-        else:
-            highest = find_bottle_version(highest)
-
-        match = None
-
-        threshold = 90
-        if operation.__name__ == 'lower_strip':
-            threshold = 97
-
-        if highest['dist'] > threshold:
-            match = highest['beer'].beer
-        return match, name1
-
-    def _check_split(self, name1):
-        match = []
-        score = 0
-        for part in remove_type(name1).split('/'):
-            for beer in self.beer_list:
-                split2 = remove_type(beer.operations['remove_packaging'])
-                for part2 in split2.split('/'):
-                    part = remove_numbers(part)
-                    part2 = remove_numbers(part2)
-
-                    dist = Levenshtein.ratio(unicode(part), unicode(part2))
-                    if dist > score:
-                        score = dist
-                        match = [beer]
-                    elif dist == score:
-                        match.append(beer)
-
-        if score > 0.7:
-            return find_bottle_version(match).beer
-
-        for p1 in split_parens(remove_type(remove_numbers(name1))):
-            for beer in self.beer_list:
-                for p2 in split_parens(remove_numbers(beer.operations['remove_packaging'])):
-                    dist = Levenshtein.ratio(unicode(p1), unicode(p2))
-                    if dist > score:
-                        score = dist
-                        match = [beer]
-                    if dist == score:
-                        match.append(beer)
-        if score > 0.7:
-            return find_bottle_version(match).beer
-
-        for p1 in remove_type(remove_numbers(name1)).split(' '):
-            for beer in self.beer_list:
-                for p2 in remove_numbers(beer.operations['remove_packaging']).split(' '):
-                    dist = Levenshtein.ratio(unicode(p1), unicode(p2))
-                    if dist > score:
-                        score = dist
-                        match = [beer]
-                    if dist == score:
-                        match.append(beer)
-        if score > 0.7:
-            return find_bottle_version(match).beer
-
-    def _get_distance(self, name1, name2, beer):
-        dist = ratio(unicode(name1), unicode(name2))
-
-        # UWRatio(unicode(name1), unicode(name2))
-        # dist = Levenshtein.ratio(unicode(name1), unicode(name2))
-        print '%s | %s (%s)' % (name1, name2, dist)
-        return {
-            'beer': beer,
-            'dist': dist
-        }
-
-    def _prepare(self, beer_list):
-        return [Beer(beer) for beer in beer_list]

@@ -254,9 +254,15 @@
         ]
     },
     {
-        "name": "Amundsen/Grünerløkka Bryggeri",
+        "name": "Amundsen Bryggeri & Spiseri",
         "misspellings": [
-            "Amundsen Bryggeri & Spiseri"
+            "Amundsen/Grünerløkka Bryggeri"
+        ]
+    },
+    {
+        "name": "St Peters (UK)",
+        "misspellings": [
+            "St. Peters Brewery"
         ]
     }
 

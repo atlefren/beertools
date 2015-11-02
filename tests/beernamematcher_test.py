@@ -130,7 +130,7 @@ class BeerNameMatcherTest(unittest.TestCase):
         matched = self.matcher_aegir.match_name(u'Ægir Hrist Og Mist Hefeweizen')
         self.assertEqual(u'Ægir Hrist & Mist', matched['name'])
 
-    @unittest.skip("")
+   # @unittest.skip("")
     def test_match_several_types(self):
         matched = self.matcher_aegir.match_name(u'Ægir Lynchburg Natt Barrel-Aged Imperial Porter')
         self.assertEqual(u'Ægir Lynchburg Natt', matched['name'])
@@ -491,3 +491,267 @@ class BeerNameMatcherTest(unittest.TestCase):
         matcher = BeerNameMatcher(u'Nøgne Ø (Hansa Borg)', beer_list, abv_over=4.7)
         matched = matcher.match_name(u'Nøgne Ø Lemongrass')
         self.assertEqual(u'Nøgne Ø Lemongrass (Aku Aku Lemongrass Ale)', matched['name'])
+
+    def test_pils_pilsner(self):
+        beer_list = [
+            {'name': u'Mikkeller Vesterbro Pale Ale'},
+            {'name': u'Mikkeller Vesterbro Pilsner'},
+        ]
+        matcher = BeerNameMatcher(u'Mikkeller', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Mikkeller Vesterbro Pils')
+        self.assertEqual(u'Mikkeller Vesterbro Pilsner', matched['name'])
+
+    def test_ipa_abbrev(self):
+        beer_list = [
+            {'name': u'Midtfyns Double India Pale Ale (Coop Grill)'},
+            {'name': u'Midtfyns Double IPA'},
+        ]
+        matcher = BeerNameMatcher(u'Midtfyns Bryghus', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Midtfyns Bryghus Double India Pale Ale')
+        self.assertEqual(u'Midtfyns Double IPA', matched['name'])
+
+    def test_noir(self):
+        beer_list = [
+            {'name': u'Verhaeghe Barbe d’Or'},
+            {'name': u'Verhaeghe Barbe Noire (Barbe Black)'},
+        ]
+        matcher = BeerNameMatcher(u'Verhaeghe', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Verhaeghe Barbe Noir')
+        self.assertEqual(u'Verhaeghe Barbe Noire (Barbe Black)', matched['name'])
+
+    def test_sara(self):
+        beer_list = [
+            {'name': u'Silenrieux Sara Blonde (Biologique)'}
+        ]
+        matcher = BeerNameMatcher(u'Silenrieux', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Sara de Silenrieux Bio')
+        self.assertEqual(u'Silenrieux Sara Blonde (Biologique)', matched['name'])
+
+    def test_sierra_nevada(self):
+        beer_list = [
+            {'name': u'Sierra Nevada Pale Ale (Bottle/Can)'}
+        ]
+        matcher = BeerNameMatcher(u'Sierra Nevada Brewing Company', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Sierra Nevada Pale Ale')
+        self.assertEqual(u'Sierra Nevada Pale Ale (Bottle/Can)', matched['name'])
+
+    def test_rye_ipa2(self):
+        beer_list = [
+            {'name': u'Beavertown 8 Ball'}
+        ]
+        matcher = BeerNameMatcher(u'Beavertown', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Beavertown 8 Ball Rye IPA')
+        self.assertEqual(u'Beavertown 8 Ball', matched['name'])
+
+    def test_dubbel_wit(self):
+        beer_list = [
+            {'name': u'Glazen Toren Jan De Lichte'}
+        ]
+        matcher = BeerNameMatcher(u'Kleinbrouwerij De Glazen Toren', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Glazen Toren Jan de Lichte Dubbel Witbier')
+        self.assertEqual(u'Glazen Toren Jan De Lichte', matched['name'])
+
+    def test_triple(self):
+        beer_list = [
+            {'name': u'Paix Dieu Triple'}
+        ]
+        matcher = BeerNameMatcher(u'Caulier', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Paix Dieu')
+        self.assertEqual(u'Paix Dieu Triple', matched['name'])
+
+    def test_dunkles_weizen(self):
+        beer_list = [
+            {'name': u'Coisbo Pinnekjøttøl Dunkles Weizen'}
+        ]
+        matcher = BeerNameMatcher(u'Coisbo Beer', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Coisbo Weissbier Pinnekjøt-øl')
+        self.assertEqual(u'Coisbo Pinnekjøttøl Dunkles Weizen', matched['name'])
+
+    def test_apostrophe(self):
+        beer_list = [
+            {'name': u'Fuller’s 1845'}
+        ]
+        matcher = BeerNameMatcher(u'Fuller’s', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Fuller`s 1845')
+        self.assertEqual(u'Fuller’s 1845', matched['name'])
+
+    def test_marstons(self):
+        beer_list = [
+            {'name': u'Marstons Old Empire (Bottle)'}
+        ]
+        matcher = BeerNameMatcher(u'Marstons', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Marston\'s Old Empire IPA')
+        self.assertEqual(u'Marstons Old Empire (Bottle)', matched['name'])
+
+    def test_lagerol(self):
+        beer_list = [
+            {'name': u'Rådanäs Lageröl'}
+        ]
+        matcher = BeerNameMatcher(u'Rådanäs Bryggeri', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Rådanäs Lager')
+        self.assertEqual(u'Rådanäs Lageröl', matched['name'])
+
+    def test_oyster_stout(self):
+        beer_list = [
+            {'name': u'Ægir / Garage Project First Wave'}
+        ]
+        matcher = BeerNameMatcher(u'Ægir Bryggeri', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Garage Project/Ægir Bryggeri First Wave Oyster Stout')
+        self.assertEqual(u'Ægir / Garage Project First Wave', matched['name'])
+
+    def test_pilsen(self):
+        beer_list = [
+            {'name': u'Efes Pilsen (Pilsener)'}
+        ]
+        matcher = BeerNameMatcher(u'Anadolu Efes', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Efes Pilsner')
+        self.assertEqual(u'Efes Pilsen (Pilsener)', matched['name'])
+
+    @unittest.skip("")
+    def test_parenthesis(self):
+        beer_list = [
+            {'name': u'Flying Dog Snake Dog IPA (Raspberry Puree & Orange Peel)'},
+            {'name': u'Flying Dog Snake Dog IPA (2008 and later)'}
+        ]
+        matcher = BeerNameMatcher(u'Flying Dog Brewery', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Flying Dog Snake Dog IPA')
+        self.assertEqual(u'Flying Dog Snake Dog IPA (2008 and later)', matched['name'])
+
+    def test_sorting(self):
+        beer_list = [
+            {'name': u'CAP Jernteppet Hammerfest'}
+        ]
+        matcher = BeerNameMatcher(u'CAP Brewery', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'CAP Hammerfest Jernteppet Pale Ale')
+        self.assertEqual(u'CAP Jernteppet Hammerfest', matched['name'])
+
+    def test_hanssens(self):
+        beer_list = [
+            {'name': u'Hanssens Oude Schaarbeekse Kriek'}
+        ]
+        matcher = BeerNameMatcher(u'Hanssens Artisanaal', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Hanssens Oude Kriek Handgeplukte Schaerbeekske Krieken')
+        self.assertEqual(u'Hanssens Oude Schaarbeekse Kriek', matched['name'])
+
+    def test_borgo(self):
+        beer_list = [
+            {'name': u'Birra del Borgo Re Ale'}
+        ]
+        matcher = BeerNameMatcher(u'Birra del Borgo', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Birra del Borga ReAle')
+        self.assertEqual(u'Birra del Borgo Re Ale', matched['name'])
+
+    def test_spaces(self):
+        beer_list = [
+            {'name': u'Beer Here Angry Hops'}
+        ]
+        matcher = BeerNameMatcher(u'Beer Here', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Beerhere Angry Hops IPA')
+        self.assertEqual(u'Beer Here Angry Hops', matched['name'])
+
+    def test_hook_norton(self):
+        beer_list = [
+            {'name': u'Hook Norton - Hook Norton Flagship (Keg)'},
+            {'name': u'Hook Norton - Hook Norton Flagship (Cask & Bottle Conditioned)'}
+        ]
+        matcher = BeerNameMatcher(u'Hook Norton', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Hook Norton Flagship')
+        self.assertEqual(u'Hook Norton - Hook Norton Flagship (Cask & Bottle Conditioned)', matched['name'])
+
+    def test_fantome(self):
+        beer_list = [
+            {'name': u'Fantôme India Red Ale (IRA)'}
+        ]
+        matcher = BeerNameMatcher(u'Brasserie Fantôme', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Brasserie Fantome India Red Ale')
+        self.assertEqual(u'Fantôme India Red Ale (IRA)', matched['name'])
+
+    def test_pater(self):
+        beer_list = [
+            {'name': u'Corsendonk Pater / Abbey Brown Ale'}
+        ]
+        matcher = BeerNameMatcher(u'Brouwerij Corsendonk', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Corsendonk Pater Dubbel')
+        self.assertEqual(u'Corsendonk Pater / Abbey Brown Ale', matched['name'])
+
+    def test_messy_rye(self):
+        beer_list = [
+            {'name': u'Nøisom Messy Rye'}
+        ]
+        matcher = BeerNameMatcher(u'Nøisom Craft Beer', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Nøisom Messy Rye Rug IPA')
+        self.assertEqual(u'Nøisom Messy Rye', matched['name'])
+
+    def test_premium_pils(self):
+        beer_list = [
+            {'name': u'Lederer Premium Pils'}
+        ]
+        matcher = BeerNameMatcher(u'Tucher Bräu Fürth (Oetker Group)', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Lederer Pils')
+        self.assertEqual(u'Lederer Premium Pils', matched['name'])
+
+    def test_mini_keg(self):
+        beer_list = [
+            {'name': u'Früh Kölsch'}
+        ]
+        matcher = BeerNameMatcher(u'Cölner Hofbräu P. Josef Früh', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Früh Kölsch Mini Keg')
+        self.assertEqual(u'Früh Kölsch', matched['name'])
+
+    def test_seasonal(self):
+        beer_list = [
+            {'name': u'Mohawk Whiteout Imperial Stout'}
+        ]
+        matcher = BeerNameMatcher(u'Mohawk Brewing Company', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Mohawk Whiteout Seasonal Imperial Stout')
+        self.assertEqual(u'Mohawk Whiteout Imperial Stout', matched['name'])
+
+    def test_herb(self):
+        beer_list = [
+            {'name': u'Szigeti Beer'}
+        ]
+        matcher = BeerNameMatcher(u'Sektkellerei Gebrüder Szigeti', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Szigeti Beer Herb')
+        self.assertEqual(u'Szigeti Beer', matched['name'])
+
+    def test_lervig_rye_ipa(self):
+        beer_list = [
+            {'name': u'Lervig Brewers Reserve Rye IPA - Barrel Aged'},
+            {'name': u'Lervig Brewers Reserve Rye IPA'}
+        ]
+        matcher = BeerNameMatcher(u'Lervig Aktiebryggeri', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Lervig Rye IPA')
+        self.assertEqual(u'Lervig Brewers Reserve Rye IPA', matched['name'])
+
+    def test_electric_nurse(self):
+        beer_list = [
+            {'name': u'Electric Nurse DIPA'}
+        ]
+        matcher = BeerNameMatcher(u'Dugges Ale & Porterbryggeri', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Electric Nurse DIPA')
+        self.assertEqual(u'Electric Nurse DIPA', matched['name'])
+
+    def test_semicolon(self):
+        beer_list = [
+            {'name': u'Fantôme Artist: Gaelle Boulanger'}
+        ]
+        matcher = BeerNameMatcher(u'Brasserie Fantôme ', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Fantome Artist')
+        self.assertEqual(u'Fantôme Artist: Gaelle Boulanger', matched['name'])
+
+    def test_ambree(self):
+        beer_list = [
+            {'name': u'Abbaye des Rocs La Montagnarde (Ambree)'}
+        ]
+        matcher = BeerNameMatcher(u'Brasserie de l’Abbaye des Rocs', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Abbaye des Rocs Montagnarde')
+        self.assertEqual(u'Abbaye des Rocs La Montagnarde (Ambree)', matched['name'])
+
+    def test_shepard_neame(self):
+        beer_list = [
+            {'name': u'Shepherd Neame Double Stout (5.2% - Cask)'},
+            {'name': u'Shepherd Neame Double Stout (5.2% - Bottle)'}
+        ]
+        matcher = BeerNameMatcher(u'Shepherd Neame', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Shepherd Neame Double Stout')
+        self.assertEqual(u'Shepherd Neame Double Stout (5.2% - Bottle)', matched['name'])

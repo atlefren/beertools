@@ -255,7 +255,7 @@ Birrificio Del Ducato - Del Ducato Viæmilia :: Birrificio del Ducato - Birrific
 Birrificio Del Ducato - Del Ducato Vieille Ville Saison :: Birrificio del Ducato - Birrificio del Ducato Vieille Ville
 Birrificio Del Ducato - Del Ducato Chimera :: Birrificio del Ducato - Birrificio del Ducato Chimera
 Szigeti - Szigeti Beer Herb :: Sektkellerei Gebrüder Szigeti - Szigeti Beer
-Abbaye des Rocs - Abbaye des Rocs Montagnarde :: Brasserie de l’Abbaye des Rocs - Abbaye des Rocs La Montagnarde Altitude 6
+Abbaye des Rocs - Abbaye des Rocs Montagnarde :: Brasserie de l’Abbaye des Rocs - Abbaye des Rocs La Montagnarde (Ambree)
 Abbaye des Rocs - Abbaye des Rocs Nounnette Blonde :: Brasserie de l’Abbaye des Rocs - Abbaye des Rocs La Nounnette (Blonde)
 Brasserie d'Orval - Orval Trappiste :: Brasserie dOrval - Orval
 Arendals Bryggeri - Arendals Bryggeri 1839 :: Arendals Bryggeri - Arendals 1839 Stærk Tradisjon
@@ -768,7 +768,7 @@ Brasserie De Silly - Scotch Silly :: Brasserie de Silly - Scotch Silly
 Brasserie De Silly - Scotch Silly :: Brasserie de Silly - Scotch Silly
 Brasserie De Silly - Silly Saison :: Brasserie de Silly - Silly Saison
 St. Peters Brewery - St. Peters Cream Stout :: St Peters (UK) - St Peters Cream Stout
-St. Peters Brewery - St. Peters The Saints Whisky Beer :: St Peters Brewery (UK) - St Peters The Saints Whisky Beer
+St. Peters Brewery - St. Peters The Saints Whisky Beer :: St Peters (UK) - St Peters The Saints Whisky Beer
 Haandbryggeriet - Haandbryggeriet Rips :: HaandBryggeriet (Norway) - HaandBryggeriet Rips
 Haandbryggeriet - Haandbryggeriet Belgisk Pale Ale :: HaandBryggeriet (Norway) - HaandBryggeriet Belgisk Pale Ale
 Haandbryggeriet - Haandbryggeriet Odin's Tipple :: HaandBryggeriet (Norway) - HaandBryggeriet Odin’s Tipple
@@ -781,7 +781,7 @@ Haandbryggeriet - Haandbryggeriet Haandbakk :: HaandBryggeriet (Norway) - HaandB
 Haandbryggeriet - Haandbryggeriet Hesjeøl :: HaandBryggeriet (Norway) - HaandBryggeriet Hesjeøl
 Haandbryggeriet - Haandbryggeriet Fyr og Flamme IPA :: HaandBryggeriet (Norway) - HaandBryggeriet Fyr og Flamme
 Erdinger Weissbräu - Erdinger Weissbier :: Erdinger Weissbräu - Erdinger Weissbier (Hefe-Weizen)
-Erdinger Weissbräu - Erdinger Weissbier Dunkel :: Erdinger Weissbräu - Erdinger Weissbier Hefe-Weizen Dark
+Erdinger Weissbräu - Erdinger Weissbier Dunkel :: Erdinger Weissbräu - Erdinger Dunkel
 Erdinger Weissbräu - Erdinger Schneeweisse :: Erdinger Weissbräu - Erdinger Schneeweisse Winterbier
 Erdinger Weissbräu - Erdinger Kristallklar Weissbier :: Erdinger Weissbräu - Erdinger Weissbier Kristallklar
 Erdinger Weissbräu - Erdinger Pikantus Weizenbock :: Erdinger Weissbräu - Erdinger Pikantus
@@ -797,7 +797,7 @@ Little Brother Bryggeri - Little Brother Northern Trappist :: Little Brother Bre
 Little Brother Bryggeri - Little Brother Epic Venture IPA :: Little Brother Brewery - Little Brother Epic Venture IPA
 Little Brother Bryggeri - Little Brother Stryn Norwegian Farmhouse Ale :: Little Brother Brewery - Little Brother Stryn - Norwegian Farmhouse Ale
 Kona Brewing Co. - Kona Fire Rock Hawaiian Pale Ale :: Kona Brewing Company - Kona Fire Rock Pale Ale
-Brouw. St. Bernardus - St. Bernardus Abt 12 Magnum Edition 2015 :: St. Bernardus Brouwerij - St. Bernardus Abt 12 Oak Aged
+Brouw. St. Bernardus - St. Bernardus Abt 12 Magnum Edition 2015 :: St. Bernardus Brouwerij - St. Bernardus Abt 12
 Ego Brygghus - Ego Brygghus Wheatade :: Ego Brygghus - Ego Wheatade
 Ego Brygghus - Ego Brygghus Reign in Citra :: Ego Brygghus - Ego Reign in Citra
 Brouwerij Van Honsebrouck - St Louis Gueuze Fond Tradition :: Brouwerij Van Honsebrouck - St. Louis Gueuze Fond Tradition
@@ -816,7 +816,7 @@ Birra dell`Eremo - Birra dell`Eremo Terra Oatmeal Stout :: Birra Dell’Eremo - 
 Birra dell`Eremo - Birra dell`Eremo Fiera IPA :: Birra Dell’Eremo - Birra Dell’ Eremo Fiera
 Birra dell`Eremo - Birra dell`Eremo Nobile Golden Ale :: Birra Dell’Eremo - Birra Dell’Eremo Nobile
 Birra dell`Eremo - Birra dell`Eremo Saggia Blanche :: Birra Dell’Eremo - Birra Dell’Eremo Saggia
-Birra dell`Eremo - Birra dell`Eremo Magnifica Amber Ale :: Birra Dell’Eremo - Birra Dell’ Eremo Fiera
+Birra dell`Eremo - Birra dell`Eremo Magnifica Amber Ale :: Birra Dell’Eremo - Birra Dell’Eremo Magnifica
 Brouw. Contreras - Contreras Valeir Blond :: Contreras - Contreras Valeir Blond
 Brouw. Contreras - Contreras Valeir Donker :: Contreras - Contreras Valeir Donker (Carlos)
 Brouw. Contreras - Contreras Valeir Extra :: Contreras - Contreras Valeir Extra
