@@ -861,10 +861,34 @@ class BeerNameMatcherTest(unittest.TestCase):
             {'name': u'Flying Dog Snake Dog IPA (through 2007)', 'retired': True},
             {'name': u'Flying Dog Snake Dog IPA (2008 and later)'}
         ]
-        matcher = BeerNameMatcher(u'Flying Dog Brewery', beer_list, abv_over=4.7, skip_retired=)
+        matcher = BeerNameMatcher(u'Flying Dog Brewery', beer_list, abv_over=4.7, skip_retired=True)
         matched = matcher.match_name(u'Flying Dog Snake Dog IPA')
         self.assertEqual(u'Flying Dog Snake Dog IPA (2008 and later)', matched['name'])
 
+    @unittest.skip("")
+    def test_imperial_pils(self):
+        beer_list = [
+            {'name': u'Jihlavský Grand 18°'}
+        ]
+        matcher = BeerNameMatcher(u'Pivovar Jihlava (Pivovary Lobkowicz)', beer_list, abv_over=4.7)
+        matched = matcher.match_name(u'Pivovar Jihlava Grand Imperial Pils')
+        self.assertEqual(u'Jezek Grand Pilsner', matched['name'])
 
-        #Amundsen/Grünerløkka Bryggeri - Amundsen/Grünerløkka Oslo IPA :: Amundsen Bryggeri & Spiseri - Amundsen Oslo Ølfestivaløl 2013
-        #Amundsen/Grünerløkka Bryggeri - Amundsen/Grünerløkka Oslo IPA :: Amundsen Bryggeri & Spiseri - Amundsen/Grünerløkka Oslo IPA
+
+    #Mikkeller\De Proef Brouwerij - Mikkeller Vesterbro Wit :: Mikkeller - Mikkeller Vesterbro Pilsner
+    #Mikkeller\De Proef Brouwerij - Mikkeller Vesterbro Wit :: Mikkeller - Mikkeller Vesterbro Wit
+
+    #Samuel Smith Old Brewery - Samuel Smith Famous Taddy Porter :: Samuel Smith - Samuel Smiths Taddy Porter
+    #San Miguel - San Miguel Especial :: San Miguel Spain (Grupo Mahou-San Miguel) - San Miguel Especial
+    #Brasserie Dupont - Dupont Bons Væux :: Brasserie Dupont - Dupont Avec les Bons Voeux
+    #Edge Brewing - Edge Soy Rodriguez Rye IPA :: Edge Brewing Company - Edge Brewing Soy Rodríguez
+    #John Martin - Anthony R. Martin Bourgogne des Flandres :: Timmermans (John Martin) - Bourgogne des Flandres
+
+    #Nøgne Ø Det kompromissløse Bry - Nøgne Ø Imperial India Pale Ale #500 :: Nøgne Ø (Hansa Borg) - Nøgne Ø # 500 Imperial India Pale Ale (Batch 500)
+    #Nøgne Ø Det kompromissløse Bry - Nøgne Ø # 100 :: Nøgne Ø (Hansa Borg) - Nøgne Ø # 1001
+
+
+    #CAP Brewery - Cap/BrewDog CapDog Black IPA :: CAP Brewery - BrewDog / CAP CAP DOG
+    #Nøgne Ø Det kompromissløse Bry - Nøgne Ø M.O.L.E. Russian Imperial Stout :: Nøgne Ø (Hansa Borg) - Nøgne Ø / La Chingoneria / Central Cervecera M.O.L.E.
+    #Nøgne Ø Det kompromissløse Bry - Nøgne Ø India Saison :: Nøgne Ø (Hansa Borg) - Nøgne Ø / Bridge Road India Saison
+    #Austmann Bryggeri - Austmann Caelum Caeruleum :: Austmann Bryggeri - Austmann / Balder / Lindheim Caelum Caeruelum

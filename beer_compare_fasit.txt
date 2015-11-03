@@ -158,7 +158,7 @@ Gueuzerie Tilquin - Tilquin Oude Gueuze Tilquin² :: Gueuzerie Tilquin - Oude (G
 Gueuzerie Tilquin - Tilquin Stout Rullquin :: Gueuzerie Tilquin - Stout Rullquin
 Gueuzerie Tilquin - Tilquin Oude Gueuze À l?ancienne 2012 :: Gueuzerie Tilquin - Oude Gueuze Tilquin à l’Ancienne
 Gueuzerie Tilquin - Tilquin Oude Gueuze À l'Ancienne :: Gueuzerie Tilquin - Oude Gueuze Tilquin à l’Ancienne
-Charles Cooper Ltd. Greens - Green's Dark Ale Original :: Green’s - Green’s Dubbel Dark Ale
+Charles Cooper Ltd. Greens - Green's Dark Ale Original :: Green’s - Green’s Dark Ale
 Charles Cooper Ltd. Greens - Green?s Bottle Refermented Blonde Ale :: Green’s - Green’s Blond
 Lindemans - Lindemans Gueuze :: Brouwerij Lindemans - Lindemans Gueuze
 Lindemans - Lindemans Oude Gueuze Cuvée René :: Brouwerij Lindemans - Lindemans Gueuze Cuvée René
@@ -208,7 +208,7 @@ Anheuser-Busch - Budweiser :: Anheuser-Busch InBev - Budweiser
 Moritz Beer - Moritz :: Cervezas Moritz - Moritz
 Moritz Beer - Moritz Beer Barcelona :: Cervezas Moritz - Moritz
 Sambrook's Brewery - Sambrooks Powerhouse Porter :: Sambrooks - Sambrooks Powerhouse Porter
-Sambrook's Brewery - Sambrook`s Battersea Rye :: Sambrooks - Sambrooks Battersea Rye
+Sambrook's Brewery - Sambrook`s Battersea Rye :: Sambrooks - Sambrooks Battersea Rye (5.8%)
 Sambrook's Brewery - Sambrook`s Battersea IPA :: Sambrooks - Sambrooks Battersea IPA
 Sambrook's Brewery - Sambrook's Imperial Stout :: Sambrooks - Sambrooks Imperial Stout
 Brooklyn Brewery - Brooklyn Sorachi Ace :: Brooklyn Brewery - Brooklyn Sorachi Ace
@@ -522,7 +522,7 @@ Amundsen Bryggeri - Amundsen Bryggeri Blue Velvet :: Amundsen Bryggeri & Spiseri
 Amundsen Bryggeri - Amundsen Bryggeri Dont worry be hoppy Single Hop IPA :: Amundsen Bryggeri & Spiseri - Amundsen One Hop Wonder - Dont worry be hoppy
 Amundsen Bryggeri - Amundsen Bryggeri Lapu Mountain Smoked Tea Ale :: Amundsen Bryggeri & Spiseri - Amundsen Lapu Mountain
 Amundsen Bryggeri - Amundsen Bryggeri Achey Breaky Hop Single Hop IPA :: Amundsen Bryggeri & Spiseri - Amundsen One Hop Wonder - Achy Breaky Hop
-Amundsen/Grünerløkka Bryggeri - Amundsen/Grünerløkka Oslo IPA :: Amundsen Bryggeri & Spiseri - Amundsen/Grünerløkka Oslo IPA
+Amundsen/Grünerløkka Bryggeri - Amundsen/Grünerløkka Oslo IPA :: Grünerløkka Brygghus - Grünerløkka / Amundsen Oslo IPA
 Browerij Bockor - Bockor VanderGhinste Oud Bruin :: Brouwerij Omer Vander Ghinste - Vanderghinste Oud Bruin
 Browerij Bockor - Bockor Omer Traditional Blond Ale :: Brouwerij Omer Vander Ghinste - Vander Ghinste Omer Traditional
 Browerij Bockor - Bockor Cuvée des Jacobins Rouge :: Brouwerij Omer Vander Ghinste - Vander Ghinste Cuvée des Jacobins
@@ -574,7 +574,7 @@ Stockholm Brewing - Stockholm Brewing India Pale Ale :: Stockholm (Sthlm) Brewin
 Stockholm Brewing - Stockholm Brewing Cuvee Alexandria 2014 :: Stockholm (Sthlm) Brewing Co. - Stockholm Cuvee Alexandria 14
 Craft Dan Micro Brewery/Thwait - Crafty Dan Triple C Golden Ale :: Thwaites - Thwaites Crafty Dan Triple C (Bottle, 5.3%)
 Crafty Dan Micro Brewery/Thwai - Big Ben Brown Ale :: Thwaites - Thwaites Big Ben (Pasteurized) (2013 - )
-Pivovar Jihlava - Pivovar Jihlava Grand Imperial Pils :: Pivovar Jihlava (Pivovary Lobkowicz) - Jezek Grand Pilsner
+Pivovar Jihlava - Pivovar Jihlava Grand Imperial Pils :: Pivovar Jihlava (Pivovary Lobkowicz) - Jihlavský Grand 18°
 Macks Ølbryggeri - Mack Brown Ale :: Mack Bryggeri - Mack Amerikansk Brown Ale 6.5%
 Macks Ølbryggeri - Mack Porter :: Mack Bryggeri - Mack Engelsk Mørk Ale Porter 7.0%
 Macks Ølbryggeri - Mack Kristall Weissbier :: Mack Bryggeri - Mack Kristall Weissbier 6.5%
@@ -606,7 +606,7 @@ BrewDog Brewery - BrewDog Abstrakt AB:17 :: BrewDog - BrewDog Abstrakt AB:17
 BrewDog Brewery - BrewDog Paradox Compass Box Imperial Stout :: BrewDog - BrewDog Paradox Compass Box
 BrewDog Brewery - BrewDog Abstrakt AB:18 :: BrewDog - Brewdog Abstrakt AB:18
 BrewDog Brewery - Brewdog Hop Fiction Pale Ale :: BrewDog - BrewDog Hop Fiction Pale Ale
-BrewDog Brewery - BrewDog Tokyo Stout :: ??
+BrewDog Brewery - BrewDog Tokyo Stout :: BrewDog - BrewDog Tokyo*
 BrewDog Brewery - BrewDog Hardcore IPA :: BrewDog - BrewDog Hardcore IPA (9.2%)
 BrewDog Brewery - BrewDog Libertine Black Ale :: BrewDog - BrewDog Libertine Black Ale
 To Øl - To Øl Raid Beer :: To Øl - To Øl Raid Beer

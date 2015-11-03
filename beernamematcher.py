@@ -18,6 +18,7 @@ BEER_TYPES = [
     u'Imperial Black IPA',
     u'Imperial Raspberry Stout',
     u'Imperial IPA',
+    u'Imperial Pils',
 
     u'India Pale Ale',
     u'India Red Ale',
@@ -59,7 +60,7 @@ BEER_TYPES = [
     u'Saison',
 
     u'Lager',
-    u'Pilsner',
+    u'Pils',
 
     u'Cream Stout',
     u'Stout Porter',
@@ -147,6 +148,8 @@ COMMON_WORDS2 = [
     u'Danish',
     u'special reserve ale',
     u'year old',
+    u'Single Batch',
+    u'Original'
 ]
 
 SYNONYMS = {
@@ -157,7 +160,7 @@ SYNONYMS = {
     'extra': ['ekstra'],
     'brown': ['brune', 'bruin'],
     'dunkel': ['dark'],
-    'pilsner': ['pils', 'pilsener', 'pilsen', 'pilsner'],
+    'pils': ['pilsner', 'pilsener', 'pilsen'],
     'ipa': ['india pale ale'],
     'noire': ['noir'],
     'bio': ['biologique'],
@@ -437,14 +440,23 @@ def filter_packaging(beer_list):
     return res
 
 
-def filter_abv_above(beer_list, abv):
-
+def abv_by_regex(name):
     p = re.compile('\((\d{1,2}\.\d{1,2})?\s*%\)')
+    m = p.search(name)
+    if m:
+        return float(m.groups()[0])
+    return None
+
+
+def filter_abv_above(beer_list, abv_limit):
     res = []
     for beer in beer_list:
-        m = p.search(beer['name'])
-        if m:
-            if float(m.groups()[0]) > abv:
+        if 'abv' in beer:
+            abv = beer['abv']
+        else:
+            abv = abv_by_regex(beer['name'])
+        if abv:
+            if abv > abv_limit:
                 res.append(beer)
         else:
             res.append(beer)
@@ -460,16 +472,25 @@ class BeerNameMatcher(object):
     def __init__(self, brewery_name, beer_list, abv_over=None, skip_retired=False):
         self.brewery_name = unicode(brewery_name)
         self.blist = filter_packaging(beer_list)
-        if abv_over:
-            self.blist = filter_abv_above(self.blist, abv_over)
-        if skip_retired:
-            self.blist = skip_retired_beers(self.blist)
+        self.skip_retired = skip_retired
+        self.abv_over = abv_over
 
-    def match_name(self, name):
+    def match_name(self, name, skip_retired=None, use_abv_over=True):
+
+        beer_list = self.blist
+
+        if skip_retired is None:
+            skip_retired = self.skip_retired
+
+        if use_abv_over and self.abv_over is not None:
+            beer_list = filter_abv_above(beer_list, self.abv_over)
+
+        if skip_retired:
+            beer_list = skip_retired_beers(beer_list)
 
         max_ratio = 0
         hit = None
-        for beer in self.blist:
+        for beer in beer_list:
             r = ratio(name, beer['name'], self.brewery_name)
             if r and r >= max_ratio:
                 if r == max_ratio:
@@ -482,3 +503,9 @@ class BeerNameMatcher(object):
                     hit = beer
         if hit and max_ratio >= 75.0:
             return hit
+
+        if skip_retired:
+            return self.match_name(name, skip_retired=False)
+
+        if use_abv_over and self.abv_over is not None:
+            return self.match_name(name, skip_retired=False, use_abv_over=False)
