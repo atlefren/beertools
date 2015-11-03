@@ -39,8 +39,8 @@ def findall_in_list(dicts, key, value):
     return [item for item in dicts if item[key] == value]
 
 
-def get_fasit():
-    with codecs.open('beer_compare_fasit.txt', 'r', 'utf-8') as infile:
+def get_textfile(filename):
+    with codecs.open(filename, 'r', 'utf-8') as infile:
         return [unicode(line) for line in infile.read().splitlines()]
 
 
@@ -52,7 +52,8 @@ def find_in_fasit(name, fasit):
 
 def compare_beers(pol_data, rb_beers, breweries_rb):
 
-    fasit = get_fasit()
+    fasit = get_textfile('beer_compare_fasit.txt')
+    known_errors = get_textfile('err_polet.txt')
 
     breweries_pol = get_breweries(pol_data, 'Produsent')
 
@@ -66,6 +67,7 @@ def compare_beers(pol_data, rb_beers, breweries_rb):
 
     errors = []
     nomatches = []
+    num_err = 0
     for key, value in grouped.iteritems():
         rb_brewery = find_in_list(breweries_rb, 'id', key)['name']
         rb_beers_for_brewery = findall_in_list(rb_beers, 'brewery_id', key)
@@ -81,18 +83,23 @@ def compare_beers(pol_data, rb_beers, breweries_rb):
 
                 if beer_match is None:
                     nameline = '%s - %s' % (pol_brewery, pol_beer_name)
-                    f = find_in_fasit(nameline, fasit)
-                    if f:
-                        nomatches.append(f)
+
+                    if nameline in known_errors:
+                        num_err = num_err + 1
                     else:
-                        nomatches.append(nameline)
+                        f = find_in_fasit(nameline, fasit)
+                        if f:
+                            nomatches.append(f)
+                        else:
+                            nomatches.append(nameline)
                 else:
                     nameline = '%s - %s :: %s - %s' % (pol_brewery, pol_beer_name, rb_brewery, beer_match['name'])
                     if nameline not in fasit:
                         errors.append(nameline)
-    
+
     print '%s errors' % len(errors)
     print '%s nomatch' % len(nomatches)
+    print '%s wrong from polet' % num_err
     with codecs.open('data/beer_errors.txt', 'w', 'utf-8') as err_file:
         err_file.write('NO MATCH\n\n')
         for error in nomatches:

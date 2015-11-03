@@ -12,7 +12,7 @@
         ]
     },
     {
-        "name": "Brauerei Landsberg",
+        "name": "BRŁO",
         "misspellings": [
             "Braukunst Berlin"
         ]
@@ -240,13 +240,13 @@
         "misspellings": [
             "Stockholm Brewing"
         ]
-    }, 
+    },
     {
         "name": "Brouwerij Palm",
         "misspellings": [
             "Palm Breweries NV"
         ]
-    }, 
+    },
     {
         "name": "Staatliches Hofbräuhaus München",
         "misspellings": [
@@ -264,6 +264,11 @@
         "misspellings": [
             "St. Peters Brewery"
         ]
+    },
+    {
+        "name": "Timmermans (John Martin)",
+        "misspellings": [
+            "John Martin"
+        ]
     }
-
 ]

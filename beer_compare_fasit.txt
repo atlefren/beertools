@@ -45,12 +45,12 @@ Brouwerij De Ranke - De Ranke XX Bitter :: Brouwerij De Ranke - De Ranke XX Bitt
 Brouwerij De Ranke - De Ranke Saison De Dottignies :: Brouwerij De Ranke - De Ranke Saison De Dottignies
 Harviestoun Brewery - Harviestoun Schiehallion Craft Lager :: Harviestoun - Harviestoun Schiehallion (Bottle/Keg)
 Harviestoun Brewery - Harviestoun Brewery Old Engine Oil Porter :: Harviestoun - Harviestoun Old Engine Oil (Bottle)
-Harviestoun Brewery - Harviestoun Ola Dubh 16 special reserve ale :: Harviestoun - Harviestoun Ola Dubh (16 Year Old) 
-Harviestoun Brewery - Harviestoun Ola Dubh 18 Special Reserve ale :: Harviestoun - Harviestoun Ola Dubh (18 Year Old) 
-Harviestoun Brewery - Harviestoun Ola Dubh 12 special reserve ale :: Harviestoun - Harviestoun Ola Dubh (12 Year Old) 
+Harviestoun Brewery - Harviestoun Ola Dubh 16 special reserve ale :: Harviestoun - Harviestoun Ola Dubh (16 Year Old)
+Harviestoun Brewery - Harviestoun Ola Dubh 18 Special Reserve ale :: Harviestoun - Harviestoun Ola Dubh (18 Year Old)
+Harviestoun Brewery - Harviestoun Ola Dubh 12 special reserve ale :: Harviestoun - Harviestoun Ola Dubh (12 Year Old)
 Späten-Franziskaner-Bräuerei - Franziskaner Hefe Weissbier Dunkel :: Spaten-Franziskaner-Bräu (InBev) - Franziskaner Hefe-Weissbier Dunkel
 Späten-Franziskaner-Bräuerei - Franziskaner Hefe-Weissbier Naturtrüb :: Spaten-Franziskaner-Bräu (InBev) - Franziskaner Hefe-Weissbier / Weissbier Naturtrub
-Struise Brouwers - Struise Pannepot Old Fishermans Ale :: De Struise Brouwers - Struise Pannepot Real Ale
+Struise Brouwers - Struise Pannepot Old Fishermans Ale :: De Struise Brouwers - Struise Pannepot
 Struise Brouwers - De Struise Pannepot Grand Reserva :: De Struise Brouwers - Struise Pannepot Grand Reserva
 Struise Brouwers - Struise Pannepot Reserva :: De Struise Brouwers - Struise Pannepot Reserva
 Palm Breweries NV - Palm Steenbrugge Tripel :: Brouwerij Palm - Steenbrugge Tripel
@@ -100,7 +100,7 @@ Mikkeller\De Proef Brouwerij - Mikkeller Vesterbro Pils :: Mikkeller - Mikkeller
 Mikkeller\De Proef Brouwerij - Mikkeller Winbic :: Mikkeller - Mikkeller Winbic
 Mikkeller\De Proef Brouwerij - Mikkeller BA Via to From :: Mikkeller - Mikkeller X-mas Porter 2013 Via Til Fra (Via To From)  Brandy
 Mikkeller\De Proef Brouwerij - Mikkeller Spontan Rosehip :: Mikkeller - Mikkeller SpontanRosehip
-Mikkeller\De Proef Brouwerij - Mikkeller Black Ink and Blood Imperial raspberry stout Brandy :: Mikkeller - Mikkeller Black Ink And Blood Barrel Aged (Brandy Edition) 
+Mikkeller\De Proef Brouwerij - Mikkeller Black Ink and Blood Imperial raspberry stout Brandy :: Mikkeller - Mikkeller Black Ink And Blood Barrel Aged (Brandy Edition)
 Mikkeller\De Proef Brouwerij - Mikkeller Black Ink and Blood Imperial raspberry stout Bourbon :: Mikkeller - Mikkeller Black Ink And Blood Barrel Aged (Bourbon Edition)
 Mikkeller\De Proef Brouwerij - Mikkeller Skør Belgian Ale :: Mikkeller - Mikkeller Skør
 Mikkeller\De Proef Brouwerij - Mikkeller Ahhh Belgian Ale :: Mikkeller - Mikkeller Ahhh Øl
@@ -141,11 +141,11 @@ Nøgne Ø Det kompromissløse Bry - Nøgne Ø Vic Secret IPA :: Nøgne Ø (Hansa
 Nøgne Ø Det kompromissløse Bry - Gottes Hülfe in der Noth :: Nøgne Ø (Hansa Borg) - Nøgne Ø Gottes Hülfe in der Noth
 Nøgne Ø Det kompromissløse Bry - Nøgne Ø Saison :: Nøgne Ø (Hansa Borg) - Nøgne Ø Saison
 Nøgne Ø Det kompromissløse Bry - Nøgne Ø Quadrupel :: Nøgne Ø (Hansa Borg) - Nøgne Ø Quadrupel (Red Wine Barrel Edition)
-Nøgne Ø Det kompromissløse Bry - Nøgne Ø Imperial Stout Whisky Barrels :: Nøgne Ø (Hansa Borg) - Nøgne Ø Imperial Stout (Whisky barrel edition) 
+Nøgne Ø Det kompromissløse Bry - Nøgne Ø Imperial Stout Whisky Barrels :: Nøgne Ø (Hansa Borg) - Nøgne Ø Imperial Stout (Whisky barrel edition)
 Nøgne Ø Det kompromissløse Bry - Nøgne Ø Saison Réserve :: Nøgne Ø (Hansa Borg) - Nøgne Ø Saison Réserve
 Nøgne Ø Det kompromissløse Bry - Nøgne Ø M.O.L.E. Russian Imperial Stout :: Nøgne Ø (Hansa Borg) - Nøgne Ø / La Chingoneria / Central Cervecera M.O.L.E.
 Nøgne Ø Det kompromissløse Bry - Nøgne Ø Two Captains Double IPA :: Nøgne Ø (Hansa Borg) - Nøgne Ø Two Captains Double IPA
-Nøgne Ø Det kompromissløse Bry - Nøgne Ø Imperial India Pale Ale #500 :: Nøgne Ø (Hansa Borg) - Nøgne Ø # 500 Imperial India Pale Ale (Batch 500) 
+Nøgne Ø Det kompromissløse Bry - Nøgne Ø Imperial India Pale Ale #500 :: Nøgne Ø (Hansa Borg) - Nøgne Ø # 500 Imperial India Pale Ale (Batch 500)
 Nøgne Ø Det kompromissløse Bry - Nøgne Ø Tiger Tripel :: Nøgne Ø (Hansa Borg) - Nøgne Ø Tiger Tripel
 Nøgne Ø Det kompromissløse Bry - Weihenstephaner Vitus Weizenbock :: Bayerische Staatsbrauerei Weihenstephan - Weihenstephaner Vitus
 Nøgne Ø Det kompromissløse Bry - Nøgne Ø Sunturnbrew :: Nøgne Ø (Hansa Borg) - Nøgne Ø Sunturnbrew
@@ -286,7 +286,7 @@ Brouwerij Verhaeghe - Verhaeghe Barbe Noir :: Verhaeghe - Verhaeghe Barbe Noire 
 Brouwerij Verhaeghe - Verhaeghe Barbe Ruby :: Verhaeghe - Verhaeghe Barbe Ruby
 Brouwerij Verhaeghe - Duchesse de Bourgogne :: Verhaeghe - Verhaeghe Duchesse De Bourgogne
 Brouwerij Verhaeghe - Duchesse de Bourgogne :: Verhaeghe - Verhaeghe Duchesse De Bourgogne
-NiuBru S.R.L. - Brewfist - Brewfist Heimdall Galaxie Saison :: Brewfist - Brewfist / Freigeist Heimdall
+NiuBru S.R.L. - Brewfist - Brewfist Heimdall Galaxie Saison :: Brewfist - Brewfist Galaxie Saison
 NiuBru S.R.L. - Brewfist - Brewfist Spaceman Indian Pale Ale :: Brewfist - Brewfist Spaceman
 Indslev Bryggeri - Ghost Brewery / Ugly Duck Brewing West Coast IPA :: Indslev Bryggeri - Ugly Duck/Ghost West Coast IPA
 Indslev Bryggeri - Svane Hvede :: Indslev Bryggeri - Indslev Svane Hvede
@@ -543,13 +543,13 @@ Brasserie Dupont - Saison Dupont :: Brasserie Dupont - Saison Dupont Vieille Pro
 Birra Olmo - Olmo Guerrilla IPA :: Birra Olmo - Birra Olmo Guerrilla IPA
 Left Hand Brewing Co. - Left Hand Milk Stout Nitro :: Left Hand Brewing Co. - Left Hand Milk Stout Nitro
 Primator - Primator Exkluziv 16% :: Pivovar Náchod (LIF) - Primátor Exkluziv 16°
-Primator - Primator Double 24% :: Pivovar Náchod (LIF) - Primátor Double Bock
+Primator - Primator Double 24% :: Pivovar Náchod (LIF) - Primátor Double 24° (Specialni Tmavé)
 United Breweries Group of Bang - Kingfisher Premium Lager :: United Breweries Group - Kingfisher (Premium) Lager Beer
 United Breweries Group of Bang - Kingfisher Premium Lager :: United Breweries Group - Kingfisher (Premium) Lager Beer
 Beer Here - Beerhere Angry Hops IPA :: Beer Here - Beer Here Angry Hops
-Braukunst Berlin - Brlo Porter :: 
-Braukunst Berlin - Brlo Helles :: 
-Braukunst Berlin - Brlo Pale Ale :: 
+Braukunst Berlin - Brlo Porter :: BRŁO - BRLO Porter
+Braukunst Berlin - Brlo Helles :: BRŁO - BRLO Helles
+Braukunst Berlin - Brlo Pale Ale :: BRŁO - BRLO Pale Ale
 The Redchurch Brewery - Redchurch Old Ford Export Stout :: Redchurch - Redchurch Old Ford Export Stout
 The Redchurch Brewery - Redchurch Great Eastern India Pale Ale :: Redchurch - Redchurch Great Eastern India Pale Ale
 The Redchurch Brewery - Redchurch Bethnal Pale Ale :: Redchurch - Redchurch Bethnal Pale Ale
@@ -672,7 +672,7 @@ Edge Brewing - Edge Soy Rodriguez Rye IPA :: Edge Brewing Company - Edge Brewing
 Brouw. De Troch - De Troch Chapeau Gueuze :: Brouwerij De Troch - Chapeau Gueuze
 Brouw. De Troch - De Troch Chapeau Oude Gueuze :: Brouwerij De Troch - De Troch Oude Gueuze
 Dugges - Dugges Avenyn Pale Ale :: Dugges Ale & Porterbryggeri - Dugges Avenyn Ale
-Dugges - Electric Nurse DIPA :: Dugges Ale & Porterbryggeri - Electric Nurse DIPA
+Dugges - Electric Nurse DIPA :: Electric Nurse - Electric Nurse DIPA
 Dugges - Dugges High Five! IPA :: Dugges Ale & Porterbryggeri - Dugges High Five!
 Dugges Ale- & Porterbryggeri A - Dugges Idjit Imperial Stout :: Dugges Ale & Porterbryggeri - Dugges Idjit!
 Hook Norton - Hook Norton Haymaker :: Hook Norton - Hook Norton Haymaker (Bottle)

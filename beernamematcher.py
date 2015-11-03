@@ -16,6 +16,7 @@ BEER_TYPES = [
     u'Imperial Stout',
     u'Imperial Red Ale',
     u'Imperial Black IPA',
+    u'Imperial Raspberry Stout',
     u'Imperial IPA',
 
     u'India Pale Ale',
@@ -23,6 +24,7 @@ BEER_TYPES = [
     u'Indian Pale Ale',
     u'India Dark Ale',
 
+    u'Irish Stout',
     u'Oyster Stout',
     u'Milk Stout',
 
@@ -47,6 +49,8 @@ BEER_TYPES = [
     u'APA',
     u'Farmhouse Ale',
     u'Dubbel Bruin',
+
+    u'Ancient Grains Ale',
 
     u'Blonde',
 
@@ -79,9 +83,12 @@ BEER_TYPES = [
     u'Belgian Tripel',
     u'Trippel',
     u'Triple',
+    u'Tripel',
 
     u'Dubbel',
     u'Ambree',
+
+    u'Rich Ale',
 ]
 
 BEER_TYPES = [x.lower() for x in BEER_TYPES]
@@ -131,9 +138,18 @@ COMMON_WORDS2 = [
     u'Rye',
     u'Herb',
     u'Brettanomyces',
+    u'edition',
+    u'lys',
+    u'Amerikansk',
+    u'Bayersk',
+    u'Belgisk',
+    u'Extra',
+    u'Danish',
+    u'special reserve ale',
+    u'year old',
 ]
 
-DUPLICATES = {
+SYNONYMS = {
     'blonde': ['blond'],
     'red': ['rouge'],
     'unfiltered': ['non filtrata'],
@@ -149,6 +165,7 @@ DUPLICATES = {
     'kriek': ['krieken'],
     'lambic': ['lambik'],
     'rye': ['rug'],
+    'trippel': ['triple', 'tripel'],
 }
 
 
@@ -258,17 +275,21 @@ def unique_list(l, l2):
     return ulist
 
 
-def remove_duplicates(name):
+def remove_synonyms(name):
     name = remove_accents(unicode(name))
     name = ' %s ' % name
-    for word, duplicates in DUPLICATES.iteritems():
+    for word, duplicates in SYNONYMS.iteritems():
         for duplicate in duplicates:
             duplicate = remove_accents(unicode(duplicate))
             regex = '(?<![a-z])(%s)(?![a-z])' % duplicate
             p = re.compile(regex)
             name = p.sub(word, name)
-    name = name.strip().split()
-    return ' '.join(unique_list(name, DUPLICATES.keys()))
+    return name.strip()
+
+
+def remove_duplicates(name):
+    name = name.split()
+    return ' '.join(unique_list(name, SYNONYMS.keys()))
 
 
 def shift_range(value):
@@ -305,6 +326,10 @@ def remove_after_semicolon(s):
     return s
 
 
+def sort_and_join(name):
+    return ''.join(sort_words(name).split(' '))
+
+
 def ratio(s1, s2, brewery_name):
     s1 = unicode(s1)
     s2 = unicode(s2)
@@ -324,33 +349,40 @@ def ratio(s1, s2, brewery_name):
     operations = [
         {'func': lower_strip2, 'threshold': 0.93},
         {'func': fix_typography, 'threshold': 0.93},
+        {'func': sort_and_join, 'threshold': 0.93, 'restore': True},
         {'func': remove_collab, 'threshold': 0.93},
         {'func': remove_brewery, 'threshold': 0.93},
         {'func': remove_brewery_parts, 'threshold': 0.93},
         {'func': remove_packaging2, 'threshold': 0.93},
         {'func': fix_and_words, 'threshold': 0.93},
-        {'func': remove_duplicates, 'threshold': 0.93},
+        {'func': remove_synonyms, 'threshold': 0.93},
         {'func': remove_abv2, 'threshold': 0.93},
         {'func': remove_year2, 'threshold': 0.93},
         {'func': remove_size2, 'threshold': 0.93},
-        {'func': remove_in_parentesis, 'threshold': 0.93, 'restore': True},
+        {'func': remove_in_parentesis, 'threshold': 0.85, 'restore': True},
         {'func': remove_after_semicolon, 'threshold': 0.93, 'restore': True},
         {'func': remove_punctuation3, 'threshold': 0.93},
         {'func': sort_words, 'threshold': 0.93, 'restore': True},
         {'func': remove_common2, 'threshold': 0.93, 'restore': True},
         {'func': remove_type2, 'threshold': 0.93, 'restore': True},
-        {'func': remove_common2, 'threshold': 0.93},
+        {'func': remove_duplicates, 'threshold': 0.90},
+        {'func': remove_common2, 'threshold': 0.90},
         {'func': remove_type2, 'threshold': 0.8},
-        {'func': remove_single_year, 'threshold': 0.93},
-        {'func': sort_words, 'threshold': 0.93, 'restore': True},
+        {'func': remove_single_year, 'threshold': 0.90},
+        {'func': sort_words, 'threshold': 0.90, 'restore': True},
     ]
     length = len(operations)
     index = 0
+
+    #print '--'
     for operation in operations:
         restore = operation.get('restore', False)
 
         s1_tmp = operation['func'](s1)
         s2_tmp = operation['func'](s2)
+
+        if s1_tmp == '' or s1_tmp == '':
+            restore = True
 
         if s1 == s1_tmp and s2 == s2_tmp:
             c = 1
@@ -361,13 +393,14 @@ def ratio(s1, s2, brewery_name):
         if s1_tmp == '' and s2_tmp == '':
             dist = 0.0
 
+        threshold = operation['threshold'] * c
         #print operation['func'].__name__
-        #print '%s | %s (%s)' % (s1_tmp, s2_tmp, dist)
-
-        if dist >= operation['threshold'] * c:
+        #print '%s | %s (%s) (%s)' % (s1_tmp, s2_tmp, dist, threshold)
+        if dist >= threshold:
             ratio = 100.0
-            if num_words(s1_tmp) < 2 or num_words(s2_tmp) < 2:
-                ratio = shift_range(Levenshtein.ratio(unicode(org1), unicode(org2)))
+            if operation['func'].__name__ != 'sort_and_join':
+                if num_words(s1_tmp) < 2 or num_words(s2_tmp) < 2:
+                    ratio = shift_range(Levenshtein.ratio(unicode(org1), unicode(org2)))
             return dist * ratio
         if not restore:
             s1 = s1_tmp
@@ -382,7 +415,7 @@ def ratio(s1, s2, brewery_name):
 
     len_ratio = float(max(l1, l2)) / min(l1, l2)
 
-    if l1 > 2 and l2 > 2 and len_ratio >= 1.5:
+    if l1 >= num_words(org1) / 2 and l2 >= num_words(org2) / 2 and len_ratio >= 1.5:
         if is_substring_of(s1, s2) or is_substring_of(s2, s1):
             return 75
 
