@@ -1,5 +1,5 @@
 Adnams Sole Bay Brewery - Adnams Rye IPA :: Adnams - Adnams Jack Brand Crystal Rye IPA
-Adnams Sole Bay Brewery - Adnams Innovation IPA :: Adnams - Adnams Southwold Innovation IPA
+Adnams Sole Bay Brewery - Adnams Innovation IPA :: Adnams - Adnams Jack Brand Innovation IPA
 Adnams Sole Bay Brewery - Adnams Tally Ho Ho Ho :: Adnams - Adnams Tally Ho-Ho-Ho
 Eiker Ølfabrikk - Eiker Saison :: Eiker Ølfabrikk - Eiker Saison
 Eiker Ølfabrikk - Eiker Melkestout :: Eiker Ølfabrikk - Eiker Melkestout
@@ -440,7 +440,7 @@ Brasserie de la Pigonnelle - La Salamandre Blonde :: Pigeonnelle - Pigeonnelle L
 Warsteiner - Warsteiner Premium Verum :: Warsteiner Brauerei - Warsteiner Premium Verum
 Brouwerij Duvel Moortgaat - Vedett Extra Blond :: Duvel Moortgat - Vedett Extra Blond
 Duvel Moortgat - Maredsous Brown :: Duvel Moortgat - Maredsous 8 Brune/Bruin
-Duvel Moortgat - Duvel Tripel Hop :: Duvel Moortgat - Duvel Tripel Hop (2007 - 2011)
+Duvel Moortgat - Duvel Tripel Hop :: Duvel Moortgat - Duvel Tripel Hop 2015 (Equinox)
 Duvel Moortgat - Duvel :: Duvel Moortgat - Duvel
 Duvel Moortgat - Duvel :: Duvel Moortgat - Duvel
 Duvel Moortgat - Maredsous 10° Tripel :: Duvel Moortgat - Maredsous 10 Tripel
@@ -576,7 +576,7 @@ Craft Dan Micro Brewery/Thwait - Crafty Dan Triple C Golden Ale :: Thwaites - Th
 Crafty Dan Micro Brewery/Thwai - Big Ben Brown Ale :: Thwaites - Thwaites Big Ben (Pasteurized) (2013 - )
 Pivovar Jihlava - Pivovar Jihlava Grand Imperial Pils :: Pivovar Jihlava (Pivovary Lobkowicz) - Jezek Grand Pilsner
 Macks Ølbryggeri - Mack Brown Ale :: Mack Bryggeri - Mack Amerikansk Brown Ale 6.5%
-Macks Ølbryggeri - Mack Porter :: Mack Bryggeri - Mack Porter
+Macks Ølbryggeri - Mack Porter :: Mack Bryggeri - Mack Engelsk Mørk Ale Porter 7.0%
 Macks Ølbryggeri - Mack Kristall Weissbier :: Mack Bryggeri - Mack Kristall Weissbier 6.5%
 Macks Ølbryggeri - Mack Bokøl :: Mack Bryggeri - Mack Bok-Øl
 Macks Ølbryggeri - GullMack :: Mack Bryggeri - Mack Gull
@@ -722,7 +722,7 @@ Malheur - Malheur 10 :: Brouwerij Malheur (formerly De Landtsheer) - Malheur 10
 Kiuchi Brewery - Hitachino Nest White Ale :: Kiuchi Brewery - Hitachino Nest White Ale
 Kiuchi Brewery - Hitachino Nest Red Rice Ale :: Kiuchi Brewery - Hitachino Nest Red Rice Ale
 Kiuchi Brewery - Hitatchino Ginger Ale :: Kiuchi Brewery - Hitachino Nest Real Ginger Ale
-Kiuchi Brewery - Hitachino Nest Nipponia :: Kiuchi Brewery - Hitachino Nest Ancient Nipponia
+Kiuchi Brewery - Hitachino Nest Nipponia :: Kiuchi Brewery - Hitachino Nest Ancient Nipponia (Bottom Fermented)
 Oppigårds Bryggeri - Oppigårds Amarillo :: Oppigårds Bryggeri - Oppigårds Amarillo
 Oppigårds Bryggeri - Oppigårds Golden Ale :: Oppigårds Bryggeri - Oppigårds Golden Ale
 Oppigårds Bryggeri - Oppigårds Thurbo Stout :: Oppigårds Bryggeri - Oppigårds Thurbo Stout
@@ -748,10 +748,10 @@ Abbaye St-Remy - Rochefort 8 Trappist :: Brasserie Rochefort - Rochefort Trappis
 Abbaye St-Remy - Rochefort 6 :: Brasserie Rochefort - Rochefort Trappistes 6
 Benediktiner Weissbräu GmbH - Benediktiner Weissbier :: Klosterbrauerei Ettal - Benediktiner Weissbier
 Nørrebro Bryghus - Nørrebro Økologisk King's County Brown Ale :: Nørrebro Bryghus - Nørrebro Kings County Brown Ale (Økologisk)
-Nørrebro Bryghus - Nørrebro New York Lager :: Nørrebro Bryghus - Nørrebro New York Lager
-Nørrebro Bryghus - Nørrebro Stuykman Wit :: Nørrebro Bryghus - Nørrebro Stuykman Wit
-Nørrebro Bryghus - Nørrebro Ravensborg Rød :: Nørrebro Bryghus - Nørrebro Ravnsborg Rød
-Nørrebro Bryghus - Nørrebro Bombay Pale Ale :: Nørrebro Bryghus - Nørrebro Bombay Pale Ale
+Nørrebro Bryghus - Nørrebro New York Lager :: Nørrebro Bryghus - Nørrebro New York Lager (Økologisk)
+Nørrebro Bryghus - Nørrebro Stuykman Wit :: Nørrebro Bryghus - Nørrebro Stuykman Wit (Økologisk)
+Nørrebro Bryghus - Nørrebro Ravensborg Rød :: Nørrebro Bryghus - Nørrebro Ravnsborg Rød (Økologisk)
+Nørrebro Bryghus - Nørrebro Bombay Pale Ale :: Nørrebro Bryghus - Nørrebro Bombay Pale Ale (Økologisk)
 Stift Engelszell - Engelszell Gregorius Trappistenbier :: Stift Engelszell Trappistenbier-Brauerei - Engelszell Gregorius Trappistenbier
 Brasseries Kronenbourg - Kronenbourg 1664 Blanc :: Kronenbourg (Carlsberg) - Kronenbourg 1664 Blanc
 Brasserie St. Feuillien - St. Feuillien Grisette Blonde Glutenfri :: Brasserie St-Feuillien / Friart - St Feuillien Grisette Blonde Gluten Free

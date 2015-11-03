@@ -451,13 +451,19 @@ def filter_abv_above(beer_list, abv):
     return res
 
 
+def skip_retired_beers(beer_list):
+    return [beer for beer in beer_list if not beer.get('retired', False)]
+
+
 class BeerNameMatcher(object):
 
-    def __init__(self, brewery_name, beer_list, abv_over=None):
+    def __init__(self, brewery_name, beer_list, abv_over=None, skip_retired=False):
         self.brewery_name = unicode(brewery_name)
         self.blist = filter_packaging(beer_list)
         if abv_over:
             self.blist = filter_abv_above(self.blist, abv_over)
+        if skip_retired:
+            self.blist = skip_retired_beers(self.blist)
 
     def match_name(self, name):
 
@@ -465,8 +471,14 @@ class BeerNameMatcher(object):
         hit = None
         for beer in self.blist:
             r = ratio(name, beer['name'], self.brewery_name)
-            if r and r > max_ratio:
-                max_ratio = r
-                hit = beer
+            if r and r >= max_ratio:
+                if r == max_ratio:
+                    prev_ratio = Levenshtein.ratio(unicode(name), unicode(hit['name']))
+                    new_ratio = Levenshtein.ratio(unicode(name), unicode(beer['name']))
+                    if new_ratio > prev_ratio:
+                        hit = beer
+                else:
+                    max_ratio = r
+                    hit = beer
         if hit and max_ratio >= 75.0:
             return hit

@@ -190,7 +190,6 @@ class BeerNameMatcherTest(unittest.TestCase):
         matched = matcher.match_name(u'Grünerløkka Brygghus Løkkatrollet Stout Porter')
         self.assertEqual(u'Grünerløkka Løkkatrollet', matched['name'])
 
-    @unittest.skip("")
     def test_ba_edition(self):
         beer_list = [
             {'name': u'Mikkeller Black Ink And Blood'},
@@ -606,7 +605,6 @@ class BeerNameMatcherTest(unittest.TestCase):
         matched = matcher.match_name(u'Efes Pilsner')
         self.assertEqual(u'Efes Pilsen (Pilsener)', matched['name'])
 
-    @unittest.skip("")
     def test_parenthesis(self):
         beer_list = [
             {'name': u'Flying Dog Snake Dog IPA (Raspberry Puree & Orange Peel)'},
@@ -857,3 +855,16 @@ class BeerNameMatcherTest(unittest.TestCase):
         matcher = BeerNameMatcher(u'United Breweries Group', beer_list, abv_over=4.7)
         matched = matcher.match_name(u'Kingfisher Premium Lager')
         self.assertEqual(u'Kingfisher (Premium) Lager Beer', matched['name'])
+
+    def test_retired(self):
+        beer_list = [
+            {'name': u'Flying Dog Snake Dog IPA (through 2007)', 'retired': True},
+            {'name': u'Flying Dog Snake Dog IPA (2008 and later)'}
+        ]
+        matcher = BeerNameMatcher(u'Flying Dog Brewery', beer_list, abv_over=4.7, skip_retired=)
+        matched = matcher.match_name(u'Flying Dog Snake Dog IPA')
+        self.assertEqual(u'Flying Dog Snake Dog IPA (2008 and later)', matched['name'])
+
+
+        #Amundsen/Grünerløkka Bryggeri - Amundsen/Grünerløkka Oslo IPA :: Amundsen Bryggeri & Spiseri - Amundsen Oslo Ølfestivaløl 2013
+        #Amundsen/Grünerløkka Bryggeri - Amundsen/Grünerløkka Oslo IPA :: Amundsen Bryggeri & Spiseri - Amundsen/Grünerløkka Oslo IPA
