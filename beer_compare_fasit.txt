@@ -401,7 +401,7 @@ Malmgården Panimo Oy - Malmgården Belge :: Malmgårdin Panimo - Malmgard Brewe
 Malmgården Panimo Oy - Malmgården Emmer IPA :: Malmgårdin Panimo - Malmgard Brewery - Malmgård Emmer IPA
 Malmgården Panimo Oy - Malmgården Emmer Tripel :: Malmgårdin Panimo - Malmgard Brewery - Malmgård Emmer Tripel
 Malmgårds Bryggeri AB - Malmgård Huvila Article Circle Ale :: Malmgårdin Panimo - Malmgard Brewery - Huvila Arctic Circle Ale
-Brouwerij Urthel - Urthel Hop-It Superior Hoppig Blond :: Microbrouwerij Urthel - Urthel Hop-it
+Brouwerij Urthel - Urthel Hop-It Superior Hoppig Blond :: Brouwerij De Leyerth - Urthel Hop-it
 Bodejovice Budvar - Budweiser Budvar :: Budějovický Budvar - Budweiser Budvar B:Original (Czechvar) 12°
 Helsingborgs Bryggeri - Helsingborgs Kaffestout :: Helsingborgs Bryggeri - Helsingborgs Kaffestout
 Coisbo - Coisbo Brooklyn Fall :: Coisbo Beer - Coisbo Brooklyn Fall
@@ -543,7 +543,7 @@ Brasserie Dupont - Saison Dupont :: Brasserie Dupont - Saison Dupont Vieille Pro
 Birra Olmo - Olmo Guerrilla IPA :: Birra Olmo - Birra Olmo Guerrilla IPA
 Left Hand Brewing Co. - Left Hand Milk Stout Nitro :: Left Hand Brewing Co. - Left Hand Milk Stout Nitro
 Primator - Primator Exkluziv 16% :: Pivovar Náchod (LIF) - Primátor Exkluziv 16°
-Primator - Primator Double 24% :: Pivovar Náchod (LIF) - Primátor Double 24° (Specialni Tmavé)
+Primator - Primator Double 24% :: Pivovar Náchod (LIF) - Primátor Double Bock
 United Breweries Group of Bang - Kingfisher Premium Lager :: United Breweries Group - Kingfisher (Premium) Lager Beer
 United Breweries Group of Bang - Kingfisher Premium Lager :: United Breweries Group - Kingfisher (Premium) Lager Beer
 Beer Here - Beerhere Angry Hops IPA :: Beer Here - Beer Here Angry Hops
@@ -668,7 +668,7 @@ La Rulles - La Rulles Estivale :: Brasserie Artisanale de Rulles - La Rulles Est
 La Rulles - La Rulles Triple :: Brasserie Artisanale de Rulles - La Rulles Triple
 La Rulles - La Rulles Brune :: Brasserie Artisanale de Rulles - La Rulles Brune
 La Rulles - La Rulles La Grande 10 :: Brasserie Artisanale de Rulles - La Rulles La Grande 10
-Edge Brewing - Edge Soy Rodriguez Rye IPA :: Edge Brewing Company - Edge Brewing Soy Rodríguez
+Edge Brewing - Edge Soy Rodriguez Rye IPA :: Edge Brewing Barcelona - Edge Brewing Soy Rodríguez
 Brouw. De Troch - De Troch Chapeau Gueuze :: Brouwerij De Troch - Chapeau Gueuze
 Brouw. De Troch - De Troch Chapeau Oude Gueuze :: Brouwerij De Troch - De Troch Oude Gueuze
 Dugges - Dugges Avenyn Pale Ale :: Dugges Ale & Porterbryggeri - Dugges Avenyn Ale

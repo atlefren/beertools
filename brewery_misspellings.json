@@ -270,5 +270,24 @@
         "misspellings": [
             "John Martin"
         ]
+    },
+    {
+        "name": "San Miguel Spain (Grupo Mahou-San Miguel)",
+        "misspellings": [
+            "San Miguel"
+        ]
+    },
+    {
+        "name": "Edge Brewing Barcelona",
+        "misspellings": [
+            "Edge Brewing"
+        ]
+    },
+    {
+        "name": "Brouwerij De Leyerth",
+        "misspellings": [
+            "Brouwerij Urthel"
+        ]
     }
+    
 ]

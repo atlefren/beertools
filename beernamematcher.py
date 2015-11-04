@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import re
-import unicodedata
+from unidecode import unidecode
 
 import Levenshtein
 
@@ -14,6 +14,7 @@ BEER_TYPES = [
     u'Imperial Wheat Stout',
     u'Imperial Coffee Stout',
     u'Imperial Stout',
+    u'Imperial Porter',
     u'Imperial Red Ale',
     u'Imperial Black IPA',
     u'Imperial Raspberry Stout',
@@ -33,8 +34,9 @@ BEER_TYPES = [
     u'Belgian Ale',
     u'Pale Ale',
     u'Amber Ale',
-    u'Blonde Ale',
-    u'Blond Ale',
+    u'Blonde',
+    
+    u'Golden ale',
 
     u'White IPA',
     u'Saison IPA',
@@ -53,11 +55,13 @@ BEER_TYPES = [
 
     u'Ancient Grains Ale',
 
-    u'Blonde',
-
+    
+    u'Amber',
     u'Geuze',
 
     u'Saison',
+
+    u'Bockbier',
 
     u'Lager',
     u'Pils',
@@ -71,6 +75,7 @@ BEER_TYPES = [
     u'Dubbel Witbier',
     u'Dunkles Weizen',
     u'Witbier',
+    u'Wit Bier',
     u'Wit',
 
     u'Hefe Weizen',
@@ -100,13 +105,13 @@ AND_WORDS = [
 ]
 
 WANTED_PACKAGE_TYPES = [
-    u' (bottle)',
-    u' (bottle / keg)',
-    u' (bottle / can)',
-    u' (cask & bottle conditioned)',
-    u' (pasteurized)',
-    u' (pasteurised)',
-    u' (filtered)',
+    u'bottle / keg',
+    u'bottle / can',
+    u'cask & bottle conditioned',
+    u'pasteurized',
+    u'pasteurised',
+    u'filtered',
+    u'bottle',
 ]
 
 UNWANTED_PACKAGE_TYPES = [
@@ -144,12 +149,22 @@ COMMON_WORDS2 = [
     u'Amerikansk',
     u'Bayersk',
     u'Belgisk',
+    u'belgian',
     u'Extra',
     u'Danish',
     u'special reserve ale',
     u'year old',
     u'Single Batch',
-    u'Original'
+    u'Original',
+    u'Famous',
+    u'Batch',
+    u'hell',
+    u'chapeau',
+    u'bottle refermented',
+    u'Birra',
+    u'Real',
+    u'Superior Hoppig',
+    u'Artisanale'
 ]
 
 SYNONYMS = {
@@ -169,13 +184,13 @@ SYNONYMS = {
     'lambic': ['lambik'],
     'rye': ['rug'],
     'trippel': ['triple', 'tripel'],
+    'nr': ['Nr.', 'No'],
+    'blonde': ['blond ale', 'blonde ale', 'blond']
 }
 
 
 def remove_accents(input_str):
-    nfkd_form = unicodedata.normalize('NFKD', input_str)
-    only_ascii = nfkd_form.encode('ASCII', 'ignore')
-    return only_ascii
+    return unidecode(input_str)
 
 
 def remove_multiple_spaces(s):
@@ -209,8 +224,9 @@ def fix_typography(name):
 
 def remove_packaging2(name):
     for packaging in WANTED_PACKAGE_TYPES:
-        if packaging in name:
-            name = name.replace(packaging, '').strip()
+        p = re.compile('\((.*?)%s(.*?)\)' % packaging)
+        name = p.sub(r'(\1\2)', name)
+        name = name.replace('()', '').strip()
     return name
 
 
@@ -257,8 +273,6 @@ def remove_common2(name):
 
 def remove_punctuation3(name):
     return strip_punctuation(name) \
-        .replace('(', '') \
-        .replace(')', '') \
         .replace('/', '') \
         .strip()
 
@@ -293,6 +307,11 @@ def remove_synonyms(name):
 def remove_duplicates(name):
     name = name.split()
     return ' '.join(unique_list(name, SYNONYMS.keys()))
+
+
+def remove_all_duplicates(name):
+    name = name.split()
+    return ' '.join(unique_list(name, name))
 
 
 def shift_range(value):
@@ -373,9 +392,12 @@ def ratio(s1, s2, brewery_name):
         {'func': remove_type2, 'threshold': 0.8},
         {'func': remove_single_year, 'threshold': 0.90},
         {'func': sort_words, 'threshold': 0.90, 'restore': True},
+        {'func': remove_all_duplicates, 'threshold': 0.90, 'restore': True},
     ]
     length = len(operations)
     index = 0
+
+    max_score = 0
 
     #print '--'
     for operation in operations:
@@ -404,12 +426,17 @@ def ratio(s1, s2, brewery_name):
             if operation['func'].__name__ != 'sort_and_join':
                 if num_words(s1_tmp) < 2 or num_words(s2_tmp) < 2:
                     ratio = shift_range(Levenshtein.ratio(unicode(org1), unicode(org2)))
-            return dist * ratio
+            score = dist * ratio
+            if score > max_score:
+                max_score = score
         if not restore:
             s1 = s1_tmp
             s2 = s2_tmp
         if not restore:
             index = index + 1
+
+    if max_score > 60:
+        return max_score
 
     l1 = num_words(s1)
     l2 = num_words(s2)
@@ -492,6 +519,9 @@ class BeerNameMatcher(object):
         hit = None
         for beer in beer_list:
             r = ratio(name, beer['name'], self.brewery_name)
+            if r:
+                r = round(r, 1)
+            #print '%s: %s' % (beer['name'], r)
             if r and r >= max_ratio:
                 if r == max_ratio:
                     prev_ratio = Levenshtein.ratio(unicode(name), unicode(hit['name']))

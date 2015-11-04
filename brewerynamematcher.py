@@ -112,6 +112,15 @@ class BreweryNameMatcher(object):
         self.brewery_list = self._prepare_list(brewery_list)
 
     def match_name(self, name):
+
+        for misspelling in self.misspellings:
+            if name in misspelling['misspellings']:
+                try:
+                    res = (brewery for brewery in self.brewery_list if brewery['brewery']['name'] == misspelling['name']).next()
+                    return res['brewery']
+                except StopIteration:
+                    pass
+
         name = self._normalize_name(unicode(name))
         if name == '':
             return None
