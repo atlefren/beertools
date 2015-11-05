@@ -223,7 +223,7 @@ def fix_typography(name):
     return p.sub(r'\1 / \2', name)
 
 
-def remove_packaging2(name):
+def remove_packaging(name):
     for packaging in WANTED_PACKAGE_TYPES:
         p = re.compile('\((.*?)%s(.*?)\)' % packaging)
         name = p.sub(r'(\1\2)', name)
@@ -370,20 +370,17 @@ def filter_packaging(beer_list):
     return res
 
 
-def abv_by_regex(name):
-    p = re.compile('\((\d{1,2}\.\d{1,2})?\s*%\)')
-    m = p.search(name)
-    if m:
-        return float(m.groups()[0])
-    return None
-
-
 def skip_retired_beers(beer_list):
     return [beer for beer in beer_list if not beer.get('retired', False)]
 
 
 def is_within_range(n1, n2, diff):
     return abs(n1 - n2) <= diff
+
+
+def punishment_by_list(length, index):
+    shifted = shift_range(float(length - index) / float(length) * float(100))
+    return shifted / 100.0
 
 
 class BeerNameMatcher(object):
@@ -477,50 +474,75 @@ class BeerNameMatcher(object):
         max_score = 0
 
         for operation in operations:
+
+            # Shold this operation be restored?
             restore = operation.get('restore', False)
 
+            # Perform operation
             s1_tmp = b1[operation['name']]
             s2_tmp = b2[operation['name']]
 
+            # if one of the resulting strings is empty, restore operation
             if s1_tmp == '' or s1_tmp == '':
                 restore = True
 
+            # if the operation does not change strings, no "punishment"
             if s1 == s1_tmp and s2 == s2_tmp:
                 c = 1
             else:
-                c = shift_range(float(length - index) / float(length) * float(100)) / 100.0
+                # the punishment gets larger the further down in the
+                # operations list we get
+                c = punishment_by_list(length, index)
+
+            # calculate distance (with puhishment)
             dist = Levenshtein.ratio(unicode(s1_tmp), unicode(s2_tmp)) * c
 
+            # distance is zero if both strings empty
             if s1_tmp == '' and s2_tmp == '':
                 dist = 0.0
 
+            # adjust threshold to index
             threshold = operation['threshold'] * c
+
             # print operation['name']
             # print '%s | %s (%s) (%s)' % (s1_tmp, s2_tmp, dist, threshold)
+
+            # if above threshold, things gets interesting!
             if dist >= threshold:
                 ratio = 100.0
                 if operation['name'] != 'sort_and_join':
                     if num_words(s1_tmp) < 2 or num_words(s2_tmp) < 2:
+
+                        # adjust ratio by original difference
                         ratio = shift_range(Levenshtein.ratio(unicode(org1), unicode(org2)))
+                # tune the distance
                 score = dist * ratio
+
+                # store maximum score
                 if score > max_score:
                     max_score = score
+
+            # use the values calculated here in next step (if not restore)
             if not restore:
                 s1 = s1_tmp
                 s2 = s2_tmp
+
+            # make sure pushishment isn't increased if we restore
             if not restore:
                 index = index + 1
 
+        # if score above threshold, return it
         if max_score > 60:
             return max_score
 
+        # check if there still are stuff to compare on
         l1 = num_words(s1)
         l2 = num_words(s2)
         if l1 == 0 or l2 == 0:
             return
 
+        # substring check
         len_ratio = float(max(l1, l2)) / min(l1, l2)
-
         if l1 >= num_words(org1) / 2 and l2 >= num_words(org2) / 2 and len_ratio >= 1.5:
             if is_substring_of(s1, s2) or is_substring_of(s2, s1):
                 return 75
@@ -542,7 +564,7 @@ class BeerNameMatcher(object):
             {'name': 'remove_collab', 'func': remove_collab, 'threshold': 0.93},
             {'name': 'remove_brewery', 'func': self.remove_brewery, 'threshold': 0.93},
             {'name': 'remove_brewery_parts', 'func': self.remove_brewery_parts, 'threshold': 0.93},
-            {'name': 'remove_packaging2', 'func': remove_packaging2, 'threshold': 0.93},
+            {'name': 'remove_packaging', 'func': remove_packaging, 'threshold': 0.93},
             {'name': 'fix_and_words', 'func': fix_and_words, 'threshold': 0.93},
             {'name': 'remove_synonyms', 'func': remove_synonyms, 'threshold': 0.93},
             {'name': 'remove_abv', 'func': remove_abv, 'threshold': 0.93},
