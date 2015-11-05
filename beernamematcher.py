@@ -34,8 +34,9 @@ BEER_TYPES = [
     u'Belgian Ale',
     u'Pale Ale',
     u'Amber Ale',
+    u'Trippel blonde',
     u'Blonde',
-    
+
     u'Golden ale',
 
     u'White IPA',
@@ -55,7 +56,6 @@ BEER_TYPES = [
 
     u'Ancient Grains Ale',
 
-    
     u'Amber',
     u'Geuze',
 
@@ -85,16 +85,13 @@ BEER_TYPES = [
     u'Weissbier',
     u'Winterbier',
     u'Wheat Beer',
-
-    u'Belgian Tripel',
     u'Trippel',
-    u'Triple',
-    u'Tripel',
-
     u'Dubbel',
     u'Ambree',
 
     u'Rich Ale',
+
+
 ]
 
 BEER_TYPES = [x.lower() for x in BEER_TYPES]
@@ -134,9 +131,6 @@ COMMON_WORDS2 = [
     u'Single Hop',
     u'Magnum Edition',
     u'Handgeplukte',
-    u'Trappistenbier',
-    u'Trappistes',
-    u'Trappist',
     u'Craft',
     u'Premium',
     u'Mini Keg',
@@ -164,7 +158,8 @@ COMMON_WORDS2 = [
     u'Birra',
     u'Real',
     u'Superior Hoppig',
-    u'Artisanale'
+    u'Artisanale',
+    u'trappist',
 ]
 
 SYNONYMS = {
@@ -173,7 +168,7 @@ SYNONYMS = {
     'unfiltered': ['non filtrata'],
     'lager': ['lager / pilsner', u'lageröl'],
     'extra': ['ekstra'],
-    'brown': ['brune', 'bruin'],
+    'brown ale': ['brune', 'bruin', 'brown'],
     'dunkel': ['dark'],
     'pils': ['pilsner', 'pilsener', 'pilsen'],
     'ipa': ['india pale ale'],
@@ -185,7 +180,9 @@ SYNONYMS = {
     'rye': ['rug'],
     'trippel': ['triple', 'tripel'],
     'nr': ['Nr.', 'No'],
-    'blonde': ['blond ale', 'blonde ale', 'blond']
+    'blonde': ['blond ale', 'blonde ale', 'blond'],
+    'trappist': ['trappistenbier', 'trappistes'],
+    'trippel': ['triple', 'tripel', 'belgian Tripel']
 }
 
 
@@ -218,6 +215,7 @@ def lower_strip2(s):
 
 def fix_typography(name):
     name = name.replace(u'’', '\'').replace('`', u'\'').replace('\'s', u's')
+    name = remove_multiple_spaces(name)
     p = re.compile('([a-z])/([a-z])')
     return p.sub(r'\1 / \2', name)
 
@@ -295,12 +293,17 @@ def unique_list(l, l2):
 def remove_synonyms(name):
     name = remove_accents(unicode(name))
     name = ' %s ' % name
+    replacer = '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
     for word, duplicates in SYNONYMS.iteritems():
+        word = ' %s ' % word
         for duplicate in duplicates:
             duplicate = remove_accents(unicode(duplicate))
-            regex = '(?<![a-z])(%s)(?![a-z])' % duplicate
-            p = re.compile(regex)
-            name = p.sub(word, name)
+            if word not in name:
+                regex = '(?<![a-z])(%s)(?![a-z])' % duplicate
+                p = re.compile(regex)
+                name = p.sub(replacer, name)
+        name = name.replace(replacer, word)
+        name = ' '.join(unique_list(name.split(), [word]))
     return name.strip()
 
 
@@ -399,7 +402,7 @@ def ratio(s1, s2, brewery_name):
 
     max_score = 0
 
-    #print '--'
+    # print '--'
     for operation in operations:
         restore = operation.get('restore', False)
 
@@ -494,6 +497,87 @@ def skip_retired_beers(beer_list):
     return [beer for beer in beer_list if not beer.get('retired', False)]
 
 
+def find_style(name):
+    for style in BEER_TYPES:
+        style = style.lower()
+        if style in name:
+            return style
+
+
+def find_and_remove_common(name):
+    words = [remove_accents(w) for w in COMMON_WORDS2]
+    common_used = []
+    for word in words:
+        word = word.lower()
+        if word in name:
+            name = re.sub('(?i)' + re.escape(word), '', name)
+            common_used.append(word)
+
+    return remove_multiple_spaces(name.strip()), common_used
+
+
+def beer_fix(name, brewery_name):
+    brewery_name = fix_typography(lower_strip2(brewery_name))
+
+    def remove_brewery(name):
+        res = remove_from_str(name, brewery_name)
+        if res == name:
+            res = remove_from_str(name, brewery_name.replace(' ', ''))
+        if res == name:
+            res = remove_from_str_parts(name, brewery_name)
+        return res
+
+    cleaned = remove_packaging2(fix_typography(lower_strip2(name)))
+    no_brewery = remove_brewery(cleaned)
+
+    fixed_synonyms = remove_synonyms(no_brewery)
+    style = find_style(fixed_synonyms)
+    no_style = None
+    n = fixed_synonyms
+    if style:
+        no_style = remove_from_str(fixed_synonyms, style)
+        n = no_style
+    no_common, used_common = find_and_remove_common(n)
+
+    return {
+        'cleaned': cleaned,
+        'no_brewery': no_brewery,
+        'fixed_synonyms': fixed_synonyms,
+        'style': style,
+        'no_style': no_style,
+        'no_common': no_common,
+        'used_common': used_common
+    }
+
+
+def distance(s1, s2):
+    return Levenshtein.ratio(unicode(s1), unicode(s2))
+
+
+def distance_sorted(s1, s2):
+    return Levenshtein.ratio(unicode(s1), unicode(s2))
+
+
+def compare_style(b1, b2):
+    if b1['style'] is None or b2['style'] is None:
+        return 1
+    if b1['style'] == b2['style']:
+        return 1
+    return 0.5
+
+
+def compare_common(b1, b2):
+    c1 = b1['used_common']
+    c2 = b2['used_common']
+    if len(c1) != len(c2):
+        return 0.7
+    score = 1
+    for a, b in zip(sorted(c1), sorted(c2)):
+        if a != b:
+            score = score * 0.1
+    return score
+
+
 class BeerNameMatcher(object):
 
     def __init__(self, brewery_name, beer_list, abv_over=None, skip_retired=False):
@@ -502,8 +586,71 @@ class BeerNameMatcher(object):
         self.skip_retired = skip_retired
         self.abv_over = abv_over
 
+        self.fixed_blist = [{
+            'fixed': beer_fix(beer['name'], brewery_name),
+            'beer': beer}
+            for beer in filter_packaging(beer_list)]
+
     def match_name(self, name, skip_retired=None, use_abv_over=True):
 
+        source = beer_fix(name, self.brewery_name)
+
+        def dist_cleaned(source, target):
+            return distance(source['cleaned'], target['cleaned'])
+
+        def dist_synonyms(source, target):
+            if source['style'] is not None and source['style'] == target['style']:
+                s = source['fixed_synonyms'].replace(source['style'], '').strip()
+                t = target['fixed_synonyms'].replace(source['style'], '').strip()
+                return distance(s, t)
+            else:
+                return distance(source['fixed_synonyms'], target['fixed_synonyms'])
+
+        def dist_nostyle(source, target):
+            if source['no_style'] == '' or target['no_style'] == '':
+                return 0.5
+            return distance(source['no_style'], target['no_style'])
+
+        def dist_sorted(sorted, target):
+            s = source['fixed_synonyms']
+            t = target['fixed_synonyms']
+           #print s, t
+            if s is None or t is None or s == '' or t == '':
+                return 0.5
+            return distance(sort_words(s), sort_words(t))
+
+        comparisons = [
+            dist_cleaned,
+            compare_style,
+            dist_sorted,
+            dist_nostyle,
+            compare_common
+        ]
+
+        #print#source
+        scored = []
+        for beer in self.fixed_blist:
+            #print "--"
+            target = beer['fixed']
+            #print target
+            score = 1
+            for comparison in comparisons:
+                s = comparison(source, target)
+                #print comparison.__name__, s
+                score = score * s
+
+            scored.append({'score': score, 'beer': beer['beer']})
+
+        max_score = max([b['score'] for b in scored])
+        #print max_score
+        res = [b['beer'] for b in scored if b['score'] == max_score]
+        #print res
+        if len(res) == 1:
+            return res[0]
+        print res
+
+
+        '''
         beer_list = self.blist
 
         if skip_retired is None:
@@ -539,3 +686,4 @@ class BeerNameMatcher(object):
 
         if use_abv_over and self.abv_over is not None:
             return self.match_name(name, skip_retired=False, use_abv_over=False)
+        '''

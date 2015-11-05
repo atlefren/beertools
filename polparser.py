@@ -14,8 +14,8 @@ FIELDS = [
     'Garvestoffer', 'Bitterhet', 'Sodme', 'Farge', 'Lukt', 'Smak',
     'Passertil01', 'Passertil02', 'Passertil03', 'Land', 'Distrikt',
     'Underdistrikt', 'Argang', 'Rastoff', 'Metode', 'Alkohol', 'Sukker',
-    'Syre', 'Lagringsgrad', 'Produsent', 'Distributør', 'Emballasjetype',
-    'Korktype', 'Vareurl'
+    'Syre', 'Lagringsgrad', 'Produsent', 'Distributør', 'Grossist',
+    'Emballasjetype', 'Korktype', 'Vareurl'
 ]
 
 
