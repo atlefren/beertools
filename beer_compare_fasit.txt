@@ -29,10 +29,10 @@ Baladin - Baladin Isaac 75 cl :: Le Baladin - Baladin Isaac
 Baladin - Baladin Nora 75 cl :: Le Baladin - Baladin Nora
 Baladin - Baladin Super :: Le Baladin - Baladin Super Baladin
 Avery Brewing Company - Avery White Rascal :: Avery Brewing Company - Avery White Rascal
-Samuel Smith Old Brewery - Samuel Smith Famous Taddy Porter :: Samuel Smith - Samuel Smiths Taddy Porter
-Samuel Smith Old Brewery - Samuel Smith Imperial Stout :: Samuel Smith - Samuel Smiths Imperial Stout
-Samuel Smith Old Brewery - Samuel Smith's Winter Welcome Ale :: Samuel Smith - Samuel Smiths Winter Welcome Ale
-Samuel Smith Old Brewery - Samuel Smith's Nut Brown Ale :: Samuel Smith - Samuel Smiths Nut Brown Ale
+Samuel Smiths Brewery - Samuel Smith Famous Taddy Porter :: Samuel Smith - Samuel Smiths Taddy Porter
+Samuel Smiths Brewery - Samuel Smith Imperial Stout :: Samuel Smith - Samuel Smiths Imperial Stout
+Samuel Smiths Brewery - Samuel Smith's Winter Welcome Ale :: Samuel Smith - Samuel Smiths Winter Welcome Ale
+Samuel Smiths Brewery - Samuel Smith's Nut Brown Ale :: Samuel Smith - Samuel Smiths Nut Brown Ale
 Borg Bryggerier - Borg Bokkøl :: Hansa Borg Bryggerier - Borg Bokkøl
 Hansa Borg Bryggerier - Hansa Sterkøl :: Hansa Borg Bryggerier - Hansa Sterkøl
 Hansa Borg Bryggerier - Hansa IPA Ekstra Spesial :: Hansa Borg Bryggerier - Hansa Spesial IPA Extra
@@ -91,23 +91,23 @@ Mikkeller - Mikkeller Spontan Cherrry Frederiksdal :: Mikkeller - Mikkeller Spon
 Mikkeller - Mikkeller Erik The Red :: Mikkeller - Mikkeller Erik The Red
 Mikkeller - Mikkeller Beer Geek Breakfast Bourbon :: Mikkeller - Mikkeller Beer Geek Breakfast 7.5% (Bourbon Edition)
 Mikkeller - Mikkeller Beer Geek Dessert :: Mikkeller - Mikkeller Beer Geek Dessert
-Mikkeller\De Proef Brouwerij - Mikkeller It´s Alive :: Mikkeller - Mikkeller It’s Alive!
-Mikkeller\De Proef Brouwerij - Mikkeller Show Me Cuvee :: Mikkeller - Mikkeller Show Me Cuvée
-Mikkeller\De Proef Brouwerij - Mikkeller Vesterbro Wit :: Mikkeller - Mikkeller Vesterbro Wit
-Mikkeller\De Proef Brouwerij - Mikkeller Black :: Mikkeller - Mikkeller 黑 / Black
-Mikkeller\De Proef Brouwerij - Mikkeller Årh Hvad?! :: Mikkeller - Mikkeller Årh Hvad?!
-Mikkeller\De Proef Brouwerij - Mikkeller Vesterbro Pils :: Mikkeller - Mikkeller Vesterbro Pilsner
-Mikkeller\De Proef Brouwerij - Mikkeller Winbic :: Mikkeller - Mikkeller Winbic
-Mikkeller\De Proef Brouwerij - Mikkeller BA Via to From :: Mikkeller - Mikkeller X-mas Porter 2013 Via Til Fra (Via To From)  Brandy
-Mikkeller\De Proef Brouwerij - Mikkeller Spontan Rosehip :: Mikkeller - Mikkeller SpontanRosehip
-Mikkeller\De Proef Brouwerij - Mikkeller Black Ink and Blood Imperial raspberry stout Brandy :: Mikkeller - Mikkeller Black Ink And Blood Barrel Aged (Brandy Edition)
-Mikkeller\De Proef Brouwerij - Mikkeller Black Ink and Blood Imperial raspberry stout Bourbon :: Mikkeller - Mikkeller Black Ink And Blood Barrel Aged (Bourbon Edition)
-Mikkeller\De Proef Brouwerij - Mikkeller Skør Belgian Ale :: Mikkeller - Mikkeller Skør
-Mikkeller\De Proef Brouwerij - Mikkeller Ahhh Belgian Ale :: Mikkeller - Mikkeller Ahhh Øl
-Mikkeller\De Proef Brouwerij - Mikkeller Raspberry Quadrupel :: Mikkeller - Mikkeller Raspberry Quadrupel
-Mikkeller\De Proef Brouwerij - Mikkeller Barley Sweet Wine :: Mikkeller - Mikkeller Barley Sweet Wine
-Mikkeller\De Proef Brouwerij - Mikkeller Crooked Moon dIPA :: Mikkeller - Mikkeller Crooked Moon Tattoo dIPA
-Mikkeller\De Proef Brouwerij - Mikkeller Spontan Seabuckthorne :: Mikkeller - Mikkeller SpontanSeabuckthorn
+Mikkeller/De Proef Brouwerij - Mikkeller It´s Alive :: Mikkeller - Mikkeller It’s Alive!
+Mikkeller/De Proef Brouwerij - Mikkeller Show Me Cuvee :: Mikkeller - Mikkeller Show Me Cuvée
+Mikkeller/De Proef Brouwerij - Mikkeller Vesterbro Wit :: Mikkeller - Mikkeller Vesterbro Wit
+Mikkeller/De Proef Brouwerij - Mikkeller Black :: Mikkeller - Mikkeller 黑 / Black
+Mikkeller/De Proef Brouwerij - Mikkeller Årh Hvad?! :: Mikkeller - Mikkeller Årh Hvad?!
+Mikkeller/De Proef Brouwerij - Mikkeller Vesterbro Pils :: Mikkeller - Mikkeller Vesterbro Pilsner
+Mikkeller/De Proef Brouwerij - Mikkeller Winbic :: Mikkeller - Mikkeller Winbic
+Mikkeller/De Proef Brouwerij - Mikkeller BA Via to From :: Mikkeller - Mikkeller X-mas Porter 2013 Via Til Fra (Via To From)  Brandy
+Mikkeller/De Proef Brouwerij - Mikkeller Spontan Rosehip :: Mikkeller - Mikkeller SpontanRosehip
+Mikkeller/De Proef Brouwerij - Mikkeller Black Ink and Blood Imperial raspberry stout Brandy :: Mikkeller - Mikkeller Black Ink And Blood Barrel Aged (Brandy Edition)
+Mikkeller/De Proef Brouwerij - Mikkeller Black Ink and Blood Imperial raspberry stout Bourbon :: Mikkeller - Mikkeller Black Ink And Blood Barrel Aged (Bourbon Edition)
+Mikkeller/De Proef Brouwerij - Mikkeller Skør Belgian Ale :: Mikkeller - Mikkeller Skør
+Mikkeller/De Proef Brouwerij - Mikkeller Ahhh Belgian Ale :: Mikkeller - Mikkeller Ahhh Øl
+Mikkeller/De Proef Brouwerij - Mikkeller Raspberry Quadrupel :: Mikkeller - Mikkeller Raspberry Quadrupel
+Mikkeller/De Proef Brouwerij - Mikkeller Barley Sweet Wine :: Mikkeller - Mikkeller Barley Sweet Wine
+Mikkeller/De Proef Brouwerij - Mikkeller Crooked Moon dIPA :: Mikkeller - Mikkeller Crooked Moon Tattoo dIPA
+Mikkeller/De Proef Brouwerij - Mikkeller Spontan Seabuckthorne :: Mikkeller - Mikkeller SpontanSeabuckthorn
 Slottskällans Bryggeri - Slottskällans Svart Porter :: Slottskällans Bryggeri - Slottskällans Svart
 Slottskällans Bryggeri - Slottskällans Kloster 2012 :: Slottskällans Bryggeri - Slottskällans Kloster (2005-)
 Slottskällans Bryggeri - Slottskällans Imperial Stout :: Slottskällans Bryggeri - Slottskällans Imperial Stout
@@ -169,7 +169,7 @@ Brasserie des Carrières - Carrières Diôle Ambrée :: Brasserie des Carrières
 Browar Amber - Browar Amber Pszeniczniak :: Browar Amber - Amber Pszeniczniak
 Browar Amber - Kozlak :: Browar Amber - Amber Kozlak
 Browar Amber - Zlote LWY Lys :: Browar Amber - Amber Złote Lwy
-Browar Amber - Grand Imperial Porter :: Browar Amber - Amber Grand Imperial Porter
+Browar Amber - Grand Imperial Porter :: Browar Amber - Amber Grand Imperial Porter Chili
 Uerige Obergärige Hausbrauerei - Uerige Doppelsticke :: Uerige Obergärige Hausbrauerei - Uerige Doppel Sticke
 Uerige Obergärige Hausbrauerei - Uerige Sticke :: Uerige Obergärige Hausbrauerei - Uerige Sticke
 Brewery de Block - Satan Gold :: De Block Brouwerij - Satan Gold
@@ -485,8 +485,8 @@ Bierbrouwerij de Koningshoeven - La Trappe Quadrupel Oak Aged Trappistenbier Bat
 Bierbrouwerij de Koningshoeven - La Trappe Quadrupel Oak Aged Trappistenbier Batch 18 :: De Koningshoeven (Bavaria - Netherlands) - La Trappe Quadrupel Oak Aged Batch #18
 Bierbrouwerij de Koningshoeven - La Trappe Blond :: De Koningshoeven (Bavaria - Netherlands) - La Trappe Blond
 Bierbrouwerij de Koningshoeven - La Trappe Dubbel Trappistenbier :: De Koningshoeven (Bavaria - Netherlands) - La Trappe Dubbel
-Achel Brewery - Achel Trappist Bruin :: Brouwerij der Trappistenabdij De Achelse Kluis - Achel 5 Bruin
-Achel Brewery - Achel Trappist Blond :: Brouwerij der Trappistenabdij De Achelse Kluis - Achel 5 Blond
+Achel Brewery - Achel Trappist Bruin :: Brouwerij der Trappistenabdij De Achelse Kluis - Achel 8 Bruin
+Achel Brewery - Achel Trappist Blond :: Brouwerij der Trappistenabdij De Achelse Kluis - Achel 8 Blond
 Achel Brewery - Achel Extra :: Brouwerij der Trappistenabdij De Achelse Kluis - Achel Blond Extra
 Lederer - Lederer Pils :: Tucher Bräu Fürth (Oetker Group) - Lederer Premium Pils
 Tucher Braü - Tucher Pilsener :: Tucher Bräu Fürth (Oetker Group) - Tucher Pilsener
@@ -581,7 +581,7 @@ Macks Ølbryggeri - Mack Kristall Weissbier :: Mack Bryggeri - Mack Kristall Wei
 Macks Ølbryggeri - Mack Bokøl :: Mack Bryggeri - Mack Bok-Øl
 Macks Ølbryggeri - GullMack :: Mack Bryggeri - Mack Gull
 Macks Ølbryggeri - Mack Witbier :: Mack Bryggeri - Mack Witbier 6.5%
-Macks Ølbryggeri - Mack IPA :: Mack Bryggeri - Mack IPA
+Macks Ølbryggeri - Mack IPA :: Mack Bryggeri - Mack IPA (Filtered) 6.5%
 Hornbeer - Hornbeer Caribbean Rumstout :: Hornbeer - Hornbeer Caribbean Rumstout
 Hornbeer - Hornbeer Grisk IPA :: Hornbeer - Hornbeer Grisk
 Hornbeer - Hornbeer Funky Monk :: Hornbeer - Hornbeer Funky Monk
@@ -836,7 +836,7 @@ Oud Beersel Brouwerij - Oud Beersel Oude Geuze :: Brouwerij Oud Beersel - Oud Be
 Oud Beersel Brouwerij - Oud Beersel Framboise :: Brouwerij Oud Beersel - Oud Beersel Framboise
 Oud Beersel Brouwerij - Oud Beersel Bersalis Tripel :: Brouwerij Oud Beersel - Oud Beersel Bersalis Tripel
 Alvinne - Alvinne Kerasus :: Picobrouwerij Alvinne - Alvinne Kerasus
-Alvinne - Alvinne Alvino :: Picobrouwerij Alvinne - Alvinne Alvino
+Alvinne - Alvinne Alvino :: Picobrouwerij Alvinne - Alvinne Alvino Bourgogne Barrel Oak Aged
 Sierra Nevada Brewing Co. - Sierra Nevada Stout :: Sierra Nevada Brewing Company - Sierra Nevada Stout
 Sierra Nevada Brewing Co. - Sierra Nevada Kellerweis :: Sierra Nevada Brewing Company - Sierra Nevada Kellerweis Hefeweizen
 Sierra Nevada Brewing Co. - Sierra Nevada Beer Camp Hoppy Lager :: Sierra Nevada Brewing Company - Sierra Nevada Beer Camp Hoppy Lager

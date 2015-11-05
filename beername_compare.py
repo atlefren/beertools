@@ -5,7 +5,7 @@ import codecs
 
 from brewerynamematcher import BreweryNameMatcher
 from beernamematcher import BeerNameMatcher
-from util import read_json
+from util import read_json, parse_pol_abv
 
 
 def get_breweries_polet():
@@ -72,12 +72,18 @@ def compare_beers(pol_data, rb_beers, breweries_rb):
         rb_brewery = find_in_list(breweries_rb, 'id', key)['name']
         rb_beers_for_brewery = findall_in_list(rb_beers, 'brewery_id', key)
 
-        beer_matcher = BeerNameMatcher(rb_brewery, rb_beers_for_brewery, abv_over=4.7, skip_retired=True)
+        beer_matcher = BeerNameMatcher(rb_brewery, rb_beers_for_brewery, skip_retired=True)
         for pol_brewery in value:
             pol_beers = findall_in_list(pol_data, 'Produsent', pol_brewery)
             for pol_beer in pol_beers:
                 pol_beer_name = pol_beer['Varenavn']
-                beer_match = beer_matcher.match_name(pol_beer_name)
+                abv = parse_pol_abv(pol_beer['Alkohol'])
+                beer_match = beer_matcher.match_name(pol_beer_name, abv=abv)
+
+                score = None
+                if isinstance(beer_match, tuple):
+                    score = beer_match[1]
+                    beer_match = beer_match[0]
 
                 nameline = None
 
@@ -95,6 +101,8 @@ def compare_beers(pol_data, rb_beers, breweries_rb):
                 else:
                     nameline = '%s - %s :: %s - %s' % (pol_brewery, pol_beer_name, rb_brewery, beer_match['name'])
                     if nameline not in fasit:
+                        if score is not None:
+                            nameline = '%s (%s)' % (nameline, score)
                         errors.append(nameline)
 
     print '%s errors' % len(errors)

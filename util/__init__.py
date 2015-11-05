@@ -38,3 +38,7 @@ def get_line_parser(fields):
 def read_json(filename):
     with open(filename, 'r') as infile:
         return json.loads(infile.read())
+
+
+def parse_pol_abv(s):
+    return float(s.replace(',', '.'))

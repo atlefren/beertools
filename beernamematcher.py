@@ -14,6 +14,7 @@ BEER_TYPES = [
     u'Imperial Wheat Stout',
     u'Imperial Coffee Stout',
     u'Imperial Stout',
+    u'Imperial Porter ale',
     u'Imperial Porter',
     u'Imperial Red Ale',
     u'Imperial Black IPA',
@@ -164,7 +165,8 @@ COMMON_WORDS2 = [
     u'Birra',
     u'Real',
     u'Superior Hoppig',
-    u'Artisanale'
+    u'Artisanale',
+    u'classic'
 ]
 
 SYNONYMS = {
@@ -494,23 +496,23 @@ def skip_retired_beers(beer_list):
     return [beer for beer in beer_list if not beer.get('retired', False)]
 
 
+def is_within_range(n1, n2, diff):
+    return abs(n1 - n2) <= diff
+
+
 class BeerNameMatcher(object):
 
-    def __init__(self, brewery_name, beer_list, abv_over=None, skip_retired=False):
+    def __init__(self, brewery_name, beer_list, skip_retired=False):
         self.brewery_name = unicode(brewery_name)
         self.blist = filter_packaging(beer_list)
         self.skip_retired = skip_retired
-        self.abv_over = abv_over
 
-    def match_name(self, name, skip_retired=None, use_abv_over=True):
+    def match_name(self, name, skip_retired=None, abv=None):
 
         beer_list = self.blist
 
         if skip_retired is None:
             skip_retired = self.skip_retired
-
-        if use_abv_over and self.abv_over is not None:
-            beer_list = filter_abv_above(beer_list, self.abv_over)
 
         if skip_retired:
             beer_list = skip_retired_beers(beer_list)
@@ -518,10 +520,16 @@ class BeerNameMatcher(object):
         max_ratio = 0
         hit = None
         for beer in beer_list:
+
+            beer_abv = beer.get('abv', None)
+            if abv and beer_abv:
+                abv_match = is_within_range(abv, beer_abv, 0.5)
+                if not abv_match:
+                    continue
+
             r = ratio(name, beer['name'], self.brewery_name)
             if r:
                 r = round(r, 1)
-            #print '%s: %s' % (beer['name'], r)
             if r and r >= max_ratio:
                 if r == max_ratio:
                     prev_ratio = Levenshtein.ratio(unicode(name), unicode(hit['name']))
@@ -536,6 +544,3 @@ class BeerNameMatcher(object):
 
         if skip_retired:
             return self.match_name(name, skip_retired=False)
-
-        if use_abv_over and self.abv_over is not None:
-            return self.match_name(name, skip_retired=False, use_abv_over=False)
