@@ -516,7 +516,62 @@ def find_and_remove_common(name):
     return remove_multiple_spaces(name.strip()), common_used
 
 
-def beer_fix(name, brewery_name):
+
+def beer_fix_2(name, brewery_name):
+    brewery_name = remove_accents(brewery_name.lower())
+
+    def remove_brewery(name):
+        res = remove_from_str(name, brewery_name)
+        if res == name:
+            res = remove_from_str(name, brewery_name.replace(' ', ''))
+        return res
+
+    def remove_brewery_parts(name):
+        return remove_from_str_parts(name, brewery_name)
+
+    operations = [
+        {'func': lower_strip2, 'name': 'lower_strip2'},
+        {'func': fix_typography, 'name': 'fix_typography'},
+        {'func': sort_and_join, 'name': 'sort_and_join', 'restore': True},
+        {'func': remove_collab, 'name': 'remove_collab'},
+        {'func': remove_brewery, 'name': 'remove_brewery'},
+        {'func': remove_brewery_parts, 'name': 'remove_brewery_parts'},
+        {'func': remove_packaging2, 'name': 'remove_packaging2'},
+        {'func': fix_and_words, 'name': 'fix_and_words'},
+        {'func': remove_synonyms, 'name': 'remove_synonyms'},
+        {'func': remove_abv2, 'name': 'remove_abv2'},
+        {'func': remove_year2, 'name': 'remove_year2'},
+        {'func': remove_size2, 'name': 'remove_size2'},
+        {'func': remove_in_parentesis, 'name': 'remove_in_parentesis', 'restore': True},
+        {'func': remove_after_semicolon, 'name': 'remove_after_semicolon', 'restore': True},
+        {'func': remove_punctuation3, 'name': 'remove_punctuation3'},
+        {'func': sort_words, 'name': 'sort_words', 'restore': True},
+        {'func': remove_common2, 'name': 'remove_common2', 'restore': True},
+        {'func': remove_type2, 'name': 'remove_type2', 'restore': True},
+        {'func': remove_duplicates, 'name': 'remove_duplicates'},
+        {'func': remove_common2, 'name': 'remove_common22'},
+        {'func': remove_type2, 'name': 'remove_type22'},
+        {'func': remove_single_year, 'name': 'remove_single_year'},
+        {'func': sort_words, 'name': 'sort_words2', 'restore': True},
+        {'func': remove_all_duplicates, 'name': 'remove_all_duplicates', 'restore': True},
+    ]
+    orgname = name
+    res = []
+    for operation in operations:
+        restore = operation.get('restore', False)
+
+        name_tmp = operation['func'](name)
+
+        if name_tmp == '' or s1_tmp == '':
+            restore = True
+        res.append({'operation': operation['name'], 'str': name_tmp})
+        if not restore:
+            name = name_tmp
+    return res
+
+
+
+def beer_fix(name, brewery_name ''):
     brewery_name = fix_typography(lower_strip2(brewery_name))
 
     def remove_brewery(name):
