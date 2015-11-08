@@ -1,34 +1,60 @@
 # -*- coding: utf-8 -*-
 import requests
-
+from util import get_line_parser, parsers
 
 URL = 'http://www.vinmonopolet.no/api/produkter'
 
 
 FIELDS = [
-    'Datotid', 'Varenummer', 'Varenavn', 'Volum', 'Pris', 'Literpris',
-    'Varetype', 'Produktutvalg', 'Butikkategori', 'Fylde', 'Friskhet',
-    'Garvestoffer', 'Bitterhet', 'Sodme', 'Farge', 'Lukt', 'Smak',
-    'Passertil01', 'Passertil02', 'Passertil03', 'Land', 'Distrikt',
-    'Underdistrikt', 'Argang', 'Rastoff', 'Metode', 'Alkohol', 'Sukker',
-    'Syre', 'Lagringsgrad', 'Produsent', 'Distributør', 'Emballasjetype',
-    'Korktype', 'Vareurl'
+    {'name': 'Datotid', 'parser': parsers.string_parser},
+    {'name': 'Varenummer', 'parser': parsers.int_parser},
+    {'name': 'Varenavn', 'parser': parsers.string_parser},
+    {'name': 'Volum', 'parser': parsers.float_pol_parser},
+    {'name': 'Pris', 'parser': parsers.float_pol_parser},
+    {'name': 'Literpris', 'parser': parsers.float_pol_parser},
+    {'name': 'Varetype', 'parser': parsers.string_parser},
+    {'name': 'Produktutvalg', 'parser': parsers.string_parser},
+    {'name': 'Butikkategori', 'parser': parsers.string_parser},
+    {'name': 'Fylde', 'parser': parsers.int_parser},
+    {'name': 'Friskhet', 'parser': parsers.int_parser},
+    {'name': 'Garvestoffer', 'parser': parsers.int_parser},
+    {'name': 'Bitterhet', 'parser': parsers.int_parser},
+    {'name': 'Sodme', 'parser': parsers.int_parser},
+    {'name': 'Farge', 'parser': parsers.string_parser},
+    {'name': 'Lukt', 'parser': parsers.string_parser},
+    {'name': 'Smak', 'parser': parsers.string_parser},
+    {'name': 'Passertil01', 'parser': parsers.string_parser},
+    {'name': 'Passertil02', 'parser': parsers.string_parser},
+    {'name': 'Passertil03', 'parser': parsers.string_parser},
+    {'name': 'Land', 'parser': parsers.string_parser},
+    {'name': 'Distrikt', 'parser': parsers.string_parser},
+    {'name': 'Underdistrikt', 'parser': parsers.string_parser},
+    {'name': 'Argang', 'parser': parsers.string_parser},
+    {'name': 'Rastoff', 'parser': parsers.string_parser},
+    {'name': 'Metode', 'parser': parsers.string_parser},
+    {'name': 'Alkohol', 'parser': parsers.float_pol_parser},
+    {'name': 'Sukker', 'parser': parsers.float_pol_parser},
+    {'name': 'Syre', 'parser': parsers.float_pol_parser},
+    {'name': 'Lagringsgrad', 'parser': parsers.string_parser},
+    {'name': 'Produsent', 'parser': parsers.string_parser},
+    {'name': 'Grossist', 'parser': parsers.string_parser},
+    {'name': 'Distributor', 'parser': parsers.string_parser},
+    {'name': 'Emballasjetype', 'parser': parsers.string_parser},
+    {'name': 'Korktype', 'parser': parsers.string_parser},
+    {'name': 'Vareurl', 'parser': parsers.string_parser},
 ]
 
 
-def parse_line(line):
-    fields = line.split(';')
-
-    product = {}
-    for index, name in enumerate(FIELDS):
-        product[name] = fields[index]
-    return product
+def parse_line(line, parser):
+    line = line.split(';')
+    return parser(line)
 
 
 def read():
     r = requests.get(URL)
     r.encoding = 'ISO-8859-1'
     lines = r.text.splitlines()
-    all_products = [parse_line(line) for line in lines[1:]]
+    parser = get_line_parser(FIELDS)
+    all_products = [parse_line(line, parser) for line in lines[1:]]
     return [product for product in all_products
             if product['Varetype'] == u'Øl']
