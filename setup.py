@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='beertools',
-    version='0.0.1',
+    version='0.0.2',
     author='Atle Frenvik Sveen',
     author_email='atle@frenviksveen.net',
     packages=['beertools', 'beertools.tests', 'beertools.util'],
@@ -17,7 +17,6 @@ setup(
     url='https://github.com/atlefren/beertools/',
     license='LICENSE',
     description='Utils for working with beer data',
-    long_description=open('README.MD').read(),
     install_requires=[
         'Unidecode==0.04.18',
         'argparse==1.2.1',
