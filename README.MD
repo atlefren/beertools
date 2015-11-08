@@ -12,33 +12,29 @@ Setup
     pip install -r requirements.txt
 
 
-polparser.py
+Install package
+---------------
+
+    pip install beertools
+
+
+read_pol_beers
 ------------
-A script to fetch beers from Vinmonopolet, returns a flat json-structure. 
+
+A script to fetch beers from Vinmonopolet, returns a flat json-structure.
 Use either as command line:
 
-    python polparser.py destination.json
+    python -m read_pol_beers destination.json
 
 Or in your script:
 
-    from polparser import read
-    beers = read()
-
-ratebeerparser.py
-------------
-A script to fetch beers from Ratebeer, returns a flat json-structure. 
-Use either as command line:
-
-    python ratebeerparser.py destination.json
-
-Or in your script:
-
-    from ratebeerparser import read
-    beers = read()
+    from beertools import read_pol_beers
+    beers = read_pol_beers()
 
 
-ratebeerparser_new.py
-------------
+read_ratebeer_beers
+-------------------
+
 A script to fetch beers from Ratebeer, returns a flat json-structure. 
 
 This script uses the new Ratebeer-dump, and includes more data, but not brewery 
@@ -46,55 +42,52 @@ names. Use ratebeer_breweries_parser.py and match on brewery_id
 
 Use either as command line:
 
-    python ratebeerparser_new.py destination.json
+    python -m read_ratebeer_beers destination.json
 
 Or in your script:
 
-    from ratebeerparser_new import read
-    beers = read()
+    from beertools import read_ratebeer_beers
+    beers = read_ratebeer_beers()
 
 
-ratebeer_breweries_parser.py
-----------------------------
+read_ratebeer_breweries
+-----------------------
 
 Use either as command line:
 
-    python ratebeer_breweries_parser.py destination.json
+    python -m read_ratebeer_breweries destination.json
 
 Or in your script:
 
-    from ratebeer_breweries_parser import read
-    beers = read()
+    from beertools import read_ratebeer_breweries
+    breweries = read_ratebeer_breweries()
 
 
-brewerynamematcher.py
+BreweryNameMatcher
 ---------------------
 A tool to match brewery names, tuned to match vinmonopolet against ratebeer.
 
 Usage:
 
-    from brewerynamematcher import BreweryNameMatcher
-    matcher = BreweryNameMatcher(breweries) # a list of dicts with at leadt a "name" attribute
+    from beertools import BreweryNameMatcher
+    matcher = BreweryNameMatcher(breweries) # a list of dicts with at least a "name" attribute
     match = matcher.match_name('brewery name') # returns dict from list or None
 
-breweryname_compare.py
-----------------------
-Test comparisons. Expects data/polet.json and data/ratebeer.json to exists. 
-Writes results to data/nomatch.txt and data/match.txt
+
+BeerNameMatcher
+---------------------
+A tool to match brewery names, tuned to match vinmonopolet against ratebeer.
+
+Usage:
+
+    from beertools import BeerNameMatcher
+    matcher = BeerNameMatcher('brewery_name', beeer_list, skip_retired=True)
+    match = matcher.match_name('beer_name', abv=4.5) # returns dict from list or None
 
 
 Tests
 -----
 Run tests with
 
+    cd beertools
     python -m unittest tests
-
-
-
-
-
-
-
-
-
-
