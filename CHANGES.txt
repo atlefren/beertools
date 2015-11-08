@@ -1,1 +1,3 @@
 v0.0.1, 08.11.2015 -- Initial release.
+v0.0.2, 08.11.2015 -- Made package work!
+v0.0.3, 08.11.2015 -- Some changes to pol parser
