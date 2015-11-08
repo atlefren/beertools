@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-import sys
-import json
-
 import requests
 
 
@@ -35,10 +32,3 @@ def read():
     all_products = [parse_line(line) for line in lines[1:]]
     return [product for product in all_products
             if product['Varetype'] == u'Øl']
-
-
-if __name__ == '__main__':
-    outfile = sys.argv[1]
-
-    with open(outfile, 'w') as out:
-        out.write(json.dumps(read(), indent=4))

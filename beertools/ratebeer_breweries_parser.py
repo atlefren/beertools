@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import sys
-import json
-
 from util import (get_zipfile, read_zipfile, parse_csv_file, parsers,
                   get_line_parser)
 
@@ -23,12 +20,3 @@ def read(filename=None):
     else:
         content = get_zipfile(URL, 'brewers.csv')
     return parse_csv_file(content, get_line_parser(FIELDS))
-
-
-if __name__ == '__main__':
-    outfile = sys.argv[1]
-    filename = None
-    if len(sys.argv) > 2:
-        filename = sys.argv[2]
-    with open(outfile, 'w') as out:
-        out.write(json.dumps(read(filename), indent=4))

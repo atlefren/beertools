@@ -3,9 +3,9 @@ import json
 from collections import defaultdict
 import codecs
 
-from brewerynamematcher import BreweryNameMatcher
-from beernamematcher import BeerNameMatcher
-from util import read_json, parse_pol_abv
+from beertools import BreweryNameMatcher
+from beertools import BeerNameMatcher
+from beertools.util import read_json, parse_pol_abv
 
 
 def get_breweries_polet():

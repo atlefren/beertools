@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import json
-from brewerynamematcher import BreweryNameMatcher
-from beernamematcher import BeerNameMatcher
+from beertools import BreweryNameMatcher
 
 
 def read_json(filename):
@@ -48,30 +47,6 @@ def compare_breweries(pol_data, breweries_rb):
                     string = '%s: %s' % (brewery, match['name'])
                     match_file.write(string.encode('utf8') + '\n')
 
-
-def get_beers(beer_list, brewery_name, attr_name):
-    return [beer for beer in beer_list if beer[attr_name] == brewery_name]
-
-
-def compare_beers(pol_data, rb_data):
-    breweries_pol = get_breweries(pol_data, 'Produsent')
-    breweries_rb = wrap_breweries(get_breweries(rb_data, 'brewery'))
-
-    with open('data/beer_nomatch.txt', 'w') as nomatch:
-        brewery_matcher = BreweryNameMatcher(breweries_rb)
-        for brewery in breweries_pol:
-            match = brewery_matcher.match_name(brewery)
-            if match is not None:
-                rb_beers = get_beers(rb_data, match['name'], 'brewery')
-                beer_matcher = BeerNameMatcher(match['name'], rb_beers)
-
-                nomatch.write(match['name'].encode('utf8') + '\n')
-                pol_beers = get_beers(pol_data, brewery, 'Produsent')
-                for pol_beer in pol_beers:
-                    beer_match = beer_matcher.match_name(pol_beer['Varenavn'])
-                    if not beer_match:
-                        string = '\t%s ' % pol_beer['Varenavn']
-                        nomatch.write(string.encode('utf8') + '\n')
 
 if __name__ == '__main__':
 
