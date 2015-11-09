@@ -7,6 +7,8 @@ import re
 def parse_soup(html):
     soup = BeautifulSoup(html, 'html.parser')
     pol_list = soup.find('div', {'class': 'listStores'})
+    if pol_list is None:
+        return []
     regexp = re.compile('\?butikk_id=(.*)$')
     data = []
     for pol in pol_list.findAll('li'):
