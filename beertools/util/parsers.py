@@ -14,7 +14,7 @@ def string_parser(val):
 
 def int_parser(val):
     try:
-        return int(val)
+        return int(float(val))
     except ValueError:
         return None
 
