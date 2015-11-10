@@ -2,3 +2,4 @@ v0.0.1, 08.11.2015 -- Initial release.
 v0.0.2, 08.11.2015 -- Made package work!
 v0.0.3, 08.11.2015 -- Some changes to pol parser
 v0.0.4, 09.11.2015 -- Fix polchecker
+v0.0.5, 10.11.2015 -- Fix bug which caused rb score for beer not to be read
