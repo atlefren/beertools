@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
+import re
+from datetime import datetime
+
 import requests
 from bs4 import BeautifulSoup
-import re
 
 
 def parse_soup(html):
@@ -14,11 +16,12 @@ def parse_soup(html):
     for pol in pol_list.findAll('li'):
         span = pol.find('em').find('span')
         pol_id = pol.find('a').attrs['href']
+        updated = span.attrs['title'].replace('Oppdatert ', '')
         data.append({
             'pol_id': regexp.search(pol_id).group(1),
             'pol_name': pol.find('strong').text,
-            'stock': int(span.text.replace(u'på lager)', '').replace('(', '')),
-            'updated': span.attrs['title'].replace('Oppdatert ', '')
+            'stock': int(span.text.replace(u'på lager)', '').replace('(', '').replace('.', '')),
+            'updated': datetime.strptime(updated, '%d.%m.%Y %H:%M:%S') if updated is not None else None
         })
     return data
 
