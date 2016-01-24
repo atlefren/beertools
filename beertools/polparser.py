@@ -55,6 +55,6 @@ def read():
     r.encoding = 'ISO-8859-1'
     lines = r.text.splitlines()
     parser = get_line_parser(FIELDS)
-    shops = [parse_line(line, parser) for line in lines[1:]]
-    for shop in shops:
-        print shop
+    all_products = [parse_line(line, parser) for line in lines[1:]]
+    return [product for product in all_products
+            if product['Varetype'] == u'Øl']

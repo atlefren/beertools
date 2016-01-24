@@ -6,3 +6,4 @@ v0.0.5, 10.11.2015 -- Fix bug which caused rb score for beer not to be read
 v0.0.6, 18.11.2015 -- Small fixes on polchecker (fix stock parsing, updated as datetime)
 v0.1.0, 24.01.2016 -- Make Ratebeer fetchers return update date from zipfile
 v0.1.1, 24.01.2016 -- Add missing requirement
+v0.1.2, 24.01.2016 -- Fix read_pol_beers
