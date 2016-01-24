@@ -2,6 +2,9 @@
 import requests
 from util import get_line_parser, parsers
 
+from pytz import timezone
+import dateutil.parser
+
 URL = 'http://www.vinmonopolet.no/api/produkter'
 
 
@@ -50,11 +53,26 @@ def parse_line(line, parser):
     return parser(line)
 
 
+def get_datetime(all_products):
+    dt = all_products[0]['Datotid']
+    no_tz = timezone('Europe/Oslo')
+    return no_tz.localize(
+        dateutil.parser.parse(dt)
+    )
+
+
 def read():
     r = requests.get(URL)
     r.encoding = 'ISO-8859-1'
     lines = r.text.splitlines()
     parser = get_line_parser(FIELDS)
     all_products = [parse_line(line, parser) for line in lines[1:]]
-    return [product for product in all_products
-            if product['Varetype'] == u'Øl']
+
+    beers = [product for product in all_products
+             if product['Varetype'] == u'Øl']
+
+    return beers, get_datetime(all_products)
+
+
+if __name__ == '__main__':
+    read()

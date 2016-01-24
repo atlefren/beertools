@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='beertools',
-    version='0.1.2',
+    version='0.1.3',
     author='Atle Frenvik Sveen',
     author_email='atle@frenviksveen.net',
     packages=['beertools', 'beertools.tests', 'beertools.util'],
@@ -24,6 +24,7 @@ setup(
         'requests==2.8.1',
         'wsgiref==0.1.2',
         'beautifulsoup4==4.4.1',
-        'pytz==2015.7'
+        'pytz==2015.7',
+        'python-dateutil==2.4.2'
     ],
 )
