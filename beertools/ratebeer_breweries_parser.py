@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from util import (get_zipfile, read_zipfile, parse_csv_file, parsers,
-                  get_line_parser)
+                  get_line_parser, get_datetime_for_zip)
 
 URL = 'http://66.135.55.93/documents/downloads/brewers.zip'
 
@@ -16,7 +16,9 @@ FIELDS = [
 
 def read(filename=None):
     if filename is not None:
-        content = read_zipfile(filename, 'brewers.csv')
+        zipfile = read_zipfile(filename)
     else:
-        content = get_zipfile(URL, 'brewers.csv')
-    return parse_csv_file(content, get_line_parser(FIELDS))
+        zipfile = get_zipfile(URL)
+    updated = get_datetime_for_zip(zipfile, 'brewers.csv')
+    contents = zipfile.open('brewers.csv')
+    return parse_csv_file(contents, get_line_parser(FIELDS)), updated

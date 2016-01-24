@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-import sys
-import json
 
 from util import (get_zipfile, read_zipfile, parse_csv_file, parsers,
-                  get_line_parser)
+                  get_line_parser, get_datetime_for_zip)
 
 URL = 'http://66.135.55.93/documents/downloads/beers.zip'
 
@@ -25,7 +23,9 @@ FIELDS = [
 
 def read(filename=None):
     if filename is not None:
-        contents = read_zipfile(filename, 'beers.csv')
+        zipfile = read_zipfile(filename)
     else:
-        contents = get_zipfile(URL, 'beers.csv')
-    return parse_csv_file(contents, get_line_parser(FIELDS))
+        zipfile = get_zipfile(URL)
+    updated = get_datetime_for_zip(zipfile, 'beers.csv')
+    contents = zipfile.open('beers.csv')
+    return parse_csv_file(contents, get_line_parser(FIELDS)), updated

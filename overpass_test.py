@@ -4,42 +4,6 @@ import json
 
 import overpass
 
-from beertools import BreweryNameMatcher
-
-
-def read_json(filename):
-    with open(filename, 'r') as infile:
-        return json.loads(infile.read())
-
-
-def parse_bbox(bbox):
-    components = [float(n) for n in bbox.split(',')]
-    west = components[0]
-    south = components[1]
-    east = components[2]
-    north = components[3]
-    return (south, west, north, east)
-
-
-def get_query(tags, south=None, west=None, north=None, east=None):
-
-    bbox = None
-    if south is not None and west is not None and north is not None and east is not None:
-        bbox = '{south},{west},{north},{east}'.format(
-            west=west,
-            south=south,
-            east=east,
-            north=north
-        )
-
-    query = []
-    for key, value in tags.iteritems():
-        line = 'node[%s=%s]' % (key, value)
-        if bbox:
-            line += '(%s)' % bbox
-        query.append(line)
-    return '(%s)' % ';'.join(query)
-
 
 def parse_brewery(feature):
     old_properties = feature.get('properties', {})
@@ -57,20 +21,24 @@ def parse_brewery(feature):
     return feature
 
 
-def get_osm_breweries(bbox):
-    south, west, north, east = parse_bbox(bbox)
-
+def get_osm_breweries(country_code):
     api = overpass.API(timeout=600)
 
-    tags = {
-        'craft': 'brewery',
-        'industrial': 'brewery',
-        'microbrewery': 'yes',
-    }
+    q = '''
+    area["ISO3166-1"="%s"]->.search;
+    (
+      node[industrial=brewery](area.search);
+      node[microbrewery=yes](area.search);
+      node[craft=brewery](area.search);
+      way[industrial=brewery](area.search);
+      way[microbrewery=yes](area.search);
+      way[craft=brewery](area.search);
+      relation[industrial=brewery](area.search);
+      relation[microbrewery=yes](area.search);
+      relation[craft=brewery](area.search);
+    );''' % country_code
 
-    q = get_query(tags, south, west, north, east)
-
-    response = api.Get(q, asGeoJSON=True)
+    response = api.Get(q)
     features = [parse_brewery(feature) for feature in response['features']]
     return {
         'type': 'featurecollection',
@@ -79,16 +47,7 @@ def get_osm_breweries(bbox):
 
 
 if __name__ == '__main__':
-    # bbox = '-12.612305,55.028022,54.140625,71.413177'
-    bbox = '10.202522,63.360289,10.724030,63.491452'
-    breweries = get_osm_breweries(bbox)
-    rb_breweries = read_json('data/rb_breweries.json')
-
-    matcher = BreweryNameMatcher(rb_breweries)
-    for brewery in breweries['features']:
-        brewery_name = brewery['properties']['name']
-        match = matcher.match_name(brewery_name)
-        if match is not None:
-            print '%s - %s' % (brewery_name, match['name'])
-        else:
-            print '%s - %s' % (brewery_name, 'NOMATCH')
+    breweries = get_osm_breweries('NO')
+    print breweries
+    with open('breweries.geojson', 'w') as out:
+        out.write(json.dumps(breweries))
