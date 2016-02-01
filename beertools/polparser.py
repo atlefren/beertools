@@ -53,12 +53,20 @@ def parse_line(line, parser):
     return parser(line)
 
 
-def get_datetime(all_products):
-    dt = all_products[0]['Datotid']
+def get_datetime(lines):
+    # dt = all_products[0]['Datotid']
+    dt = lines[1].split(';')[0]
     no_tz = timezone('Europe/Oslo')
     return no_tz.localize(
         dateutil.parser.parse(dt)
     )
+
+
+def parse_lines(lines, parser):
+    for line in lines[1:]:
+        product = parse_line(line, parser)
+        if product['Varetype'] == u'Øl':
+            yield product
 
 
 def read():
@@ -66,13 +74,16 @@ def read():
     r.encoding = 'ISO-8859-1'
     lines = r.text.splitlines()
     parser = get_line_parser(FIELDS)
-    all_products = [parse_line(line, parser) for line in lines[1:]]
+    # all_products = [parse_line(line, parser) for line in lines[1:]]
 
-    beers = [product for product in all_products
-             if product['Varetype'] == u'Øl']
+    # beers = [product for product in all_products
+    #         if product['Varetype'] == u'Øl']
 
-    return beers, get_datetime(all_products)
+    return parse_lines(lines, parser), get_datetime(lines)
 
 
 if __name__ == '__main__':
-    read()
+    data, updated = read()
+    print updated
+    for d in data:
+        print d

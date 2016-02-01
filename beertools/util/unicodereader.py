@@ -13,17 +13,17 @@ class UTF8Recoder:
 
     def next(self):
         # last part is to handle NULL byte
-        return self.reader.next().encode("utf-8").replace('\0', '')
+        return self.reader.next().encode('utf-8').replace('\0', '')
 
 
 class UnicodeReader:
-    def __init__(self, f, dialect=csv.excel, encoding="utf-16", **kwds):
+    def __init__(self, f, dialect=csv.excel, encoding='utf-16', **kwds):
         f = UTF8Recoder(f, encoding)
         self.reader = csv.reader(f, dialect=dialect, **kwds)
 
     def next(self):
         row = self.reader.next()
-        return [unicode(s, "utf-8") for s in row]
+        return [unicode(s, 'utf-8') for s in row]
 
     def __iter__(self):
         return self

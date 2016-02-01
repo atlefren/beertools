@@ -22,3 +22,9 @@ def read(filename=None):
     updated = get_datetime_for_zip(zipfile, 'brewers.csv')
     contents = zipfile.open('brewers.csv')
     return parse_csv_file(contents, get_line_parser(FIELDS)), updated
+
+if __name__ == '__main__':
+    data, updated = read()
+    print updated
+    for d in data:
+        print d

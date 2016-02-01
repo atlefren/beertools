@@ -34,7 +34,8 @@ def get_datetime_for_zip(zipfile, filename):
 
 def parse_csv_file(contents, parse_line):
     reader = UnicodeReader(contents)
-    return [parse_line(line) for line in reader]
+    for line in reader:
+        yield parse_line(line)
 
 
 def get_line_parser(fields):
