@@ -13,4 +13,5 @@ if __name__ == '__main__':
 
     path = os.path.join(os.getcwd(), outfile)
     with open(path, 'w') as out:
-        out.write(json.dumps(read_ratebeer_beers(filename), indent=4))
+        beers, updated = read_ratebeer_beers(filename)
+        out.write(json.dumps(beers, indent=4))

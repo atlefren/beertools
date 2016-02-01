@@ -74,11 +74,6 @@ def read():
     r.encoding = 'ISO-8859-1'
     lines = r.text.splitlines()
     parser = get_line_parser(FIELDS)
-    # all_products = [parse_line(line, parser) for line in lines[1:]]
-
-    # beers = [product for product in all_products
-    #         if product['Varetype'] == u'Øl']
-
     return parse_lines(lines, parser), get_datetime(lines)
 
 
