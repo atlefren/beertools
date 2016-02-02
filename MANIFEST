@@ -11,7 +11,7 @@ beertools/__init__.py
 beertools/beernamematcher.py
 beertools/brewery_misspellings.json
 beertools/brewerynamematcher.py
-beertools/geoloc.py
+beertools/get_osm_breweries.py
 beertools/polchecker.py
 beertools/polparser.py
 beertools/ratebeer_breweries_parser.py

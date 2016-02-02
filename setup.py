@@ -12,7 +12,8 @@ setup(
     scripts=[
         'bin/read_pol_beers.py',
         'bin/read_ratebeer_beers.py',
-        'bin/read_ratebeer_breweries.py'
+        'bin/read_ratebeer_breweries.py',
+        'bin/read_osm_breweries.py',
     ],
     url='https://github.com/atlefren/beertools/',
     license='LICENSE',
@@ -25,6 +26,9 @@ setup(
         'wsgiref==0.1.2',
         'beautifulsoup4==4.4.1',
         'pytz==2015.7',
-        'python-dateutil==2.4.2'
+        'python-dateutil==2.4.2',
+        'overpass==0.3.1',
+        'Shapely==1.5.13',
+        'numpy==1.10.4'
     ],
 )
