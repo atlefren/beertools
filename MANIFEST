@@ -14,14 +14,15 @@ beertools/brewerynamematcher.py
 beertools/get_osm_breweries.py
 beertools/polchecker.py
 beertools/polparser.py
-beertools/ratebeer_breweries_parser.py
 beertools/ratebeer_beer_parser.py
+beertools/ratebeer_breweries_parser.py
 beertools/tests/__init__.py
 beertools/tests/beernamematcher_test.py
 beertools/tests/brewerynamematcher_test.py
 beertools/util/__init__.py
 beertools/util/parsers.py
 beertools/util/unicodereader.py
+bin/read_osm_breweries.py
 bin/read_pol_beers.py
 bin/read_ratebeer_beers.py
 bin/read_ratebeer_breweries.py

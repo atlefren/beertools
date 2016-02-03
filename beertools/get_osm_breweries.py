@@ -54,7 +54,7 @@ def get_osm_breweries(country):
     q = get_query(country, tags)
 
     api = overpass.API(timeout=600)
-    response = api.Get(q, responseformat='geojson')
+    response = api.Get(q, asGeoJSON=True)
     features = [parse_brewery(feature, country)
                 for feature in response['features']]
     return {

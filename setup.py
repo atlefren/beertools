@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='beertools',
-    version='0.1.3',
+    version='0.1.5',
     author='Atle Frenvik Sveen',
     author_email='atle@frenviksveen.net',
     packages=['beertools', 'beertools.tests', 'beertools.util'],
