@@ -13,12 +13,14 @@ def parse_brewery(feature, country):
     old_properties = feature.get('properties', {})
     properties = {
         'id': feature.get('id', None),
-        'id': feature.get('id', None),
         'name': old_properties.get('name', None),
         'housenumber': old_properties.get('addr:housenumber', None),
         'city': old_properties.get('addr:city', None),
         'postcode': old_properties.get('addr:postcode', None),
         'street': old_properties.get('addr:street', None),
+        'website': old_properties.get('website', None),
+        'operator': old_properties.get('operator', None),
+        'amenity': old_properties.get('amenity', None),
         'country': country,
     }
 
