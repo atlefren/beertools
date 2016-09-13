@@ -11,3 +11,4 @@ v0.1.3, 24.01.2016 -- Add date to polparser
 v0.1.4, 01.02.2016 -- Use yield, add OSM brewery reader
 v0.1.5, 03.02.2016 -- Use asGeoJson in overpass call
 v0.1.6, 06.03.2016 -- Add more properties to OSM extract
+v0.1.7, 13.09.2016 -- New Vinmonopolet products url

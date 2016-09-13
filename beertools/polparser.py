@@ -5,7 +5,7 @@ from util import get_line_parser, parsers
 from pytz import timezone
 import dateutil.parser
 
-URL = 'http://www.vinmonopolet.no/api/produkter'
+URL = 'https://www.vinmonopolet.no/medias/sys_master/products/products/hbc/hb0/8834253127710/produkter.csv'
 
 
 FIELDS = [
