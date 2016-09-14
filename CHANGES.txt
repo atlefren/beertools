@@ -13,3 +13,4 @@ v0.1.5, 03.02.2016 -- Use asGeoJson in overpass call
 v0.1.6, 06.03.2016 -- Add more properties to OSM extract
 v0.1.7, 13.09.2016 -- New Vinmonopolet products url
 v0.2.0, 14.09.2016 -- Rewrite stock parser
+v0.2.1, 14.09.2016 -- Fix stock parser

@@ -12,7 +12,7 @@ beertools/beernamematcher.py
 beertools/brewery_misspellings.json
 beertools/brewerynamematcher.py
 beertools/get_osm_breweries.py
-beertools/polchecker.py
+beertools/get_pol_stock_for_pol.py
 beertools/polparser.py
 beertools/ratebeer_beer_parser.py
 beertools/ratebeer_breweries_parser.py

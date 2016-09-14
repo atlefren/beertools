@@ -21,12 +21,12 @@ def parse_soup(html):
             stock = int(stock_res.group(1))
         id_url = item.find('h2', {'class': 'product-item__name'}).find('a').attrs['href']
         id_res = id_regexp.search(id_url)
-        shop_id = None
+        product_id = None
         if id_res is not None:
-            shop_id = int(id_res.group(1))
-        if shop_id is not None:
+            product_id = int(id_res.group(1))
+        if product_id is not None:
             results.append({
-                'pol_id': shop_id,
+                'product_id': product_id,
                 'stock': stock,
                 'updated': updated
             })
