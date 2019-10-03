@@ -22,7 +22,7 @@ setup(
         'Unidecode==0.04.18',
         'argparse==1.2.1',
         'python-Levenshtein==0.12.0',
-        'requests==2.8.1',
+        'requests==2.20.0',
         'wsgiref==0.1.2',
         'beautifulsoup4==4.4.1',
         'pytz==2015.7',
