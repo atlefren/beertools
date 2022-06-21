@@ -29,6 +29,6 @@ setup(
         'python-dateutil==2.4.2',
         'overpass==0.3.1',
         'Shapely==1.5.13',
-        'numpy==1.10.4'
+        'numpy==1.22.0'
     ],
 )
